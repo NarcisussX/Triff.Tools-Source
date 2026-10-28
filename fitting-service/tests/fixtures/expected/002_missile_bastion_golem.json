@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "generatedAt": "2026-09-22T17:21:54Z",
+    "generatedBy": "fitting-service",
+    "note": "Generated baseline from the currently installed Pyfa/eos. Compare against desktop Pyfa before committing new or changed fixture expectations.",
+    "pyfaRef": "v2.69.0",
+    "pyfaVersion": "v2.69.0",
+    "requestedPyfaRef": "latest"
+  },
+  "stats": {
+    "capacitor": {
+      "capacity": 6325.0,
+      "rechargeTime": 862.5,
+      "stable": false,
+      "state": 188.0,
+      "stateUnit": "seconds"
+    },
+    "defense": {
+      "armorResists": {
+        "em": 0.695629,
+        "explosive": 0.452132,
+        "kinetic": 0.600513,
+        "thermal": 0.748894
+      },
+      "ehp": 94331.966686,
+      "hp": {
+        "armor": 8375.0,
+        "hull": 9625.0,
+        "shield": 11000.0
+      },
+      "hullResists": {
+        "em": 0.7186,
+        "explosive": 0.7186,
+        "kinetic": 0.7186,
+        "thermal": 0.7186
+      },
+      "shieldResists": {
+        "em": 0.556994,
+        "explosive": 0.778497,
+        "kinetic": 0.767422,
+        "thermal": 0.734196
+      }
+    },
+    "drones": {
+      "bandwidthTotal": 25.0,
+      "bandwidthUsed": 25.0
+    },
+    "firepower": {
+      "droneDps": 99.0,
+      "missileDps": null,
+      "totalDps": 1775.47027,
+      "turretDps": null,
+      "volley": 7694.573788,
+      "weaponDps": 1676.47027
+    },
+    "fitName": "Missile Bastion Baseline",
+    "messages": {
+      "errorCodes": [],
+      "errorCount": 0,
+      "warningCodes": [],
+      "warningCount": 0
+    },
+    "navigation": {
+      "alignTime": 158.237724,
+      "mass": 175600000.0,
+      "maxVelocity": 0.0
+    },
+    "resources": {
+      "calibrationTotal": 400.0,
+      "calibrationUsed": 200.0,
+      "cpuTotal": 893.75,
+      "cpuUsed": 846.78,
+      "powergridTotal": 10625.0,
+      "powergridUsed": 9985.8
+    },
+    "ship": {
+      "typeId": 28710,
+      "typeName": "Golem"
+    },
+    "targeting": {
+      "maxLockedTargets": 10.0,
+      "range": 154375.0,
+      "scanResolution": 175.0
+    }
+  }
+}

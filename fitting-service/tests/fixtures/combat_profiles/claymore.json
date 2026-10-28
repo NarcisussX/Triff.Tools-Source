@@ -1,0 +1,414 @@
+{
+  "ok": true,
+  "combatProfileSchemaVersion": "1.1.0",
+  "profile": {
+    "combatProfileSchemaVersion": "1.1.0",
+    "engine": {
+      "name": "Pyfa/eos",
+      "source": "TriffFits fitting-service",
+      "exporterVersion": "2",
+      "pyfaVersion": "v2.69.0",
+      "pyfaRef": "v2.69.0",
+      "eosVersion": "bundled-with-v2.69.0"
+    },
+    "fitHash": "3dc6597e48b6a94314537e0cb7106314e8ce11360bcbe29485c6b53f05a991fd",
+    "ship": {
+      "typeId": 22468,
+      "typeName": "Claymore",
+      "fitName": "CombatProfile Claymore",
+      "mode": null
+    },
+    "skills": {
+      "profile": {
+        "mode": "all_v"
+      },
+      "overrides": {},
+      "effectiveSkillsHash": "7005f8333fa4872f4e48e608c45d1b6336d5e8f7fe8e379c69a990adece2dc69"
+    },
+    "defense": {
+      "shield": {
+        "hp": 5875.0,
+        "resists": {
+          "em": 0.825,
+          "thermal": 0.72,
+          "kinetic": 0.5800000000000001,
+          "explosive": 0.6499999999999999
+        }
+      },
+      "armor": {
+        "hp": 4750.0,
+        "resists": {
+          "em": 0.915,
+          "thermal": 0.72375,
+          "kinetic": 0.36250000000000004,
+          "explosive": 0.235
+        }
+      },
+      "hull": {
+        "hp": 4250.0,
+        "resists": {
+          "em": 0.598,
+          "thermal": 0.598,
+          "kinetic": 0.598,
+          "explosive": 0.598
+        }
+      }
+    },
+    "shieldRechargeTimeMs": 1050000.0,
+    "movement": {
+      "signatureRadiusM": 1320.0,
+      "massKg": 17500000.0,
+      "agility": 0.4725,
+      "alignTimeSeconds": 11.462921498510095,
+      "maxVelocityMps": 1659.7815290178569,
+      "warpSpeedAuPerSecond": 3.5
+    },
+    "targeting": {
+      "scanResolutionMm": 330.0,
+      "maxRangeM": 93750.0,
+      "maxLockedTargets": 7.0,
+      "sensorStrength": 26.4,
+      "sensorType": "Ladar",
+      "signatureRadiusM": 1320.0,
+      "droneControlRangeM": 60000.0
+    },
+    "capacitor": {
+      "capacityGj": 2625.0,
+      "rechargeTimeMs": 437500.3125,
+      "neutralizerResistanceFraction": 0.0
+    },
+    "electronicResistances": {
+      "sensorDampenerMultiplier": 1.0,
+      "weaponDisruptionMultiplier": 1.0,
+      "targetPainterMultiplier": null,
+      "stasisWebMultiplier": 1.0,
+      "remoteAssistanceMultiplier": null
+    },
+    "modules": [
+      {
+        "id": "high:0",
+        "instanceId": "eft-high-1",
+        "typeId": 43556,
+        "typeName": "Skirmish Command Burst II",
+        "baseType": {
+          "typeId": 43556,
+          "typeName": "Skirmish Command Burst II"
+        },
+        "groupId": 1770,
+        "rack": "high",
+        "index": 0,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active"
+        ],
+        "canOverheat": false,
+        "roles": [
+          "command_burst"
+        ],
+        "charge": {
+          "typeId": 42839,
+          "typeName": "Interdiction Maneuvers Charge"
+        },
+        "cycleTimeMs": 60000.0,
+        "averageCycleTimeMs": 60000.0,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 30000.0,
+        "magazineCharges": 300.0,
+        "cyclesUntilReload": 300.0,
+        "chargeConsumptionPerCycle": 1.0,
+        "capacitorCostGj": 25.0,
+        "optimalRangeM": 65812.5,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": null,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": {
+          "radiusM": 65812.5,
+          "durationMs": 103499.99999999999,
+          "effects": [
+            {
+              "buffId": 21,
+              "supported": true,
+              "effect": "tackle_range",
+              "affectedStats": [
+                "stasis_web.range",
+                "warp_disruption.range"
+              ],
+              "bonusPercent": 25.875
+            }
+          ]
+        },
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "high:1",
+        "instanceId": "eft-high-2",
+        "typeId": 43556,
+        "typeName": "Skirmish Command Burst II",
+        "baseType": {
+          "typeId": 43556,
+          "typeName": "Skirmish Command Burst II"
+        },
+        "groupId": 1770,
+        "rack": "high",
+        "index": 1,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active"
+        ],
+        "canOverheat": false,
+        "roles": [
+          "command_burst"
+        ],
+        "charge": {
+          "typeId": 42840,
+          "typeName": "Rapid Deployment Charge"
+        },
+        "cycleTimeMs": 60000.0,
+        "averageCycleTimeMs": 60000.0,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 30000.0,
+        "magazineCharges": 300.0,
+        "cyclesUntilReload": 300.0,
+        "chargeConsumptionPerCycle": 1.0,
+        "capacitorCostGj": 25.0,
+        "optimalRangeM": 65812.5,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": null,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": {
+          "radiusM": 65812.5,
+          "durationMs": 103499.99999999999,
+          "effects": [
+            {
+              "buffId": 22,
+              "supported": true,
+              "effect": "propulsion_speed",
+              "affectedStats": [
+                "propulsion.speed_factor"
+              ],
+              "bonusPercent": 25.875
+            }
+          ]
+        },
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "mid:0",
+        "instanceId": "eft-mid-1",
+        "typeId": 35660,
+        "typeName": "50MN Quad LiF Restrained Microwarpdrive",
+        "baseType": {
+          "typeId": 35660,
+          "typeName": "50MN Quad LiF Restrained Microwarpdrive"
+        },
+        "groupId": 46,
+        "rack": "mid",
+        "index": 0,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "microwarpdrive"
+        ],
+        "charge": null,
+        "cycleTimeMs": 10000.0,
+        "averageCycleTimeMs": 10000.0,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": 135.0,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 8.55,
+          "heatAbsorptionRateModifier": 0.04,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": 50.0,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": {
+          "speedBonusPercent": 794.5859375,
+          "thrustKg": 15000000.0,
+          "massAdditionKg": 5000000.0,
+          "massBonusPercent": null,
+          "signatureRadiusBonusPercent": 450.0,
+          "speedFactorBonusPercent": null,
+          "thrustBonusPercent": null,
+          "maxVelocityBonusPercent": null,
+          "microwarpdriveBlockingStrength": null
+        },
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "low:0",
+        "instanceId": "eft-low-1",
+        "typeId": 2048,
+        "typeName": "Damage Control II",
+        "baseType": {
+          "typeId": 2048,
+          "typeName": "Damage Control II"
+        },
+        "groupId": 60,
+        "rack": "low",
+        "index": 0,
+        "state": "online",
+        "active": false,
+        "validStates": [
+          "offline",
+          "online"
+        ],
+        "canOverheat": false,
+        "roles": [],
+        "charge": null,
+        "cycleTimeMs": null,
+        "averageCycleTimeMs": null,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": null,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": null,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      }
+    ],
+    "drones": [],
+    "fighters": null,
+    "cargo": [],
+    "heat": {
+      "generationMultiplier": 0.65,
+      "racks": {
+        "high": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.79
+        },
+        "mid": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.76
+        },
+        "low": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.63
+        }
+      }
+    },
+    "context": {
+      "implants": [],
+      "boosters": [],
+      "environment": {
+        "wormholeEffect": null,
+        "abyssalWeather": null
+      },
+      "crossFit": {
+        "projectedSources": [],
+        "commandSources": []
+      }
+    },
+    "unsupportedMechanics": [
+      "dynamic_heat",
+      "target_dependent_application",
+      "dynamic_drone_travel",
+      "command_recipient_stacking",
+      "nosferatu_target_condition"
+    ],
+    "profileId": "ccfd55ddb2e72d25174df23e965fc3ad1edefdca0a8ff3c8fd0b0d8eade9a262"
+  },
+  "warnings": [],
+  "errors": []
+}

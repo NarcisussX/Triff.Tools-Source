@@ -1,0 +1,536 @@
+{
+  "ok": true,
+  "combatProfileSchemaVersion": "1.1.0",
+  "profile": {
+    "combatProfileSchemaVersion": "1.1.0",
+    "engine": {
+      "name": "Pyfa/eos",
+      "source": "TriffFits fitting-service",
+      "exporterVersion": "2",
+      "pyfaVersion": "v2.69.0",
+      "pyfaRef": "v2.69.0",
+      "eosVersion": "bundled-with-v2.69.0"
+    },
+    "fitHash": "93b82ed920a8c0e25fe2a5b3a6e7892bb7fecb7758201dd0dab47087b6f252bf",
+    "ship": {
+      "typeId": 47271,
+      "typeName": "Leshak",
+      "fitName": "CombatProfile Leshak",
+      "mode": null
+    },
+    "skills": {
+      "profile": {
+        "mode": "all_v"
+      },
+      "overrides": {},
+      "effectiveSkillsHash": "7005f8333fa4872f4e48e608c45d1b6336d5e8f7fe8e379c69a990adece2dc69"
+    },
+    "defense": {
+      "shield": {
+        "hp": 4812.5,
+        "resists": {
+          "em": 0.0,
+          "thermal": 0.19999999999999996,
+          "kinetic": 0.4,
+          "explosive": 0.5
+        }
+      },
+      "armor": {
+        "hp": 23437.5,
+        "resists": {
+          "em": 0.5,
+          "thermal": 0.35,
+          "kinetic": 0.25,
+          "explosive": 0.19999999999999996
+        }
+      },
+      "hull": {
+        "hp": 11000.0,
+        "resists": {
+          "em": 0.32999999999999996,
+          "thermal": 0.32999999999999996,
+          "kinetic": 0.32999999999999996,
+          "explosive": 0.32999999999999996
+        }
+      }
+    },
+    "shieldRechargeTimeMs": 1875000.0,
+    "movement": {
+      "signatureRadiusM": 370.0,
+      "massKg": 130531250.0,
+      "agility": 0.11002500000000001,
+      "alignTimeSeconds": 19.90954480913801,
+      "maxVelocityMps": 436.80422552070866,
+      "warpSpeedAuPerSecond": 3.0
+    },
+    "targeting": {
+      "scanResolutionMm": 162.5,
+      "maxRangeM": 108750.0,
+      "maxLockedTargets": 7.0,
+      "sensorStrength": 33.6,
+      "sensorType": "Radar",
+      "signatureRadiusM": 370.0,
+      "droneControlRangeM": 60000.0
+    },
+    "capacitor": {
+      "capacityGj": 8250.0,
+      "rechargeTimeMs": 750000.0,
+      "neutralizerResistanceFraction": 0.0
+    },
+    "electronicResistances": {
+      "sensorDampenerMultiplier": 1.0,
+      "weaponDisruptionMultiplier": 1.0,
+      "targetPainterMultiplier": null,
+      "stasisWebMultiplier": 1.0,
+      "remoteAssistanceMultiplier": null
+    },
+    "modules": [
+      {
+        "id": "high:0",
+        "instanceId": "eft-high-1",
+        "typeId": 47922,
+        "typeName": "Supratidal Entropic Disintegrator II",
+        "baseType": {
+          "typeId": 47922,
+          "typeName": "Supratidal Entropic Disintegrator II"
+        },
+        "groupId": 1986,
+        "rack": "high",
+        "index": 0,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "turret"
+        ],
+        "charge": {
+          "typeId": 47934,
+          "typeName": "Occult L"
+        },
+        "cycleTimeMs": 4060.7999999999997,
+        "averageCycleTimeMs": 4060.7999999999997,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 0.01,
+        "magazineCharges": 500.0,
+        "cyclesUntilReload": 500.0,
+        "chargeConsumptionPerCycle": 1.0,
+        "capacitorCostGj": 43.2,
+        "optimalRangeM": 21150.0,
+        "falloffM": 1.25,
+        "damage": {
+          "volleyHp": {
+            "em": 0.0,
+            "thermal": 4221.344531249999,
+            "kinetic": 0.0,
+            "explosive": 3001.8449999999993,
+            "total": 7223.189531249998
+          },
+          "dps": {
+            "em": 0.0,
+            "thermal": 1039.5351978058509,
+            "kinetic": 0.0,
+            "explosive": 739.2250295508273,
+            "total": 1778.7602273566781
+          },
+          "activationVolleyHp": {
+            "em": 0.0,
+            "thermal": 4221.344531249999,
+            "kinetic": 0.0,
+            "explosive": 3001.8449999999993,
+            "total": 7223.189531249998
+          },
+          "activationDps": {
+            "em": 0.0,
+            "thermal": 1039.5351978058509,
+            "kinetic": 0.0,
+            "explosive": 739.2250295508273,
+            "total": 1778.7602273566781
+          }
+        },
+        "application": {
+          "trackingRadPerSecond": 5.109375,
+          "trackingReferenceSignatureRadiusM": 40000.0,
+          "missile": null
+        },
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": {
+          "eligible": true,
+          "kind": "damage",
+          "incrementFractionPerCycle": 0.07,
+          "maximumBonusFraction": 2.125,
+          "configuredType": null,
+          "configuredAmount": null,
+          "minimum": {
+            "cycles": 0.0,
+            "timeSeconds": 0.0,
+            "damage": {
+              "volleyHp": {
+                "em": 0.0,
+                "thermal": 1350.8302499999998,
+                "kinetic": 0.0,
+                "explosive": 960.5903999999998,
+                "total": 2311.4206499999996
+              },
+              "dps": {
+                "em": 0.0,
+                "thermal": 332.65126329787233,
+                "kinetic": 0.0,
+                "explosive": 236.55200945626476,
+                "total": 569.2032727541371
+              },
+              "activationVolleyHp": {
+                "em": 0.0,
+                "thermal": 1350.8302499999998,
+                "kinetic": 0.0,
+                "explosive": 960.5903999999998,
+                "total": 2311.4206499999996
+              },
+              "activationDps": {
+                "em": 0.0,
+                "thermal": 332.65126329787233,
+                "kinetic": 0.0,
+                "explosive": 236.55200945626476,
+                "total": 569.2032727541371
+              }
+            },
+            "remoteRepairEvents": []
+          },
+          "current": {
+            "cycles": 31.0,
+            "timeSeconds": 125.88479999999998,
+            "damage": {
+              "volleyHp": {
+                "em": 0.0,
+                "thermal": 4221.344531249999,
+                "kinetic": 0.0,
+                "explosive": 3001.8449999999993,
+                "total": 7223.189531249998
+              },
+              "dps": {
+                "em": 0.0,
+                "thermal": 1039.5351978058509,
+                "kinetic": 0.0,
+                "explosive": 739.2250295508273,
+                "total": 1778.7602273566781
+              },
+              "activationVolleyHp": {
+                "em": 0.0,
+                "thermal": 4221.344531249999,
+                "kinetic": 0.0,
+                "explosive": 3001.8449999999993,
+                "total": 7223.189531249998
+              },
+              "activationDps": {
+                "em": 0.0,
+                "thermal": 1039.5351978058509,
+                "kinetic": 0.0,
+                "explosive": 739.2250295508273,
+                "total": 1778.7602273566781
+              }
+            },
+            "remoteRepairEvents": []
+          },
+          "maximum": {
+            "cycles": 31.0,
+            "timeSeconds": 125.88479999999998,
+            "damage": {
+              "volleyHp": {
+                "em": 0.0,
+                "thermal": 4221.344531249999,
+                "kinetic": 0.0,
+                "explosive": 3001.8449999999993,
+                "total": 7223.189531249998
+              },
+              "dps": {
+                "em": 0.0,
+                "thermal": 1039.5351978058509,
+                "kinetic": 0.0,
+                "explosive": 739.2250295508273,
+                "total": 1778.7602273566781
+              },
+              "activationVolleyHp": {
+                "em": 0.0,
+                "thermal": 4221.344531249999,
+                "kinetic": 0.0,
+                "explosive": 3001.8449999999993,
+                "total": 7223.189531249998
+              },
+              "activationDps": {
+                "em": 0.0,
+                "thermal": 1039.5351978058509,
+                "kinetic": 0.0,
+                "explosive": 739.2250295508273,
+                "total": 1778.7602273566781
+              }
+            },
+            "remoteRepairEvents": []
+          }
+        },
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 3.0,
+          "heatAbsorptionRateModifier": 0.02,
+          "overloadDamagePercent": 15.0,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "mid:0",
+        "instanceId": "eft-mid-1",
+        "typeId": 5955,
+        "typeName": "100MN Monopropellant Enduring Afterburner",
+        "baseType": {
+          "typeId": 5955,
+          "typeName": "100MN Monopropellant Enduring Afterburner"
+        },
+        "groupId": 46,
+        "rack": "mid",
+        "index": 0,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "afterburner"
+        ],
+        "charge": null,
+        "cycleTimeMs": 7500.0,
+        "averageCycleTimeMs": 7500.0,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": 62.5,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 3.0749999999999997,
+          "heatAbsorptionRateModifier": 0.04,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": 50.0,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": {
+          "speedBonusPercent": 156.25,
+          "thrustKg": 150000000.0,
+          "massAdditionKg": 50000000.0,
+          "massBonusPercent": null,
+          "signatureRadiusBonusPercent": null,
+          "speedFactorBonusPercent": null,
+          "thrustBonusPercent": null,
+          "maxVelocityBonusPercent": null,
+          "microwarpdriveBlockingStrength": null
+        },
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "low:0",
+        "instanceId": "eft-low-1",
+        "typeId": 47911,
+        "typeName": "Entropic Radiation Sink II",
+        "baseType": {
+          "typeId": 47911,
+          "typeName": "Entropic Radiation Sink II"
+        },
+        "groupId": 1988,
+        "rack": "low",
+        "index": 0,
+        "state": "online",
+        "active": false,
+        "validStates": [
+          "offline",
+          "online"
+        ],
+        "canOverheat": false,
+        "roles": [],
+        "charge": null,
+        "cycleTimeMs": null,
+        "averageCycleTimeMs": null,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": null,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": null,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "low:1",
+        "instanceId": "eft-low-2",
+        "typeId": 20353,
+        "typeName": "1600mm Steel Plates II",
+        "baseType": {
+          "typeId": 20353,
+          "typeName": "1600mm Steel Plates II"
+        },
+        "groupId": 329,
+        "rack": "low",
+        "index": 1,
+        "state": "online",
+        "active": false,
+        "validStates": [
+          "offline",
+          "online"
+        ],
+        "canOverheat": false,
+        "roles": [],
+        "charge": null,
+        "cycleTimeMs": null,
+        "averageCycleTimeMs": null,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": null,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": null,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      }
+    ],
+    "drones": [],
+    "fighters": null,
+    "cargo": [
+      {
+        "typeId": 47934,
+        "typeName": "Occult L",
+        "quantity": 1000
+      },
+      {
+        "typeId": 47935,
+        "typeName": "Mystic L",
+        "quantity": 1000
+      }
+    ],
+    "heat": {
+      "generationMultiplier": 0.5,
+      "racks": {
+        "high": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.71
+        },
+        "mid": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.63
+        },
+        "low": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.82
+        }
+      }
+    },
+    "context": {
+      "implants": [],
+      "boosters": [],
+      "environment": {
+        "wormholeEffect": null,
+        "abyssalWeather": null
+      },
+      "crossFit": {
+        "projectedSources": [],
+        "commandSources": []
+      }
+    },
+    "unsupportedMechanics": [
+      "dynamic_heat",
+      "target_dependent_application",
+      "dynamic_drone_travel",
+      "command_recipient_stacking",
+      "nosferatu_target_condition"
+    ],
+    "profileId": "fb27c3c8dc903cf23a46de87ba89b89ab103c4398d6a18f856d5a8189f4ccbde"
+  },
+  "warnings": [],
+  "errors": []
+}

@@ -1,0 +1,360 @@
+/*
+ * Stylesheet for index.
+ * Defines shared visual tokens, utility classes, or global styling consumed by the frontend bundle.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./assets/fonts/Rajdhani-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./assets/fonts/Rajdhani-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./assets/fonts/Rajdhani-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./assets/fonts/Rajdhani-Bold.ttf") format("truetype");
+}
+
+@media (prefers-reduced-motion: reduce) {
+}
+
+.animate-starfield,
+.static-starfield {
+  background-image: url("./assets/eve-bg-lcp.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.24;
+  z-index: 0;
+}
+
+.eve-title {
+  font-family: "Barlow Condensed", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+:root {
+  --tt-ui-scale: 1;
+  --tt-scrollbar-track: #05070b;
+  --tt-scrollbar-track-raised: #0a0d13;
+  --tt-scrollbar-thumb: #2d3746;
+  --tt-scrollbar-thumb-hover: #496076;
+  --tt-scrollbar-thumb-active: #5f7e96;
+}
+
+.tt-native-date-time-input {
+  color-scheme: dark;
+}
+
+.tt-native-date-time-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 1;
+  filter: invert(74%) sepia(67%) saturate(979%) hue-rotate(173deg) brightness(104%) contrast(101%);
+}
+
+.tt-native-date-time-input::-webkit-calendar-picker-indicator:hover {
+  filter: invert(82%) sepia(35%) saturate(1062%) hue-rotate(174deg) brightness(110%) contrast(105%)
+    drop-shadow(0 0 4px rgba(83, 182, 255, 0.7));
+}
+
+html,
+body:not(.fitting-app-document),
+.tt-ui-root,
+.tt-ui-root * {
+  scrollbar-color: var(--tt-scrollbar-thumb) var(--tt-scrollbar-track);
+  scrollbar-width: thin;
+}
+
+html:not(:has(body.fitting-app-document))::-webkit-scrollbar,
+body:not(.fitting-app-document)::-webkit-scrollbar,
+body:not(.fitting-app-document) *::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html:not(:has(body.fitting-app-document))::-webkit-scrollbar-track,
+body:not(.fitting-app-document)::-webkit-scrollbar-track,
+body:not(.fitting-app-document) *::-webkit-scrollbar-track {
+  background: var(--tt-scrollbar-track);
+}
+
+html:not(:has(body.fitting-app-document))::-webkit-scrollbar-thumb,
+body:not(.fitting-app-document)::-webkit-scrollbar-thumb,
+body:not(.fitting-app-document) *::-webkit-scrollbar-thumb {
+  min-height: 32px;
+  border: 2px solid var(--tt-scrollbar-track);
+  background: linear-gradient(180deg, var(--tt-scrollbar-thumb-hover), var(--tt-scrollbar-thumb));
+  box-shadow: inset 0 0 0 1px rgba(83, 182, 255, 0.16);
+}
+
+html:not(:has(body.fitting-app-document))::-webkit-scrollbar-thumb:hover,
+body:not(.fitting-app-document)::-webkit-scrollbar-thumb:hover,
+body:not(.fitting-app-document) *::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #5f7790, var(--tt-scrollbar-thumb-hover));
+  box-shadow: inset 0 0 0 1px rgba(139, 211, 255, 0.28);
+}
+
+html:not(:has(body.fitting-app-document))::-webkit-scrollbar-thumb:active,
+body:not(.fitting-app-document)::-webkit-scrollbar-thumb:active,
+body:not(.fitting-app-document) *::-webkit-scrollbar-thumb:active {
+  background: var(--tt-scrollbar-thumb-active);
+}
+
+html:not(:has(body.fitting-app-document))::-webkit-scrollbar-corner,
+body:not(.fitting-app-document)::-webkit-scrollbar-corner,
+body:not(.fitting-app-document) *::-webkit-scrollbar-corner {
+  background: var(--tt-scrollbar-track-raised);
+}
+
+html:has(body.fitting-app-document),
+body.fitting-app-document,
+body.fitting-app-document *,
+.mobile-fitting-shell,
+.mobile-fitting-shell * {
+  scrollbar-color: auto;
+  scrollbar-width: auto;
+}
+
+.mobile-fitting-shell::-webkit-scrollbar,
+.mobile-fitting-shell *::-webkit-scrollbar,
+body.fitting-app-document::-webkit-scrollbar,
+body.fitting-app-document *::-webkit-scrollbar {
+  width: initial;
+  height: initial;
+}
+
+.mobile-fitting-shell::-webkit-scrollbar-track,
+.mobile-fitting-shell *::-webkit-scrollbar-track,
+.mobile-fitting-shell::-webkit-scrollbar-thumb,
+.mobile-fitting-shell *::-webkit-scrollbar-thumb,
+.mobile-fitting-shell::-webkit-scrollbar-corner,
+.mobile-fitting-shell *::-webkit-scrollbar-corner,
+body.fitting-app-document::-webkit-scrollbar-track,
+body.fitting-app-document *::-webkit-scrollbar-track,
+body.fitting-app-document::-webkit-scrollbar-thumb,
+body.fitting-app-document *::-webkit-scrollbar-thumb,
+body.fitting-app-document::-webkit-scrollbar-corner,
+body.fitting-app-document *::-webkit-scrollbar-corner {
+  border: initial;
+  background: initial;
+  box-shadow: initial;
+}
+
+.tt-ui-root {
+  zoom: var(--tt-ui-scale);
+}
+
+html.mobile-suite-document,
+body.mobile-suite-document {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: #030509;
+}
+
+html.mobile-suite-document #root,
+html.mobile-suite-document .tt-ui-root {
+  height: 100vh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+html.mobile-suite-document .tt-ui-root > .relative.z-10,
+html.mobile-suite-document .tt-ui-root > .relative.z-10 > .relative.min-h-screen {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+html.mobile-suite-document .tt-ui-root > .relative.z-10 > .relative.min-h-screen {
+  display: flex;
+  flex-direction: column;
+}
+
+html.mobile-suite-document .tt-ui-root > .relative.z-10 > .relative.min-h-screen > main {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.mobile-tool-shell {
+  height: calc(100vh - 3rem);
+  max-height: calc(100vh - 3rem);
+}
+
+.mobile-bottom-sheet {
+  max-height: calc(100vh - 1rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+}
+
+html.mobile-suite-document .mobile-tool-shell {
+  height: 100%;
+  max-height: 100%;
+}
+
+html.mobile-suite-document .mobile-tool-shell[data-mobile-viewport-shell] {
+  height: calc(100vh - 3.125rem);
+  max-height: calc(100vh - 3.125rem);
+}
+
+@supports (height: 100svh) {
+  .mobile-bottom-sheet {
+    max-height: calc(100svh - 1rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  }
+}
+
+@supports (height: 100dvh) {
+  html.mobile-suite-document #root,
+  html.mobile-suite-document .tt-ui-root {
+    height: 100dvh;
+  }
+
+  .mobile-tool-shell {
+    height: calc(100dvh - 3rem);
+    max-height: calc(100dvh - 3rem);
+  }
+
+  html.mobile-suite-document .mobile-tool-shell {
+    height: 100%;
+    max-height: 100%;
+  }
+
+  html.mobile-suite-document .mobile-tool-shell[data-mobile-viewport-shell] {
+    height: calc(100dvh - 3.125rem);
+    max-height: calc(100dvh - 3.125rem);
+  }
+}
+
+.fitting-app-document {
+  min-height: 100vh;
+  overflow: hidden;
+  background: #030509;
+}
+
+.fitting-app-document #root {
+  min-height: 100vh;
+  background: #030509;
+}
+
+.triff-fits-native body.fitting-app-document {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.triff-fits-native input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+.triff-fits-native textarea,
+.triff-fits-native select {
+  font-size: 16px !important;
+  line-height: 1.25;
+}
+
+.triff-fits-native button,
+.triff-fits-native input,
+.triff-fits-native textarea,
+.triff-fits-native select {
+  touch-action: manipulation;
+}
+
+@media (max-width: 767px), (hover: none) and (pointer: coarse) {
+  .mobile-fitting-shell input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  .mobile-fitting-shell textarea,
+  .mobile-fitting-shell select,
+  .fitting-auth-modal input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  .fitting-auth-modal textarea,
+  .fitting-auth-modal select {
+    font-size: 16px !important;
+    line-height: 1.25;
+  }
+
+  .mobile-fitting-shell button,
+  .mobile-fitting-shell input,
+  .mobile-fitting-shell textarea,
+  .mobile-fitting-shell select,
+  .fitting-auth-modal button,
+  .fitting-auth-modal input,
+  .fitting-auth-modal textarea,
+  .fitting-auth-modal select {
+    touch-action: manipulation;
+  }
+}
+
+.mobile-fitting-shell {
+  height: calc(100vh - 3rem);
+  max-height: calc(100vh - 3rem);
+}
+
+.mobile-fitting-shell--standalone {
+  height: var(--mobile-fitting-app-height, 100vh);
+  min-height: 0;
+  max-height: var(--mobile-fitting-app-height, 100vh);
+}
+
+.mobile-fitting-sheet {
+  max-height: calc(var(--mobile-fitting-visual-height, 100vh) - 3rem);
+}
+
+.mobile-fitting-action-sheet-backdrop {
+  top: var(--mobile-fitting-visual-top, 0px);
+  bottom: auto;
+  height: var(--mobile-fitting-visual-height, 100vh);
+  padding: calc(0.5rem + env(safe-area-inset-top)) 0.5rem calc(0.5rem + env(safe-area-inset-bottom));
+}
+
+.mobile-fitting-action-sheet {
+  max-height: calc(var(--mobile-fitting-visual-height, 100vh) - 1rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+}
+
+.mobile-fitting-bottom-nav {
+  padding-top: 0.125rem;
+  padding-bottom: calc(0.25rem + env(safe-area-inset-bottom));
+}
+
+@supports (height: 100dvh) {
+  .fitting-app-document,
+  .fitting-app-document #root {
+    min-height: 100dvh;
+  }
+
+  .mobile-fitting-shell {
+    height: calc(100dvh - 3rem);
+    max-height: calc(100dvh - 3rem);
+  }
+
+  .mobile-fitting-shell--standalone {
+    height: var(--mobile-fitting-app-height, 100dvh);
+    max-height: var(--mobile-fitting-app-height, 100dvh);
+  }
+
+  .mobile-fitting-sheet {
+    max-height: calc(var(--mobile-fitting-visual-height, 100dvh) - 3rem);
+  }
+}

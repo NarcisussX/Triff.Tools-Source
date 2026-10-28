@@ -1,0 +1,537 @@
+{
+  "ok": true,
+  "combatProfileSchemaVersion": "1.1.0",
+  "profile": {
+    "combatProfileSchemaVersion": "1.1.0",
+    "engine": {
+      "name": "Pyfa/eos",
+      "source": "TriffFits fitting-service",
+      "exporterVersion": "2",
+      "pyfaVersion": "v2.69.0",
+      "pyfaRef": "v2.69.0",
+      "eosVersion": "bundled-with-v2.69.0"
+    },
+    "fitHash": "08d47e920721a86d848207fda4df7f0352b017f7614432fa7cb15e18bf555854",
+    "ship": {
+      "typeId": 12017,
+      "typeName": "Devoter",
+      "fitName": "CombatProfile Devoter",
+      "mode": null
+    },
+    "skills": {
+      "profile": {
+        "mode": "all_v"
+      },
+      "overrides": {},
+      "effectiveSkillsHash": "7005f8333fa4872f4e48e608c45d1b6336d5e8f7fe8e379c69a990adece2dc69"
+    },
+    "defense": {
+      "shield": {
+        "hp": 1375.0,
+        "resists": {
+          "em": 0.125,
+          "thermal": 0.29999999999999993,
+          "kinetic": 0.7375,
+          "explosive": 0.890625
+        }
+      },
+      "armor": {
+        "hp": 3000.0,
+        "resists": {
+          "em": 0.6599999999999999,
+          "thermal": 0.558,
+          "kinetic": 0.745,
+          "explosive": 0.864
+        }
+      },
+      "hull": {
+        "hp": 2250.0,
+        "resists": {
+          "em": 0.598,
+          "thermal": 0.598,
+          "kinetic": 0.598,
+          "explosive": 0.598
+        }
+      }
+    },
+    "shieldRechargeTimeMs": 937500.0,
+    "movement": {
+      "signatureRadiusM": 210.0,
+      "massKg": 4239999.999999999,
+      "agility": 0.34425000000000006,
+      "alignTimeSeconds": 2.023462975377815,
+      "maxVelocityMps": 14.239709242334918,
+      "warpSpeedAuPerSecond": 4.0
+    },
+    "targeting": {
+      "scanResolutionMm": 312.5,
+      "maxRangeM": 81250.0,
+      "maxLockedTargets": 6.0,
+      "sensorStrength": 18.0,
+      "sensorType": "Radar",
+      "signatureRadiusM": 210.0,
+      "droneControlRangeM": 60000.0
+    },
+    "capacitor": {
+      "capacityGj": 2031.25,
+      "rechargeTimeMs": 251250.0,
+      "neutralizerResistanceFraction": 0.0
+    },
+    "electronicResistances": {
+      "sensorDampenerMultiplier": 1.0,
+      "weaponDisruptionMultiplier": 1.0,
+      "targetPainterMultiplier": null,
+      "stasisWebMultiplier": 1.0,
+      "remoteAssistanceMultiplier": null
+    },
+    "modules": [
+      {
+        "id": "high:0",
+        "instanceId": "eft-high-1",
+        "typeId": 4248,
+        "typeName": "Warp Disruption Field Generator II",
+        "baseType": {
+          "typeId": 4248,
+          "typeName": "Warp Disruption Field Generator II"
+        },
+        "groupId": 899,
+        "rack": "high",
+        "index": 0,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "warp_disruption_field"
+        ],
+        "charge": null,
+        "cycleTimeMs": 30000.0,
+        "averageCycleTimeMs": 30000.0,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 0.01,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": 112.5,
+        "optimalRangeM": 25000.0,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 2.25,
+          "heatAbsorptionRateModifier": 0.02,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": -33.3,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": {
+          "kind": "warp_disruption_field",
+          "warpDisruptionStrength": 100.0,
+          "blocksMicrowarpdrive": false,
+          "velocityBonusPercent": null,
+          "fieldRadiusM": 25000.0,
+          "requiresTarget": false
+        },
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "high:1",
+        "instanceId": "eft-high-2",
+        "typeId": 4248,
+        "typeName": "Warp Disruption Field Generator II",
+        "baseType": {
+          "typeId": 4248,
+          "typeName": "Warp Disruption Field Generator II"
+        },
+        "groupId": 899,
+        "rack": "high",
+        "index": 1,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "focused_warp_disruptor"
+        ],
+        "charge": {
+          "typeId": 29003,
+          "typeName": "Focused Warp Disruption Script"
+        },
+        "cycleTimeMs": 5999.999999999999,
+        "averageCycleTimeMs": 5999.999999999999,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 0.01,
+        "magazineCharges": 1.0,
+        "cyclesUntilReload": 0.0,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": 45.00000000000001,
+        "optimalRangeM": 37500.0,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 2.25,
+          "heatAbsorptionRateModifier": 0.02,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": -33.3,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": {
+          "kind": "focused_warp_disruptor",
+          "warpDisruptionStrength": 100.0,
+          "blocksMicrowarpdrive": false,
+          "velocityBonusPercent": null,
+          "fieldRadiusM": null,
+          "requiresTarget": true
+        },
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "high:2",
+        "instanceId": "eft-high-3",
+        "typeId": 4248,
+        "typeName": "Warp Disruption Field Generator II",
+        "baseType": {
+          "typeId": 4248,
+          "typeName": "Warp Disruption Field Generator II"
+        },
+        "groupId": 899,
+        "rack": "high",
+        "index": 2,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "focused_warp_scrambler"
+        ],
+        "charge": {
+          "typeId": 45010,
+          "typeName": "Focused Warp Scrambling Script"
+        },
+        "cycleTimeMs": 5999.999999999999,
+        "averageCycleTimeMs": 5999.999999999999,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 0.01,
+        "magazineCharges": 1.0,
+        "cyclesUntilReload": 0.0,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": 45.00000000000001,
+        "optimalRangeM": 20000.0,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 2.25,
+          "heatAbsorptionRateModifier": 0.02,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": -33.3,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": {
+          "kind": "focused_warp_scrambler",
+          "warpDisruptionStrength": 100.0,
+          "blocksMicrowarpdrive": true,
+          "velocityBonusPercent": null,
+          "fieldRadiusM": null,
+          "requiresTarget": true
+        },
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "high:3",
+        "instanceId": "eft-high-4",
+        "typeId": 49099,
+        "typeName": "Zero-Point Mass Entangler",
+        "baseType": {
+          "typeId": 49099,
+          "typeName": "Zero-Point Mass Entangler"
+        },
+        "groupId": 2008,
+        "rack": "high",
+        "index": 3,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active"
+        ],
+        "canOverheat": false,
+        "roles": [
+          "mass_entangler"
+        ],
+        "charge": null,
+        "cycleTimeMs": 30000.0,
+        "averageCycleTimeMs": 30000.0,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": 100.0,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 2.25,
+          "heatAbsorptionRateModifier": 0.01,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": {
+          "speedBonusPercent": null,
+          "thrustKg": null,
+          "massAdditionKg": null,
+          "massBonusPercent": -80.0,
+          "signatureRadiusBonusPercent": null,
+          "speedFactorBonusPercent": -90.0,
+          "thrustBonusPercent": -90.0,
+          "maxVelocityBonusPercent": -95.0,
+          "microwarpdriveBlockingStrength": 1.0
+        },
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "mid:0",
+        "instanceId": "eft-mid-1",
+        "typeId": 12058,
+        "typeName": "10MN Afterburner II",
+        "baseType": {
+          "typeId": 12058,
+          "typeName": "10MN Afterburner II"
+        },
+        "groupId": 46,
+        "rack": "mid",
+        "index": 0,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "afterburner"
+        ],
+        "charge": null,
+        "cycleTimeMs": 7500.0,
+        "averageCycleTimeMs": 7500.0,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": 22.5,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 4.275,
+          "heatAbsorptionRateModifier": 0.04,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": 50.0,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": {
+          "speedBonusPercent": 16.874999999999996,
+          "thrustKg": 1499999.9999999998,
+          "massAdditionKg": 5000000.0,
+          "massBonusPercent": null,
+          "signatureRadiusBonusPercent": null,
+          "speedFactorBonusPercent": null,
+          "thrustBonusPercent": null,
+          "maxVelocityBonusPercent": null,
+          "microwarpdriveBlockingStrength": null
+        },
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "low:0",
+        "instanceId": "eft-low-1",
+        "typeId": 2048,
+        "typeName": "Damage Control II",
+        "baseType": {
+          "typeId": 2048,
+          "typeName": "Damage Control II"
+        },
+        "groupId": 60,
+        "rack": "low",
+        "index": 0,
+        "state": "online",
+        "active": false,
+        "validStates": [
+          "offline",
+          "online"
+        ],
+        "canOverheat": false,
+        "roles": [],
+        "charge": null,
+        "cycleTimeMs": null,
+        "averageCycleTimeMs": null,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": null,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": null,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      }
+    ],
+    "drones": [],
+    "fighters": null,
+    "cargo": [],
+    "heat": {
+      "generationMultiplier": 0.75,
+      "racks": {
+        "high": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.76
+        },
+        "mid": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.5
+        },
+        "low": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.79
+        }
+      }
+    },
+    "context": {
+      "implants": [],
+      "boosters": [],
+      "environment": {
+        "wormholeEffect": null,
+        "abyssalWeather": null
+      },
+      "crossFit": {
+        "projectedSources": [],
+        "commandSources": []
+      }
+    },
+    "unsupportedMechanics": [
+      "dynamic_heat",
+      "target_dependent_application",
+      "dynamic_drone_travel",
+      "command_recipient_stacking",
+      "nosferatu_target_condition"
+    ],
+    "profileId": "d99889be22938bf5552df9c11da015a584501e75d70aedd266c2824a07f5f8d8"
+  },
+  "warnings": [],
+  "errors": []
+}

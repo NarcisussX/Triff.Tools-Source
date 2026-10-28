@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "generatedAt": "2026-09-22T17:21:54Z",
+    "generatedBy": "fitting-service",
+    "note": "Generated baseline from the currently installed Pyfa/eos. Compare against desktop Pyfa before committing new or changed fixture expectations.",
+    "pyfaRef": "v2.69.0",
+    "pyfaVersion": "v2.69.0",
+    "requestedPyfaRef": "latest"
+  },
+  "stats": {
+    "capacitor": {
+      "capacity": 665.0,
+      "rechargeTime": 120.0,
+      "stable": true,
+      "state": 88.830441,
+      "stateUnit": "percent"
+    },
+    "defense": {
+      "armorResists": {
+        "em": 0.745,
+        "explosive": 0.592,
+        "kinetic": 0.6175,
+        "thermal": 0.6685
+      },
+      "ehp": 9772.278548,
+      "hp": {
+        "armor": 2645.0,
+        "hull": 562.5,
+        "shield": 437.5
+      },
+      "hullResists": {
+        "em": 0.598,
+        "explosive": 0.598,
+        "kinetic": 0.598,
+        "thermal": 0.598
+      },
+      "shieldResists": {
+        "em": 0.125,
+        "explosive": 0.5625,
+        "kinetic": 0.475,
+        "thermal": 0.3
+      }
+    },
+    "drones": {
+      "bandwidthTotal": 0.0,
+      "bandwidthUsed": 0.0
+    },
+    "firepower": {
+      "droneDps": 0.0,
+      "missileDps": null,
+      "totalDps": 122.323372,
+      "turretDps": null,
+      "volley": 254.52306,
+      "weaponDps": 122.323372
+    },
+    "fitName": "Passive Armor Baseline",
+    "messages": {
+      "errorCodes": [],
+      "errorCount": 0,
+      "warningCodes": [],
+      "warningCount": 0
+    },
+    "navigation": {
+      "alignTime": 5.727081,
+      "mass": 1926250.0,
+      "maxVelocity": 983.679429
+    },
+    "resources": {
+      "calibrationTotal": 400.0,
+      "calibrationUsed": 300.0,
+      "cpuTotal": 175.0,
+      "cpuUsed": 171.0,
+      "powergridTotal": 83.75,
+      "powergridUsed": 78.2
+    },
+    "ship": {
+      "typeId": 597,
+      "typeName": "Punisher"
+    },
+    "targeting": {
+      "maxLockedTargets": 4.0,
+      "range": 31250.0,
+      "scanResolution": 800.0
+    }
+  }
+}

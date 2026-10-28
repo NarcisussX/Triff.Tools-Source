@@ -1,0 +1,20 @@
+/* The notice uses the same shared window, panels, and controls as the tool pages. */
+.tt-tool-v2.eol-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(580px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  overflow-y: auto;
+  border: 1px solid var(--tt2-border-strong);
+  border-radius: 2px;
+  background: var(--tt2-canvas);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.3);
+}
+
+.tt-tool-v2.eol-dialog::backdrop { background: rgba(0, 0, 0, 0.7); }
+
+@media (max-width: 600px) {
+  .tt-tool-v2.eol-dialog .tt2-button { min-height: 44px; }
+}

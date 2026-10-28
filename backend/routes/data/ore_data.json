@@ -1,0 +1,137 @@
+[
+  { "name": "Veldspar", "baseName": "Veldspar", "grade": "I", "yieldBonus": 0, "m3": 0.1, "marketTypeId": 62516, "legacyName": "Veldspar" },
+  { "name": "Veldspar II-Grade", "baseName": "Veldspar", "grade": "II", "yieldBonus": 0.05, "m3": 0.1, "marketTypeId": 62517, "legacyName": "Concentrated Veldspar" },
+  { "name": "Veldspar III-Grade", "baseName": "Veldspar", "grade": "III", "yieldBonus": 0.1, "m3": 0.1, "marketTypeId": 62518, "legacyName": "Dense Veldspar" },
+  { "name": "Veldspar IV-Grade", "baseName": "Veldspar", "grade": "IV", "yieldBonus": 0.15, "m3": 0.1, "marketTypeId": 62519, "legacyName": "Stable Veldspar" },
+
+  { "name": "Scordite", "baseName": "Scordite", "grade": "I", "yieldBonus": 0, "m3": 0.15, "marketTypeId": 62520, "legacyName": "Scordite" },
+  { "name": "Scordite II-Grade", "baseName": "Scordite", "grade": "II", "yieldBonus": 0.05, "m3": 0.15, "marketTypeId": 62521, "legacyName": "Condensed Scordite" },
+  { "name": "Scordite III-Grade", "baseName": "Scordite", "grade": "III", "yieldBonus": 0.1, "m3": 0.15, "marketTypeId": 62522, "legacyName": "Massive Scordite" },
+  { "name": "Scordite IV-Grade", "baseName": "Scordite", "grade": "IV", "yieldBonus": 0.15, "m3": 0.15, "marketTypeId": 62523, "legacyName": "Glossy Scordite" },
+
+  { "name": "Pyroxeres", "baseName": "Pyroxeres", "grade": "I", "yieldBonus": 0, "m3": 0.3, "marketTypeId": 62524, "legacyName": "Pyroxeres" },
+  { "name": "Pyroxeres II-Grade", "baseName": "Pyroxeres", "grade": "II", "yieldBonus": 0.05, "m3": 0.3, "marketTypeId": 62525, "legacyName": "Solid Pyroxeres" },
+  { "name": "Pyroxeres III-Grade", "baseName": "Pyroxeres", "grade": "III", "yieldBonus": 0.1, "m3": 0.3, "marketTypeId": 62526, "legacyName": "Viscous Pyroxeres" },
+  { "name": "Pyroxeres IV-Grade", "baseName": "Pyroxeres", "grade": "IV", "yieldBonus": 0.15, "m3": 0.3, "marketTypeId": 62527, "legacyName": "Opulent Pyroxeres" },
+
+  { "name": "Plagioclase", "baseName": "Plagioclase", "grade": "I", "yieldBonus": 0, "m3": 0.35, "marketTypeId": 62528, "legacyName": "Plagioclase" },
+  { "name": "Plagioclase II-Grade", "baseName": "Plagioclase", "grade": "II", "yieldBonus": 0.05, "m3": 0.35, "marketTypeId": 62529, "legacyName": "Azure Plagioclase" },
+  { "name": "Plagioclase III-Grade", "baseName": "Plagioclase", "grade": "III", "yieldBonus": 0.1, "m3": 0.35, "marketTypeId": 62530, "legacyName": "Rich Plagioclase" },
+  { "name": "Plagioclase IV-Grade", "baseName": "Plagioclase", "grade": "IV", "yieldBonus": 0.15, "m3": 0.35, "marketTypeId": 62531, "legacyName": "Sparkling Plagioclase" },
+
+  { "name": "Omber", "baseName": "Omber", "grade": "I", "yieldBonus": 0, "m3": 0.6, "marketTypeId": 62532, "legacyName": "Omber" },
+  { "name": "Omber II-Grade", "baseName": "Omber", "grade": "II", "yieldBonus": 0.05, "m3": 0.6, "marketTypeId": 62533, "legacyName": "Silvery Omber" },
+  { "name": "Omber III-Grade", "baseName": "Omber", "grade": "III", "yieldBonus": 0.1, "m3": 0.6, "marketTypeId": 62534, "legacyName": "Golden Omber" },
+  { "name": "Omber IV-Grade", "baseName": "Omber", "grade": "IV", "yieldBonus": 0.15, "m3": 0.6, "marketTypeId": 62535, "legacyName": "Platinoid Omber" },
+
+  { "name": "Kernite", "baseName": "Kernite", "grade": "I", "yieldBonus": 0, "m3": 1.2, "marketTypeId": 62536, "legacyName": "Kernite" },
+  { "name": "Kernite II-Grade", "baseName": "Kernite", "grade": "II", "yieldBonus": 0.05, "m3": 1.2, "marketTypeId": 62537, "legacyName": "Luminous Kernite" },
+  { "name": "Kernite III-Grade", "baseName": "Kernite", "grade": "III", "yieldBonus": 0.1, "m3": 1.2, "marketTypeId": 62538, "legacyName": "Fiery Kernite" },
+  { "name": "Kernite IV-Grade", "baseName": "Kernite", "grade": "IV", "yieldBonus": 0.15, "m3": 1.2, "marketTypeId": 62539, "legacyName": "Resplendant Kernite" },
+
+  { "name": "Jaspet", "baseName": "Jaspet", "grade": "I", "yieldBonus": 0, "m3": 2, "marketTypeId": 62540, "legacyName": "Jaspet" },
+  { "name": "Jaspet II-Grade", "baseName": "Jaspet", "grade": "II", "yieldBonus": 0.05, "m3": 2, "marketTypeId": 62541, "legacyName": "Pure Jaspet" },
+  { "name": "Jaspet III-Grade", "baseName": "Jaspet", "grade": "III", "yieldBonus": 0.1, "m3": 2, "marketTypeId": 62542, "legacyName": "Pristine Jaspet" },
+  { "name": "Jaspet IV-Grade", "baseName": "Jaspet", "grade": "IV", "yieldBonus": 0.15, "m3": 2, "marketTypeId": 62543, "legacyName": "Immaculate Jaspet" },
+
+  { "name": "Hemorphite", "baseName": "Hemorphite", "grade": "I", "yieldBonus": 0, "m3": 3, "marketTypeId": 62544, "legacyName": "Hemorphite" },
+  { "name": "Hemorphite II-Grade", "baseName": "Hemorphite", "grade": "II", "yieldBonus": 0.05, "m3": 3, "marketTypeId": 62545, "legacyName": "Vivid Hemorphite" },
+  { "name": "Hemorphite III-Grade", "baseName": "Hemorphite", "grade": "III", "yieldBonus": 0.1, "m3": 3, "marketTypeId": 62546, "legacyName": "Radiant Hemorphite" },
+  { "name": "Hemorphite IV-Grade", "baseName": "Hemorphite", "grade": "IV", "yieldBonus": 0.15, "m3": 3, "marketTypeId": 62547, "legacyName": "Scintillating Hemorphite" },
+
+  { "name": "Hedbergite", "baseName": "Hedbergite", "grade": "I", "yieldBonus": 0, "m3": 3, "marketTypeId": 62548, "legacyName": "Hedbergite" },
+  { "name": "Hedbergite II-Grade", "baseName": "Hedbergite", "grade": "II", "yieldBonus": 0.05, "m3": 3, "marketTypeId": 62549, "legacyName": "Vitric Hedbergite" },
+  { "name": "Hedbergite III-Grade", "baseName": "Hedbergite", "grade": "III", "yieldBonus": 0.1, "m3": 3, "marketTypeId": 62550, "legacyName": "Glazed Hedbergite" },
+  { "name": "Hedbergite IV-Grade", "baseName": "Hedbergite", "grade": "IV", "yieldBonus": 0.15, "m3": 3, "marketTypeId": 62551, "legacyName": "Lustrous Hedbergite" },
+
+  { "name": "Gneiss", "baseName": "Gneiss", "grade": "I", "yieldBonus": 0, "m3": 5, "marketTypeId": 62552, "legacyName": "Gneiss" },
+  { "name": "Gneiss II-Grade", "baseName": "Gneiss", "grade": "II", "yieldBonus": 0.05, "m3": 5, "marketTypeId": 62553, "legacyName": "Iridescent Gneiss" },
+  { "name": "Gneiss III-Grade", "baseName": "Gneiss", "grade": "III", "yieldBonus": 0.1, "m3": 5, "marketTypeId": 62554, "legacyName": "Prismatic Gneiss" },
+  { "name": "Gneiss IV-Grade", "baseName": "Gneiss", "grade": "IV", "yieldBonus": 0.15, "m3": 5, "marketTypeId": 62555, "legacyName": "Brilliant Gneiss" },
+
+  { "name": "Dark Ochre", "baseName": "Dark Ochre", "grade": "I", "yieldBonus": 0, "m3": 8, "marketTypeId": 62556, "legacyName": "Dark Ochre" },
+  { "name": "Dark Ochre II-Grade", "baseName": "Dark Ochre", "grade": "II", "yieldBonus": 0.05, "m3": 8, "marketTypeId": 62557, "legacyName": "Onyx Ochre" },
+  { "name": "Dark Ochre III-Grade", "baseName": "Dark Ochre", "grade": "III", "yieldBonus": 0.1, "m3": 8, "marketTypeId": 62558, "legacyName": "Obsidian Ochre" },
+  { "name": "Dark Ochre IV-Grade", "baseName": "Dark Ochre", "grade": "IV", "yieldBonus": 0.15, "m3": 8, "marketTypeId": 62559, "legacyName": "Jet Ochre" },
+
+  { "name": "Crokite", "baseName": "Crokite", "grade": "I", "yieldBonus": 0, "m3": 16, "marketTypeId": 62560, "legacyName": "Crokite" },
+  { "name": "Crokite II-Grade", "baseName": "Crokite", "grade": "II", "yieldBonus": 0.05, "m3": 16, "marketTypeId": 62561, "legacyName": "Sharp Crokite" },
+  { "name": "Crokite III-Grade", "baseName": "Crokite", "grade": "III", "yieldBonus": 0.1, "m3": 16, "marketTypeId": 62562, "legacyName": "Crystalline Crokite" },
+  { "name": "Crokite IV-Grade", "baseName": "Crokite", "grade": "IV", "yieldBonus": 0.15, "m3": 16, "marketTypeId": 62563, "legacyName": "Pellucid Crokite" },
+
+  { "name": "Bistot", "baseName": "Bistot", "grade": "I", "yieldBonus": 0, "m3": 16, "marketTypeId": 62564, "legacyName": "Bistot" },
+  { "name": "Bistot II-Grade", "baseName": "Bistot", "grade": "II", "yieldBonus": 0.05, "m3": 16, "marketTypeId": 62565, "legacyName": "Triclinic Bistot" },
+  { "name": "Bistot III-Grade", "baseName": "Bistot", "grade": "III", "yieldBonus": 0.1, "m3": 16, "marketTypeId": 62566, "legacyName": "Monoclinic Bistot" },
+  { "name": "Bistot IV-Grade", "baseName": "Bistot", "grade": "IV", "yieldBonus": 0.15, "m3": 16, "marketTypeId": 62567, "legacyName": "Cubic Bistot" },
+
+  { "name": "Arkonor", "baseName": "Arkonor", "grade": "I", "yieldBonus": 0, "m3": 16, "marketTypeId": 62568, "legacyName": "Arkonor" },
+  { "name": "Arkonor II-Grade", "baseName": "Arkonor", "grade": "II", "yieldBonus": 0.05, "m3": 16, "marketTypeId": 62569, "legacyName": "Crimson Arkonor" },
+  { "name": "Arkonor III-Grade", "baseName": "Arkonor", "grade": "III", "yieldBonus": 0.1, "m3": 16, "marketTypeId": 62570, "legacyName": "Prime Arkonor" },
+  { "name": "Arkonor IV-Grade", "baseName": "Arkonor", "grade": "IV", "yieldBonus": 0.15, "m3": 16, "marketTypeId": 62571, "legacyName": "Flawless Arkonor" },
+
+  { "name": "Spodumain", "baseName": "Spodumain", "grade": "I", "yieldBonus": 0, "m3": 16, "marketTypeId": 62572, "legacyName": "Spodumain" },
+  { "name": "Spodumain II-Grade", "baseName": "Spodumain", "grade": "II", "yieldBonus": 0.05, "m3": 16, "marketTypeId": 62573, "legacyName": "Bright Spodumain" },
+  { "name": "Spodumain III-Grade", "baseName": "Spodumain", "grade": "III", "yieldBonus": 0.1, "m3": 16, "marketTypeId": 62574, "legacyName": "Gleaming Spodumain" },
+  { "name": "Spodumain IV-Grade", "baseName": "Spodumain", "grade": "IV", "yieldBonus": 0.15, "m3": 16, "marketTypeId": 62575, "legacyName": "Dazzling Spodumain" },
+
+  { "name": "Bezdnacine", "baseName": "Bezdnacine", "grade": "I", "yieldBonus": 0, "m3": 16, "marketTypeId": 62576, "legacyName": "Bezdnacine" },
+  { "name": "Bezdnacine II-Grade", "baseName": "Bezdnacine", "grade": "II", "yieldBonus": 0.05, "m3": 16, "marketTypeId": 62577, "legacyName": "Abyssal Bezdnacine" },
+  { "name": "Bezdnacine III-Grade", "baseName": "Bezdnacine", "grade": "III", "yieldBonus": 0.1, "m3": 16, "marketTypeId": 62578, "legacyName": "Hadal Bezdnacine" },
+
+  { "name": "Rakovene", "baseName": "Rakovene", "grade": "I", "yieldBonus": 0, "m3": 16, "marketTypeId": 62579, "legacyName": "Rakovene" },
+  { "name": "Rakovene II-Grade", "baseName": "Rakovene", "grade": "II", "yieldBonus": 0.05, "m3": 16, "marketTypeId": 62580, "legacyName": "Abyssal Rakovene" },
+  { "name": "Rakovene III-Grade", "baseName": "Rakovene", "grade": "III", "yieldBonus": 0.1, "m3": 16, "marketTypeId": 62581, "legacyName": "Hadal Rakovene" },
+
+  { "name": "Talassonite", "baseName": "Talassonite", "grade": "I", "yieldBonus": 0, "m3": 16, "marketTypeId": 62582, "legacyName": "Talassonite" },
+  { "name": "Talassonite II-Grade", "baseName": "Talassonite", "grade": "II", "yieldBonus": 0.05, "m3": 16, "marketTypeId": 62583, "legacyName": "Abyssal Talassonite" },
+  { "name": "Talassonite III-Grade", "baseName": "Talassonite", "grade": "III", "yieldBonus": 0.1, "m3": 16, "marketTypeId": 62584, "legacyName": "Hadal Talassonite" },
+
+  { "name": "Mercoxit", "baseName": "Mercoxit", "grade": "I", "yieldBonus": 0, "m3": 40, "marketTypeId": 62586, "legacyName": "Mercoxit" },
+  { "name": "Mercoxit II-Grade", "baseName": "Mercoxit", "grade": "II", "yieldBonus": 0.05, "m3": 40, "marketTypeId": 62587, "legacyName": "Magma Mercoxit" },
+  { "name": "Mercoxit III-Grade", "baseName": "Mercoxit", "grade": "III", "yieldBonus": 0.1, "m3": 40, "marketTypeId": 62588, "legacyName": "Vitreous Mercoxit" },
+
+  { "name": "Mordunium", "baseName": "Mordunium", "grade": "I", "yieldBonus": 0, "m3": 0.1, "marketTypeId": 75275, "legacyName": "Mordunium" },
+  { "name": "Mordunium II-Grade", "baseName": "Mordunium", "grade": "II", "yieldBonus": 0.05, "m3": 0.1, "marketTypeId": 75276, "legacyName": "Plum Mordunium" },
+  { "name": "Mordunium III-Grade", "baseName": "Mordunium", "grade": "III", "yieldBonus": 0.1, "m3": 0.1, "marketTypeId": 75277, "legacyName": "Prize Mordunium" },
+  { "name": "Mordunium IV-Grade", "baseName": "Mordunium", "grade": "IV", "yieldBonus": 0.15, "m3": 0.1, "marketTypeId": 75278, "legacyName": "Plunder Mordunium" },
+
+  { "name": "Ytirium", "baseName": "Ytirium", "grade": "I", "yieldBonus": 0, "m3": 0.6, "marketTypeId": 75279, "legacyName": "Ytirium" },
+  { "name": "Ytirium II-Grade", "baseName": "Ytirium", "grade": "II", "yieldBonus": 0.05, "m3": 0.6, "marketTypeId": 75280, "legacyName": "Bootleg Ytirium" },
+  { "name": "Ytirium III-Grade", "baseName": "Ytirium", "grade": "III", "yieldBonus": 0.1, "m3": 0.6, "marketTypeId": 75281, "legacyName": "Firewater Ytirium" },
+  { "name": "Ytirium IV-Grade", "baseName": "Ytirium", "grade": "IV", "yieldBonus": 0.15, "m3": 0.6, "marketTypeId": 75282, "legacyName": "Moonshine Ytirium" },
+
+  { "name": "Eifyrium", "baseName": "Eifyrium", "grade": "I", "yieldBonus": 0, "m3": 16, "marketTypeId": 75283, "legacyName": "Eifyrium" },
+  { "name": "Eifyrium II-Grade", "baseName": "Eifyrium", "grade": "II", "yieldBonus": 0.05, "m3": 16, "marketTypeId": 75284, "legacyName": "Doped Eifyrium" },
+  { "name": "Eifyrium III-Grade", "baseName": "Eifyrium", "grade": "III", "yieldBonus": 0.1, "m3": 16, "marketTypeId": 75285, "legacyName": "Boosted Eifyrium" },
+  { "name": "Eifyrium IV-Grade", "baseName": "Eifyrium", "grade": "IV", "yieldBonus": 0.15, "m3": 16, "marketTypeId": 75286, "legacyName": "Augmented Eifyrium" },
+
+  { "name": "Ducinium", "baseName": "Ducinium", "grade": "I", "yieldBonus": 0, "m3": 16, "marketTypeId": 75287, "legacyName": "Ducinium" },
+  { "name": "Ducinium II-Grade", "baseName": "Ducinium", "grade": "II", "yieldBonus": 0.05, "m3": 16, "marketTypeId": 75288, "legacyName": "Noble Ducinium" },
+  { "name": "Ducinium III-Grade", "baseName": "Ducinium", "grade": "III", "yieldBonus": 0.1, "m3": 16, "marketTypeId": 75289, "legacyName": "Royal Ducinium" },
+  { "name": "Ducinium IV-Grade", "baseName": "Ducinium", "grade": "IV", "yieldBonus": 0.15, "m3": 16, "marketTypeId": 75290, "legacyName": "Imperial Ducinium" },
+
+  { "name": "Kylixium", "baseName": "Kylixium", "grade": "I", "yieldBonus": 0, "m3": 1.2, "marketTypeId": 82300, "legacyName": "Kylixium" },
+  { "name": "Kylixium II-Grade", "baseName": "Kylixium", "grade": "II", "yieldBonus": 0.05, "m3": 1.2, "marketTypeId": 82301, "legacyName": "Kaolin Kylixium" },
+  { "name": "Kylixium III-Grade", "baseName": "Kylixium", "grade": "III", "yieldBonus": 0.1, "m3": 1.2, "marketTypeId": 82302, "legacyName": "Argil Kylixium" },
+  { "name": "Kylixium IV-Grade", "baseName": "Kylixium", "grade": "IV", "yieldBonus": 0.15, "m3": 1.2, "marketTypeId": 82303, "legacyName": "Adobe Kylixium" },
+
+  { "name": "Nocxite", "baseName": "Nocxite", "grade": "I", "yieldBonus": 0, "m3": 4, "marketTypeId": 82304, "legacyName": "Nocxite" },
+  { "name": "Nocxite II-Grade", "baseName": "Nocxite", "grade": "II", "yieldBonus": 0.05, "m3": 4, "marketTypeId": 82305, "legacyName": "Fragrant Nocxite" },
+  { "name": "Nocxite III-Grade", "baseName": "Nocxite", "grade": "III", "yieldBonus": 0.1, "m3": 4, "marketTypeId": 82306, "legacyName": "Intoxicating Nocxite" },
+  { "name": "Nocxite IV-Grade", "baseName": "Nocxite", "grade": "IV", "yieldBonus": 0.15, "m3": 4, "marketTypeId": 82307, "legacyName": "Ambrosial Nocxite" },
+
+  { "name": "Ueganite", "baseName": "Ueganite", "grade": "I", "yieldBonus": 0, "m3": 5, "marketTypeId": 82308, "legacyName": "Ueganite" },
+  { "name": "Ueganite II-Grade", "baseName": "Ueganite", "grade": "II", "yieldBonus": 0.05, "m3": 5, "marketTypeId": 82309, "legacyName": "Foggy Ueganite" },
+  { "name": "Ueganite III-Grade", "baseName": "Ueganite", "grade": "III", "yieldBonus": 0.1, "m3": 5, "marketTypeId": 82310, "legacyName": "Overcast Ueganite" },
+  { "name": "Ueganite IV-Grade", "baseName": "Ueganite", "grade": "IV", "yieldBonus": 0.15, "m3": 5, "marketTypeId": 82311, "legacyName": "Stormy Ueganite" },
+
+  { "name": "Hezorime", "baseName": "Hezorime", "grade": "I", "yieldBonus": 0, "m3": 5, "marketTypeId": 82312, "legacyName": "Hezorime" },
+  { "name": "Hezorime II-Grade", "baseName": "Hezorime", "grade": "II", "yieldBonus": 0.05, "m3": 5, "marketTypeId": 82313, "legacyName": "Dull Hezorime" },
+  { "name": "Hezorime III-Grade", "baseName": "Hezorime", "grade": "III", "yieldBonus": 0.1, "m3": 5, "marketTypeId": 82314, "legacyName": "Serrated Hezorime" },
+  { "name": "Hezorime IV-Grade", "baseName": "Hezorime", "grade": "IV", "yieldBonus": 0.15, "m3": 5, "marketTypeId": 82315, "legacyName": "Sharp Hezorime" },
+
+  { "name": "Griemeer", "baseName": "Griemeer", "grade": "I", "yieldBonus": 0, "m3": 0.8, "marketTypeId": 82316, "legacyName": "Griemeer" },
+  { "name": "Griemeer II-Grade", "baseName": "Griemeer", "grade": "II", "yieldBonus": 0.05, "m3": 0.8, "marketTypeId": 82317, "legacyName": "Clear Griemeer" },
+  { "name": "Griemeer III-Grade", "baseName": "Griemeer", "grade": "III", "yieldBonus": 0.1, "m3": 0.8, "marketTypeId": 82318, "legacyName": "Inky Griemeer" },
+  { "name": "Griemeer IV-Grade", "baseName": "Griemeer", "grade": "IV", "yieldBonus": 0.15, "m3": 0.8, "marketTypeId": 82319, "legacyName": "Opaque Griemeer" }
+]

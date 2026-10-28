@@ -1,0 +1,86 @@
+{
+  "Mining Crystal Type B I": {
+    "resourceType": "ore",
+    "residueChanceBonus": 0.2,
+    "durationMult": 0.9,
+    "yieldMult": 1.5,
+    "residueVolBonus": 0.0
+  },
+  "Mining Crystal Type C I": {
+    "resourceType": "ore",
+    "residueChanceBonus": 0.4,
+    "durationMult": 1.0,
+    "yieldMult": 0.25,
+    "residueVolBonus": 0.18
+  },
+  "Mining Crystal Type B II": {
+    "resourceType": "ore",
+    "residueChanceBonus": 0.3,
+    "durationMult": 0.8,
+    "yieldMult": 1.8,
+    "residueVolBonus": 0.0
+  },
+  "Mining Crystal Type C II": {
+    "resourceType": "ore",
+    "residueChanceBonus": 0.59,
+    "durationMult": 1.0,
+    "yieldMult": 0.2,
+    "residueVolBonus": 0.28
+  },
+  "Mining Crystal Type A II": {
+    "resourceType": "ore",
+    "residueChanceBonus": 0.036000000000000004,
+    "durationMult": 1.0,
+    "yieldMult": 1.8,
+    "residueVolBonus": 0.0
+  },
+  "Mining Crystal Type A I": {
+    "resourceType": "ore",
+    "residueChanceBonus": 0.0,
+    "durationMult": 1.0,
+    "yieldMult": 1.5,
+    "residueVolBonus": 0.0
+  },
+  "Moon Mining Crystal Type B I": {
+    "resourceType": "moonOre",
+    "residueChanceBonus": 0.2,
+    "durationMult": 0.9,
+    "yieldMult": 1.5,
+    "residueVolBonus": 0.0
+  },
+  "Moon Mining Crystal Type C I": {
+    "resourceType": "moonOre",
+    "residueChanceBonus": 0.4,
+    "durationMult": 1.0,
+    "yieldMult": 0.25,
+    "residueVolBonus": 0.18
+  },
+  "Moon Mining Crystal Type B II": {
+    "resourceType": "moonOre",
+    "residueChanceBonus": 0.3,
+    "durationMult": 0.8,
+    "yieldMult": 1.8,
+    "residueVolBonus": 0.0
+  },
+  "Moon Mining Crystal Type C II": {
+    "resourceType": "moonOre",
+    "residueChanceBonus": 0.59,
+    "durationMult": 1.0,
+    "yieldMult": 0.2,
+    "residueVolBonus": 0.28
+  },
+  "Moon Mining Crystal Type A II": {
+    "resourceType": "moonOre",
+    "residueChanceBonus": 0.036000000000000004,
+    "durationMult": 1.0,
+    "yieldMult": 1.8,
+    "residueVolBonus": 0.0
+  },
+  "Moon Mining Crystal Type A I": {
+    "resourceType": "moonOre",
+    "residueChanceBonus": 0.0,
+    "durationMult": 1.0,
+    "yieldMult": 1.5,
+    "residueVolBonus": 0.0
+  }
+}

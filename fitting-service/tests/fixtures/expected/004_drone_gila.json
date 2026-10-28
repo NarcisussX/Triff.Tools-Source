@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "generatedAt": "2026-09-22T17:21:54Z",
+    "generatedBy": "fitting-service",
+    "note": "Generated baseline from the currently installed Pyfa/eos. Compare against desktop Pyfa before committing new or changed fixture expectations.",
+    "pyfaRef": "v2.69.0",
+    "pyfaVersion": "v2.69.0",
+    "requestedPyfaRef": "latest"
+  },
+  "stats": {
+    "capacitor": {
+      "capacity": 1750.0,
+      "rechargeTime": 367.5,
+      "stable": true,
+      "state": 75.904134,
+      "stateUnit": "percent"
+    },
+    "defense": {
+      "armorResists": {
+        "em": 0.5,
+        "explosive": 0.1,
+        "kinetic": 0.25,
+        "thermal": 0.45
+      },
+      "ehp": 49509.34742,
+      "hp": {
+        "armor": 2750.0,
+        "hull": 3112.5,
+        "shield": 15969.1875
+      },
+      "hullResists": {
+        "em": 0.33,
+        "explosive": 0.33,
+        "kinetic": 0.33,
+        "thermal": 0.33
+      },
+      "shieldResists": {
+        "em": 0.46,
+        "explosive": 0.73,
+        "kinetic": 0.676,
+        "thermal": 0.568
+      }
+    },
+    "drones": {
+      "bandwidthTotal": 20.0,
+      "bandwidthUsed": 20.0
+    },
+    "firepower": {
+      "droneDps": 565.163212,
+      "missileDps": null,
+      "totalDps": 787.916131,
+      "turretDps": null,
+      "volley": 3217.65285,
+      "weaponDps": 222.752919
+    },
+    "fitName": "Drone Baseline",
+    "messages": {
+      "errorCodes": [],
+      "errorCount": 0,
+      "warningCodes": [],
+      "warningCount": 0
+    },
+    "navigation": {
+      "alignTime": 9.016874,
+      "mass": 14600000.0,
+      "maxVelocity": 635.043878
+    },
+    "resources": {
+      "calibrationTotal": 350.0,
+      "calibrationUsed": 150.0,
+      "cpuTotal": 475.0,
+      "cpuUsed": 401.0,
+      "powergridTotal": 837.5,
+      "powergridUsed": 572.2
+    },
+    "ship": {
+      "typeId": 17715,
+      "typeName": "Gila"
+    },
+    "targeting": {
+      "maxLockedTargets": 7.0,
+      "range": 72500.0,
+      "scanResolution": 356.25
+    }
+  }
+}

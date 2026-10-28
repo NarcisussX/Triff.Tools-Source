@@ -1,0 +1,872 @@
+[
+  {
+    "site": "Unsecured Frontier Enclave Relay",
+    "type": "Data",
+    "blue_loot_isk": 344900000,
+    "waves": [
+      {
+        "wave": "Wave 1",
+        "ships": [
+          {
+            "qty": 3,
+            "trigger": true,
+            "name": "Sleepless Keeper",
+            "dps": 565,
+            "alpha": 3802,
+            "ehp": 88629,
+            "sig": 400,
+            "orbit_velocity": "105 m/s",
+            "distance": "65km",
+            "special": {
+              "Neut": 12
+            }
+          },
+          {
+            "qty": 1,
+            "optional": true,
+            "name": "Sleepless Sentinel",
+            "dps": 465,
+            "alpha": 5746,
+            "ehp": 147714,
+            "sig": 400,
+            "orbit_velocity": "125 m/s",
+            "distance": "19km",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 18
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 2",
+        "ships": [
+          {
+            "qty": 5,
+            "name": "Emergent Keeper",
+            "dps": 22,
+            "alpha": 171,
+            "ehp": 4400,
+            "sig": 35,
+            "orbit_velocity": "320 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3,
+              "RR": 26
+            }
+          },
+          {
+            "qty": 4,
+            "name": "Awakened Warden",
+            "dps": 99,
+            "alpha": 695,
+            "ehp": 26400,
+            "sig": 150,
+            "orbit_velocity": "165 m/s",
+            "distance": "45km",
+            "special": {
+              "RR": 58
+            }
+          },
+          {
+            "qty": 2,
+            "trigger": true,
+            "name": "Sleepless Keeper",
+            "dps": 565,
+            "alpha": 3802,
+            "ehp": 88629,
+            "sig": 400,
+            "orbit_velocity": "105 m/s",
+            "distance": "65km",
+            "special": {
+              "Neut": 12
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 3",
+        "ships": [
+          {
+            "qty": 3,
+            "name": "Emergent Keeper",
+            "dps": 22,
+            "alpha": 171,
+            "ehp": 4400,
+            "sig": 35,
+            "orbit_velocity": "320 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3,
+              "RR": 26
+            }
+          },
+          {
+            "qty": 4,
+            "name": "Emergent Warden",
+            "dps": 41,
+            "alpha": 293,
+            "ehp": 2860,
+            "sig": 35,
+            "orbit_velocity": "350 m/s",
+            "distance": "5,000",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 3
+            }
+          },
+          {
+            "qty": 3,
+            "name": "Awakened Sentinel",
+            "dps": 76,
+            "alpha": 778,
+            "ehp": 42167,
+            "sig": 150,
+            "orbit_velocity": "200 m/s",
+            "distance": "15km",
+            "special": {
+              "Web": 1
+            }
+          },
+          {
+            "qty": 4,
+            "name": "Awakened Warden",
+            "dps": 99,
+            "alpha": 695,
+            "ehp": 26400,
+            "sig": 150,
+            "orbit_velocity": "165 m/s",
+            "distance": "45km",
+            "special": {
+              "RR": 58
+            }
+          },
+          {
+            "qty": 2,
+            "trigger": true,
+            "name": "Sleepless Keeper",
+            "dps": 565,
+            "alpha": 3802,
+            "ehp": 88629,
+            "sig": 400,
+            "orbit_velocity": "105 m/s",
+            "distance": "65km",
+            "special": {
+              "Neut": 12
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 4",
+        "ships": [
+          {
+            "qty": 3,
+            "name": "Emergent Warden",
+            "dps": 41,
+            "alpha": 293,
+            "ehp": 2860,
+            "sig": 35,
+            "orbit_velocity": "350 m/s",
+            "distance": "5,000",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 3
+            }
+          },
+          {
+            "qty": 3,
+            "name": "Awakened Warden",
+            "dps": 99,
+            "alpha": 695,
+            "ehp": 26400,
+            "sig": 150,
+            "orbit_velocity": "165 m/s",
+            "distance": "45km",
+            "special": {
+              "RR": 58
+            }
+          },
+          {
+            "qty": 5,
+            "name": "Sleepless Warden",
+            "dps": 396,
+            "alpha": 6379,
+            "ehp": 134933,
+            "sig": 400,
+            "orbit_velocity": "145 m/s",
+            "distance": "55km",
+            "special": {
+              "RR": 73
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "site": "Forgotten Core Information Pen",
+    "type": "Relic",
+    "blue_loot_isk": 332900000,
+    "waves": [
+      {
+        "wave": "Wave 1",
+        "ships": [
+          {
+            "qty": 3,
+            "trigger": true,
+            "name": "Sleepless Keeper",
+            "dps": 565,
+            "alpha": 3802,
+            "ehp": 88629,
+            "sig": 400,
+            "orbit_velocity": "105 m/s",
+            "distance": "65km",
+            "special": {
+              "Neut": 12
+            }
+          },
+          {
+            "qty": 1,
+            "optional": true,
+            "name": "Sleepless Sentinel",
+            "dps": 465,
+            "alpha": 5746,
+            "ehp": 147714,
+            "sig": 400,
+            "orbit_velocity": "125 m/s",
+            "distance": "19km",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 18
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 2",
+        "triggerOnHack": true,
+        "ships": [
+          {
+            "qty": 4,
+            "name": "Emergent Keeper",
+            "dps": 22,
+            "alpha": 171,
+            "ehp": 4400,
+            "sig": 35,
+            "orbit_velocity": "320 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3,
+              "RR": 26
+            }
+          },
+          {
+            "qty": 4,
+            "name": "Awakened Warden",
+            "dps": 99,
+            "alpha": 695,
+            "ehp": 26400,
+            "sig": 150,
+            "orbit_velocity": "165 m/s",
+            "distance": "45km",
+            "special": {
+              "RR": 58
+            }
+          },
+          {
+            "qty": 2,
+            "name": "Sleepless Keeper",
+            "dps": 565,
+            "alpha": 3802,
+            "ehp": 88629,
+            "sig": 400,
+            "orbit_velocity": "105 m/s",
+            "distance": "65km",
+            "special": {
+              "Neut": 12
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 3",
+        "ships": [
+          {
+            "qty": 3,
+            "name": "Emergent Keeper",
+            "dps": 22,
+            "alpha": 171,
+            "ehp": 4400,
+            "sig": 35,
+            "orbit_velocity": "320 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3,
+              "RR": 26
+            }
+          },
+          {
+            "qty": 3,
+            "name": "Emergent Warden",
+            "dps": 41,
+            "alpha": 293,
+            "ehp": 2860,
+            "sig": 35,
+            "orbit_velocity": "350 m/s",
+            "distance": "5,000",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 3
+            }
+          },
+          {
+            "qty": 3,
+            "name": "Awakened Sentinel",
+            "dps": 76,
+            "alpha": 778,
+            "ehp": 42167,
+            "sig": 150,
+            "orbit_velocity": "200 m/s",
+            "distance": "15km",
+            "special": {
+              "Web": 1
+            }
+          },
+          {
+            "qty": 4,
+            "trigger": true,
+            "name": "Awakened Warden",
+            "dps": 99,
+            "alpha": 695,
+            "ehp": 26400,
+            "sig": 150,
+            "orbit_velocity": "165 m/s",
+            "distance": "45km",
+            "special": {
+              "RR": 58
+            }
+          },
+          {
+            "qty": 3,
+            "name": "Sleepless Keeper",
+            "dps": 565,
+            "alpha": 3802,
+            "ehp": 88629,
+            "sig": 400,
+            "orbit_velocity": "105 m/s",
+            "distance": "65km",
+            "special": {
+              "Neut": 12
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 4",
+        "ships": [
+          {
+            "qty": 4,
+            "name": "Emergent Warden",
+            "dps": 41,
+            "alpha": 293,
+            "ehp": 2860,
+            "sig": 35,
+            "orbit_velocity": "350 m/s",
+            "distance": "5,000",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 3
+            }
+          },
+          {
+            "qty": 4,
+            "name": "Awakened Keeper",
+            "dps": 56,
+            "alpha": 479,
+            "ehp": 19250,
+            "sig": 150,
+            "orbit_velocity": "235 m/s",
+            "distance": "30km",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 6
+            }
+          },
+          {
+            "qty": 5,
+            "name": "Sleepless Keeper",
+            "dps": 565,
+            "alpha": 3802,
+            "ehp": 88629,
+            "sig": 400,
+            "orbit_velocity": "105 m/s",
+            "distance": "65km",
+            "special": {
+              "Neut": 12
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "site": "Forgotten Core Data Field",
+    "type": "Relic",
+    "blue_loot_isk": 279000000,
+    "waves": [
+      {
+        "wave": "Wave 1",
+        "ships": [
+          {
+            "qty": 6,
+            "name": "Emergent Sentinel",
+            "dps": 29,
+            "alpha": 207,
+            "ehp": 6600,
+            "sig": 35,
+            "orbit_velocity": "290 m/s",
+            "distance": "6,500",
+            "special": {
+              "Scram": 1,
+              "Web": 1
+            }
+          },
+          {
+            "qty": 5,
+            "trigger": true,
+            "name": "Awakened Keeper",
+            "dps": 56,
+            "alpha": 479,
+            "ehp": 19250,
+            "sig": 150,
+            "orbit_velocity": "235 m/s",
+            "distance": "30km",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 6
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 2",
+        "ships": [
+          {
+            "qty": 4,
+            "name": "Emergent Keeper",
+            "dps": 22,
+            "alpha": 171,
+            "ehp": 4400,
+            "sig": 35,
+            "orbit_velocity": "320 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3,
+              "RR": 26
+            }
+          },
+          {
+            "qty": 4,
+            "name": "Emergent Warden",
+            "dps": 41,
+            "alpha": 293,
+            "ehp": 2860,
+            "sig": 35,
+            "orbit_velocity": "350 m/s",
+            "distance": "5,000",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 3
+            }
+          },
+          {
+            "qty": 3,
+            "trigger": true,
+            "name": "Awakened Keeper",
+            "dps": 56,
+            "alpha": 479,
+            "ehp": 19250,
+            "sig": 150,
+            "orbit_velocity": "235 m/s",
+            "distance": "30km",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 6
+            }
+          },
+          {
+            "qty": 2,
+            "name": "Awakened Sentinel",
+            "dps": 76,
+            "alpha": 778,
+            "ehp": 42167,
+            "sig": 150,
+            "orbit_velocity": "200 m/s",
+            "distance": "15km",
+            "special": {
+              "Web": 1
+            }
+          },
+          {
+            "qty": 3,
+            "name": "Awakened Warden",
+            "dps": 99,
+            "alpha": 695,
+            "ehp": 26400,
+            "sig": 150,
+            "orbit_velocity": "165 m/s",
+            "distance": "45km",
+            "special": {
+              "RR": 58
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 3",
+        "ships": [
+          {
+            "qty": 6,
+            "name": "Emergent Warden",
+            "dps": 41,
+            "alpha": 293,
+            "ehp": 2860,
+            "sig": 35,
+            "orbit_velocity": "350 m/s",
+            "distance": "5,000",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 3
+            }
+          },
+          {
+            "qty": 2,
+            "trigger": true,
+            "name": "Sleepless Keeper",
+            "dps": 565,
+            "alpha": 3802,
+            "ehp": 88629,
+            "sig": 400,
+            "orbit_velocity": "105 m/s",
+            "distance": "65km",
+            "special": {
+              "Neut": 12
+            }
+          },
+          {
+            "qty": 2,
+            "name": "Sleepless Sentinel",
+            "dps": 465,
+            "alpha": 5746,
+            "ehp": 147714,
+            "sig": 400,
+            "orbit_velocity": "125 m/s",
+            "distance": "19km",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 18
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 4",
+        "ships": [
+          {
+            "qty": 2,
+            "name": "Awakened Keeper",
+            "dps": 56,
+            "alpha": 479,
+            "ehp": 19250,
+            "sig": 150,
+            "orbit_velocity": "235 m/s",
+            "distance": "30km",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 6
+            }
+          },
+          {
+            "qty": 2,
+            "name": "Awakened Warden",
+            "dps": 99,
+            "alpha": 695,
+            "ehp": 26400,
+            "sig": 150,
+            "orbit_velocity": "165 m/s",
+            "distance": "45km",
+            "special": {
+              "RR": 58
+            }
+          },
+          {
+            "qty": 2,
+            "name": "Sleepless Keeper",
+            "dps": 565,
+            "alpha": 3802,
+            "ehp": 88629,
+            "sig": 400,
+            "orbit_velocity": "105 m/s",
+            "distance": "65km",
+            "special": {
+              "Neut": 12
+            }
+          },
+          {
+            "qty": 2,
+            "name": "Sleepless Warden",
+            "dps": 396,
+            "alpha": 6379,
+            "ehp": 134933,
+            "sig": 400,
+            "orbit_velocity": "145 m/s",
+            "distance": "55km",
+            "special": {
+              "RR": 73
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "site": "Unsecured Frontier Server Bank",
+    "type": "Data",
+    "blue_loot_isk": 272100000,
+    "waves": [
+      {
+        "wave": "Wave 1",
+        "ships": [
+          {
+            "qty": 5,
+            "name": "Emergent Sentinel",
+            "dps": 29,
+            "alpha": 207,
+            "ehp": 6600,
+            "sig": 35,
+            "orbit_velocity": "290 m/s",
+            "distance": "6,500",
+            "special": {
+              "Scram": 1,
+              "Web": 1
+            }
+          },
+          {
+            "qty": 5,
+            "trigger": true,
+            "name": "Awakened Keeper",
+            "dps": 56,
+            "alpha": 479,
+            "ehp": 19250,
+            "sig": 150,
+            "orbit_velocity": "235 m/s",
+            "distance": "30km",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 6
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 2",
+        "ships": [
+          {
+            "qty": 3,
+            "name": "Emergent Keeper",
+            "dps": 22,
+            "alpha": 171,
+            "ehp": 4400,
+            "sig": 35,
+            "orbit_velocity": "320 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3,
+              "RR": 26
+            }
+          },
+          {
+            "qty": 3,
+            "name": "Emergent Warden",
+            "dps": 41,
+            "alpha": 293,
+            "ehp": 2860,
+            "sig": 35,
+            "orbit_velocity": "350 m/s",
+            "distance": "5,000",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 3
+            }
+          },
+          {
+            "qty": 4,
+            "trigger": true,
+            "name": "Awakened Keeper",
+            "dps": 56,
+            "alpha": 479,
+            "ehp": 19250,
+            "sig": 150,
+            "orbit_velocity": "235 m/s",
+            "distance": "30km",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 6
+            }
+          },
+          {
+            "qty": 2,
+            "name": "Awakened Sentinel",
+            "dps": 76,
+            "alpha": 778,
+            "ehp": 42167,
+            "sig": 150,
+            "orbit_velocity": "200 m/s",
+            "distance": "15km",
+            "special": {
+              "Web": 1
+            }
+          },
+          {
+            "qty": 4,
+            "name": "Awakened Warden",
+            "dps": 99,
+            "alpha": 695,
+            "ehp": 26400,
+            "sig": 150,
+            "orbit_velocity": "165 m/s",
+            "distance": "45km",
+            "special": {
+              "RR": 58
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 3",
+        "ships": [
+          {
+            "qty": 5,
+            "name": "Emergent Warden",
+            "dps": 41,
+            "alpha": 293,
+            "ehp": 2860,
+            "sig": 35,
+            "orbit_velocity": "350 m/s",
+            "distance": "5,000",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 3
+            }
+          },
+          {
+            "qty": 2,
+            "trigger": true,
+            "name": "Sleepless Keeper",
+            "dps": 565,
+            "alpha": 3802,
+            "ehp": 88629,
+            "sig": 400,
+            "orbit_velocity": "105 m/s",
+            "distance": "65km",
+            "special": {
+              "Neut": 12
+            }
+          },
+          {
+            "qty": 1,
+            "name": "Sleepless Sentinel",
+            "dps": 465,
+            "alpha": 5746,
+            "ehp": 147714,
+            "sig": 400,
+            "orbit_velocity": "125 m/s",
+            "distance": "19km",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 18
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 4",
+        "ships": [
+          {
+            "qty": 2,
+            "name": "Awakened Keeper",
+            "dps": 56,
+            "alpha": 479,
+            "ehp": 19250,
+            "sig": 150,
+            "orbit_velocity": "235 m/s",
+            "distance": "30km",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 6
+            }
+          },
+          {
+            "qty": 3,
+            "name": "Awakened Warden",
+            "dps": 99,
+            "alpha": 695,
+            "ehp": 26400,
+            "sig": 150,
+            "orbit_velocity": "165 m/s",
+            "distance": "45km",
+            "special": {
+              "RR": 58
+            }
+          },
+          {
+            "qty": 2,
+            "name": "Sleepless Keeper",
+            "dps": 565,
+            "alpha": 3802,
+            "ehp": 88629,
+            "sig": 400,
+            "orbit_velocity": "105 m/s",
+            "distance": "65km",
+            "special": {
+              "Neut": 12
+            }
+          },
+          {
+            "qty": 2,
+            "name": "Sleepless Warden",
+            "dps": 396,
+            "alpha": 6379,
+            "ehp": 134933,
+            "sig": 400,
+            "orbit_velocity": "145 m/s",
+            "distance": "55km",
+            "special": {
+              "RR": 73
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

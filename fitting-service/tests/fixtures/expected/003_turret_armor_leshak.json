@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "generatedAt": "2026-09-22T17:21:54Z",
+    "generatedBy": "fitting-service",
+    "note": "Generated baseline from the currently installed Pyfa/eos. Compare against desktop Pyfa before committing new or changed fixture expectations.",
+    "pyfaRef": "v2.69.0",
+    "pyfaVersion": "v2.69.0",
+    "requestedPyfaRef": "latest"
+  },
+  "stats": {
+    "capacitor": {
+      "capacity": 8250.0,
+      "rechargeTime": 600.0,
+      "stable": true,
+      "state": 90.04035,
+      "stateUnit": "percent"
+    },
+    "defense": {
+      "armorResists": {
+        "em": 0.750508,
+        "explosive": 0.707989,
+        "kinetic": 0.697524,
+        "thermal": 0.705259
+      },
+      "ehp": 143829.807336,
+      "hp": {
+        "armor": 30996.09375,
+        "hull": 11000.0,
+        "shield": 4812.5
+      },
+      "hullResists": {
+        "em": 0.598,
+        "explosive": 0.598,
+        "kinetic": 0.598,
+        "thermal": 0.598
+      },
+      "shieldResists": {
+        "em": 0.125,
+        "explosive": 0.5625,
+        "kinetic": 0.475,
+        "thermal": 0.3
+      }
+    },
+    "drones": {
+      "bandwidthTotal": 100.0,
+      "bandwidthUsed": 100.0
+    },
+    "firepower": {
+      "droneDps": 253.44,
+      "missileDps": null,
+      "totalDps": 2342.091858,
+      "turretDps": null,
+      "volley": 9053.065916,
+      "weaponDps": 2088.651858
+    },
+    "fitName": "Turret Armor Baseline",
+    "messages": {
+      "errorCodes": [],
+      "errorCount": 0,
+      "warningCodes": [],
+      "warningCount": 0
+    },
+    "navigation": {
+      "alignTime": 21.813471,
+      "mass": 130531250.0,
+      "maxVelocity": 436.804226
+    },
+    "resources": {
+      "calibrationTotal": 400.0,
+      "calibrationUsed": 200.0,
+      "cpuTotal": 781.25,
+      "cpuUsed": 676.75,
+      "powergridTotal": 23375.0,
+      "powergridUsed": 19306.0
+    },
+    "ship": {
+      "typeId": 47271,
+      "typeName": "Leshak"
+    },
+    "targeting": {
+      "maxLockedTargets": 7.0,
+      "range": 108750.0,
+      "scanResolution": 162.5
+    }
+  }
+}

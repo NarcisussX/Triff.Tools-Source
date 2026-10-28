@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "generatedAt": "2026-09-22T17:21:54Z",
+    "generatedBy": "fitting-service",
+    "note": "Generated baseline from the currently installed Pyfa/eos. Compare against desktop Pyfa before committing new or changed fixture expectations.",
+    "pyfaRef": "v2.69.0",
+    "pyfaVersion": "v2.69.0",
+    "requestedPyfaRef": "latest"
+  },
+  "stats": {
+    "capacitor": {
+      "capacity": 1500.0,
+      "rechargeTime": 360.1875,
+      "stable": false,
+      "state": 45.0,
+      "stateUnit": "seconds"
+    },
+    "defense": {
+      "armorResists": {
+        "em": 0.68125,
+        "explosive": 0.49,
+        "kinetic": 0.521875,
+        "thermal": 0.585625
+      },
+      "ehp": 11966.982729,
+      "hp": {
+        "armor": 2125.0,
+        "hull": 1875.0,
+        "shield": 1500.0
+      },
+      "hullResists": {
+        "em": 0.598,
+        "explosive": 0.598,
+        "kinetic": 0.598,
+        "thermal": 0.598
+      },
+      "shieldResists": {
+        "em": 0.125,
+        "explosive": 0.5625,
+        "kinetic": 0.475,
+        "thermal": 0.3
+      }
+    },
+    "drones": {
+      "bandwidthTotal": 40.0,
+      "bandwidthUsed": 0.0
+    },
+    "firepower": {
+      "droneDps": 0.0,
+      "missileDps": null,
+      "totalDps": 373.319339,
+      "turretDps": null,
+      "volley": 626.149351,
+      "weaponDps": 373.319339
+    },
+    "fitName": "Scripted Charge Baseline",
+    "messages": {
+      "errorCodes": [],
+      "errorCount": 0,
+      "warningCodes": [],
+      "warningCount": 0
+    },
+    "navigation": {
+      "alignTime": 7.242695,
+      "mass": 18000000.0,
+      "maxVelocity": 2034.635417
+    },
+    "resources": {
+      "calibrationTotal": 400.0,
+      "calibrationUsed": 400.0,
+      "cpuTotal": 412.5,
+      "cpuUsed": 363.75,
+      "powergridTotal": 1375.0,
+      "powergridUsed": 884.65
+    },
+    "ship": {
+      "typeId": 2006,
+      "typeName": "Omen"
+    },
+    "targeting": {
+      "maxLockedTargets": 6.0,
+      "range": 110000.0,
+      "scanResolution": 375.0
+    }
+  }
+}

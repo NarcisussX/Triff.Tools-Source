@@ -1,0 +1,528 @@
+{
+  "ok": true,
+  "combatProfileSchemaVersion": "1.1.0",
+  "profile": {
+    "combatProfileSchemaVersion": "1.1.0",
+    "engine": {
+      "name": "Pyfa/eos",
+      "source": "TriffFits fitting-service",
+      "exporterVersion": "2",
+      "pyfaVersion": "v2.69.0",
+      "pyfaRef": "v2.69.0",
+      "eosVersion": "bundled-with-v2.69.0"
+    },
+    "fitHash": "b52a35646a201585fc10c5aa5975fc2f8e237681e6ce09c4986c60e557ec6808",
+    "ship": {
+      "typeId": 17715,
+      "typeName": "Gila",
+      "fitName": "CombatProfile Gila",
+      "mode": null
+    },
+    "skills": {
+      "profile": {
+        "mode": "all_v"
+      },
+      "overrides": {},
+      "effectiveSkillsHash": "7005f8333fa4872f4e48e608c45d1b6336d5e8f7fe8e379c69a990adece2dc69"
+    },
+    "defense": {
+      "shield": {
+        "hp": 7250.0,
+        "resists": {
+          "em": 0.19999999999999996,
+          "thermal": 0.3599999999999999,
+          "kinetic": 0.52,
+          "explosive": 0.6
+        }
+      },
+      "armor": {
+        "hp": 2750.0,
+        "resists": {
+          "em": 0.5,
+          "thermal": 0.44999999999999996,
+          "kinetic": 0.25,
+          "explosive": 0.09999999999999998
+        }
+      },
+      "hull": {
+        "hp": 3112.5,
+        "resists": {
+          "em": 0.32999999999999996,
+          "thermal": 0.32999999999999996,
+          "kinetic": 0.32999999999999996,
+          "explosive": 0.32999999999999996
+        }
+      }
+    },
+    "shieldRechargeTimeMs": 937500.0,
+    "movement": {
+      "signatureRadiusM": 170.0,
+      "massKg": 9600000.0,
+      "agility": 0.44550000000000006,
+      "alignTimeSeconds": 5.928903723637549,
+      "maxVelocityMps": 243.75,
+      "warpSpeedAuPerSecond": 4.0
+    },
+    "targeting": {
+      "scanResolutionMm": 356.25,
+      "maxRangeM": 72500.0,
+      "maxLockedTargets": 7.0,
+      "sensorStrength": 26.4,
+      "sensorType": "Gravimetric",
+      "signatureRadiusM": 170.0,
+      "droneControlRangeM": 60000.0
+    },
+    "capacitor": {
+      "capacityGj": 1750.0,
+      "rechargeTimeMs": 367500.0,
+      "neutralizerResistanceFraction": 0.0
+    },
+    "electronicResistances": {
+      "sensorDampenerMultiplier": 1.0,
+      "weaponDisruptionMultiplier": 1.0,
+      "targetPainterMultiplier": null,
+      "stasisWebMultiplier": 1.0,
+      "remoteAssistanceMultiplier": null
+    },
+    "modules": [
+      {
+        "id": "high:0",
+        "instanceId": "eft-high-1",
+        "typeId": 1877,
+        "typeName": "Rapid Light Missile Launcher II",
+        "baseType": {
+          "typeId": 1877,
+          "typeName": "Rapid Light Missile Launcher II"
+        },
+        "groupId": 511,
+        "rack": "high",
+        "index": 0,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "missile_launcher"
+        ],
+        "charge": {
+          "typeId": 24495,
+          "typeName": "Scourge Fury Light Missile"
+        },
+        "cycleTimeMs": 4296.24,
+        "averageCycleTimeMs": 4296.24,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 35000.0,
+        "magazineCharges": 20.0,
+        "cyclesUntilReload": 20.0,
+        "chargeConsumptionPerCycle": 1.0,
+        "capacitorCostGj": null,
+        "optimalRangeM": 31640.62409051956,
+        "falloffM": 1.0,
+        "damage": {
+          "volleyHp": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 239.25,
+            "explosive": 0.0,
+            "total": 239.25
+          },
+          "dps": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 55.68822970783755,
+            "explosive": 0.0,
+            "total": 55.68822970783755
+          },
+          "activationVolleyHp": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 239.25,
+            "explosive": 0.0,
+            "total": 239.25
+          },
+          "activationDps": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 55.68822970783755,
+            "explosive": 0.0,
+            "total": 55.68822970783755
+          }
+        },
+        "application": {
+          "trackingRadPerSecond": null,
+          "trackingReferenceSignatureRadiusM": null,
+          "missile": {
+            "explosionRadiusM": 51.75,
+            "explosionVelocityMps": 214.5,
+            "damageReductionFactor": 0.682,
+            "damageReductionSensitivity": null,
+            "maxVelocityMps": 5625.0,
+            "flightTimeMs": 5625.0,
+            "massKg": 700.0,
+            "agility": 0.00014449800378457667,
+            "theoreticalRangeM": 31640.62409051956
+          }
+        },
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 1.0499999999999998,
+          "heatAbsorptionRateModifier": 0.02,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": -15.0,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "mid:0",
+        "instanceId": "eft-mid-1",
+        "typeId": 24417,
+        "typeName": "Drone Navigation Computer II",
+        "baseType": {
+          "typeId": 24417,
+          "typeName": "Drone Navigation Computer II"
+        },
+        "groupId": 644,
+        "rack": "mid",
+        "index": 0,
+        "state": "online",
+        "active": false,
+        "validStates": [
+          "offline",
+          "online"
+        ],
+        "canOverheat": false,
+        "roles": [],
+        "charge": null,
+        "cycleTimeMs": null,
+        "averageCycleTimeMs": null,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": null,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": null,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "mid:1",
+        "instanceId": "eft-mid-2",
+        "typeId": 3841,
+        "typeName": "Large Shield Extender II",
+        "baseType": {
+          "typeId": 3841,
+          "typeName": "Large Shield Extender II"
+        },
+        "groupId": 38,
+        "rack": "mid",
+        "index": 1,
+        "state": "online",
+        "active": false,
+        "validStates": [
+          "offline",
+          "online"
+        ],
+        "canOverheat": false,
+        "roles": [],
+        "charge": null,
+        "cycleTimeMs": null,
+        "averageCycleTimeMs": null,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": null,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": null,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "low:0",
+        "instanceId": "eft-low-1",
+        "typeId": 4405,
+        "typeName": "Drone Damage Amplifier II",
+        "baseType": {
+          "typeId": 4405,
+          "typeName": "Drone Damage Amplifier II"
+        },
+        "groupId": 645,
+        "rack": "low",
+        "index": 0,
+        "state": "online",
+        "active": false,
+        "validStates": [
+          "offline",
+          "online"
+        ],
+        "canOverheat": false,
+        "roles": [],
+        "charge": null,
+        "cycleTimeMs": null,
+        "averageCycleTimeMs": null,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": null,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": null,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      }
+    ],
+    "drones": [
+      {
+        "id": "drone:0",
+        "typeId": 21638,
+        "typeName": "Vespa II",
+        "quantityAvailable": 4,
+        "quantityDeployed": 2,
+        "perUnitDamage": {
+          "volleyHp": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 858.9240000000001,
+            "explosive": 0.0,
+            "total": 858.9240000000001
+          },
+          "dps": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 214.73100000000002,
+            "explosive": 0.0,
+            "total": 214.73100000000002
+          }
+        },
+        "activeStackDamage": {
+          "volleyHp": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 1717.8480000000002,
+            "explosive": 0.0,
+            "total": 1717.8480000000002
+          },
+          "dps": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 429.46200000000005,
+            "explosive": 0.0,
+            "total": 429.46200000000005
+          }
+        },
+        "cycleTimeMs": 4000.0,
+        "optimalRangeM": 6000.0,
+        "falloffM": 3000.0,
+        "application": {
+          "trackingRadPerSecond": 0.78,
+          "trackingReferenceSignatureRadiusM": 125.0,
+          "missile": null
+        },
+        "maxVelocityMps": 3685.5,
+        "orbitVelocityMps": 564.0,
+        "orbitRangeM": 1600.0,
+        "signatureRadiusM": 50.0,
+        "bandwidthMbitPerSecond": 10.0,
+        "massKg": 5000.0,
+        "agility": 100.0,
+        "hp": {
+          "shield": 1890.0,
+          "armor": 735.0,
+          "hull": 1575.0
+        }
+      },
+      {
+        "id": "drone:1",
+        "typeId": 2488,
+        "typeName": "Warrior II",
+        "quantityAvailable": 5,
+        "quantityDeployed": 0,
+        "perUnitDamage": {
+          "volleyHp": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 0.0,
+            "explosive": 77.54175000000001,
+            "total": 77.54175000000001
+          },
+          "dps": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 0.0,
+            "explosive": 19.385437500000002,
+            "total": 19.385437500000002
+          }
+        },
+        "activeStackDamage": {
+          "volleyHp": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 0.0,
+            "explosive": 0.0,
+            "total": 0.0
+          },
+          "dps": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 0.0,
+            "explosive": 0.0,
+            "total": 0.0
+          }
+        },
+        "cycleTimeMs": 4000.0,
+        "optimalRangeM": 2625.0,
+        "falloffM": 2000.0,
+        "application": {
+          "trackingRadPerSecond": 3.24,
+          "trackingReferenceSignatureRadiusM": 25.0,
+          "missile": null
+        },
+        "maxVelocityMps": 8190.0,
+        "orbitVelocityMps": 900.0,
+        "orbitRangeM": 700.0,
+        "signatureRadiusM": 25.0,
+        "bandwidthMbitPerSecond": 5.0,
+        "massKg": 4000.0,
+        "agility": 100.0,
+        "hp": {
+          "shield": 150.0,
+          "armor": 135.0,
+          "hull": 195.0
+        }
+      }
+    ],
+    "fighters": null,
+    "cargo": [],
+    "heat": {
+      "generationMultiplier": 0.75,
+      "racks": {
+        "high": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.71
+        },
+        "mid": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.76
+        },
+        "low": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.5
+        }
+      }
+    },
+    "context": {
+      "implants": [],
+      "boosters": [],
+      "environment": {
+        "wormholeEffect": null,
+        "abyssalWeather": null
+      },
+      "crossFit": {
+        "projectedSources": [],
+        "commandSources": []
+      }
+    },
+    "unsupportedMechanics": [
+      "dynamic_heat",
+      "target_dependent_application",
+      "dynamic_drone_travel",
+      "command_recipient_stacking",
+      "nosferatu_target_condition"
+    ],
+    "profileId": "62b5884e857eea6af28fd4a0a7c8be973b80da15057bdc01e7f065ced5f73ece"
+  },
+  "warnings": [],
+  "errors": []
+}

@@ -1,0 +1,435 @@
+[
+  {
+    "site": "The Line",
+    "blue_loot_isk": 12000000,
+    "waves": [
+      {
+        "wave": "Wave 1",
+        "ships": [
+          {
+            "qty": 4,
+            "name": "Emergent Patroller",
+            "dps": 16,
+            "alpha": 115,
+            "ehp": 3000,
+            "sig": 35,
+            "orbit_velocity": "250 m/s",
+            "distance": "8,000",
+            "special": {}
+          },
+          {
+            "qty": 3,
+            "trigger": true,
+            "name": "Emergent Watchman",
+            "dps": 12,
+            "alpha": 95,
+            "ehp": 2000,
+            "sig": 35,
+            "orbit_velocity": "275 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3
+            }
+          },
+          {
+            "qty": 1,
+            "name": "Awakened Watchman",
+            "dps": 31,
+            "alpha": 266,
+            "ehp": 8750,
+            "sig": 150,
+            "orbit_velocity": "200 m/s",
+            "distance": "30km",
+            "special": {
+              "Neut": 6
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 2",
+        "ships": [
+          {
+            "qty": 3,
+            "name": "Emergent Escort",
+            "dps": 23,
+            "alpha": 163,
+            "ehp": 1300,
+            "sig": 35,
+            "orbit_velocity": "300 m/s",
+            "distance": "5,000",
+            "special": {
+              "Web": 1
+            }
+          },
+          {
+            "qty": 2,
+            "trigger": true,
+            "name": "Awakened Patroller",
+            "dps": 42,
+            "alpha": 432,
+            "ehp": 19167,
+            "sig": 150,
+            "orbit_velocity": "170 m/s",
+            "distance": "15km",
+            "special": {}
+          }
+        ]
+      },
+      {
+        "wave": "Wave 3",
+        "ships": [
+          {
+            "qty": 5,
+            "name": "Awakened Watchman",
+            "dps": 31,
+            "alpha": 266,
+            "ehp": 8750,
+            "sig": 150,
+            "orbit_velocity": "200 m/s",
+            "distance": "30km",
+            "special": {
+              "Neut": 6
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "site": "Perimeter Camp",
+    "blue_loot_isk": 10400000,
+    "waves": [
+      {
+        "wave": "Wave 1",
+        "ships": [
+          {
+            "qty": 2,
+            "name": "Vigilant Sentry Tower",
+            "dps": 52,
+            "alpha": 780,
+            "ehp": 10833,
+            "sig": 50,
+            "orbit_velocity": "0 m/s",
+            "distance": "0",
+            "special": {}
+          },
+          {
+            "qty": 4,
+            "name": "Emergent Patroller",
+            "dps": 16,
+            "alpha": 115,
+            "ehp": 3000,
+            "sig": 35,
+            "orbit_velocity": "250 m/s",
+            "distance": "8,000",
+            "special": {}
+          },
+          {
+            "qty": 2,
+            "trigger": true,
+            "name": "Emergent Watchman",
+            "dps": 12,
+            "alpha": 95,
+            "ehp": 2000,
+            "sig": 35,
+            "orbit_velocity": "275 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 2",
+        "ships": [
+          {
+            "qty": 5,
+            "name": "Emergent Patroller",
+            "dps": 16,
+            "alpha": 115,
+            "ehp": 3000,
+            "sig": 35,
+            "orbit_velocity": "250 m/s",
+            "distance": "8,000",
+            "special": {}
+          },
+          {
+            "qty": 3,
+            "name": "Emergent Watchman",
+            "dps": 12,
+            "alpha": 95,
+            "ehp": 2000,
+            "sig": 35,
+            "orbit_velocity": "275 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3
+            }
+          },
+          {
+            "qty": 1,
+            "trigger": true,
+            "name": "Awakened Patroller",
+            "dps": 42,
+            "alpha": 432,
+            "ehp": 19167,
+            "sig": 150,
+            "orbit_velocity": "170 m/s",
+            "distance": "15km",
+            "special": {}
+          }
+        ]
+      },
+      {
+        "wave": "Wave 3",
+        "ships": [
+          {
+            "qty": 2,
+            "name": "Emergent Patroller",
+            "dps": 16,
+            "alpha": 115,
+            "ehp": 3000,
+            "sig": 35,
+            "orbit_velocity": "250 m/s",
+            "distance": "8,000",
+            "special": {}
+          },
+          {
+            "qty": 2,
+            "name": "Awakened Patroller",
+            "dps": 42,
+            "alpha": 432,
+            "ehp": 19167,
+            "sig": 150,
+            "orbit_velocity": "170 m/s",
+            "distance": "15km",
+            "special": {}
+          },
+          {
+            "qty": 1,
+            "name": "Awakened Watchman",
+            "dps": 31,
+            "alpha": 266,
+            "ehp": 8750,
+            "sig": 150,
+            "orbit_velocity": "200 m/s",
+            "distance": "30km",
+            "special": {
+              "Neut": 6
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "site": "Phase Catalyst Node",
+    "blue_loot_isk": 9000000,
+    "waves": [
+      {
+        "wave": "Wave 1",
+        "ships": [
+          {
+            "qty": 4,
+            "name": "Vigilant Sentry Tower",
+            "dps": 52,
+            "alpha": 780,
+            "ehp": 10833,
+            "sig": 50,
+            "orbit_velocity": "0 m/s",
+            "distance": "0",
+            "special": {}
+          },
+          {
+            "qty": 2,
+            "trigger": true,
+            "name": "Emergent Escort",
+            "dps": 23,
+            "alpha": 163,
+            "ehp": 1300,
+            "sig": 35,
+            "orbit_velocity": "300 m/s",
+            "distance": "5,000",
+            "special": {
+              "Web": 1
+            }
+          },
+          {
+            "qty": 4,
+            "name": "Emergent Watchman",
+            "dps": 12,
+            "alpha": 95,
+            "ehp": 2000,
+            "sig": 35,
+            "orbit_velocity": "275 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 2",
+        "ships": [
+          {
+            "qty": 1,
+            "trigger": true,
+            "name": "Awakened Escort",
+            "dps": 55,
+            "alpha": 386,
+            "ehp": 12000,
+            "sig": 150,
+            "orbit_velocity": "140 m/s",
+            "distance": "45km",
+            "special": {}
+          },
+          {
+            "qty": 2,
+            "name": "Awakened Patroller",
+            "dps": 42,
+            "alpha": 432,
+            "ehp": 19167,
+            "sig": 150,
+            "orbit_velocity": "170 m/s",
+            "distance": "15km",
+            "special": {}
+          }
+        ]
+      },
+      {
+        "wave": "Wave 3",
+        "ships": [
+          {
+            "qty": 6,
+            "name": "Emergent Patroller",
+            "dps": 16,
+            "alpha": 115,
+            "ehp": 3000,
+            "sig": 35,
+            "orbit_velocity": "250 m/s",
+            "distance": "8,000",
+            "special": {}
+          },
+          {
+            "qty": 3,
+            "name": "Emergent Watchman",
+            "dps": 12,
+            "alpha": 95,
+            "ehp": 2000,
+            "sig": 35,
+            "orbit_velocity": "275 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "site": "Perimeter Ambush Point",
+    "blue_loot_isk": 8600000,
+    "waves": [
+      {
+        "wave": "Wave 1",
+        "ships": [
+          {
+            "qty": 2,
+            "name": "Vigilant Sentry Tower",
+            "dps": 52,
+            "alpha": 780,
+            "ehp": 10833,
+            "sig": 50,
+            "orbit_velocity": "0 m/s",
+            "distance": "0",
+            "special": {}
+          },
+          {
+            "qty": 1,
+            "name": "Emergent Escort",
+            "dps": 23,
+            "alpha": 163,
+            "ehp": 1300,
+            "sig": 35,
+            "orbit_velocity": "300 m/s",
+            "distance": "5,000",
+            "special": {
+              "Web": 1
+            }
+          },
+          {
+            "qty": 1,
+            "trigger": true,
+            "name": "Awakened Escort",
+            "dps": 55,
+            "alpha": 386,
+            "ehp": 12000,
+            "sig": 150,
+            "orbit_velocity": "140 m/s",
+            "distance": "45km",
+            "special": {}
+          }
+        ]
+      },
+      {
+        "wave": "Wave 2",
+        "ships": [
+          {
+            "qty": 3,
+            "name": "Emergent Patroller",
+            "dps": 16,
+            "alpha": 115,
+            "ehp": 3000,
+            "sig": 35,
+            "orbit_velocity": "250 m/s",
+            "distance": "8,000",
+            "special": {}
+          },
+          {
+            "qty": 2,
+            "trigger": true,
+            "name": "Awakened Escort",
+            "dps": 55,
+            "alpha": 386,
+            "ehp": 12000,
+            "sig": 150,
+            "orbit_velocity": "140 m/s",
+            "distance": "45km",
+            "special": {}
+          }
+        ]
+      },
+      {
+        "wave": "Wave 3",
+        "ships": [
+          {
+            "qty": 2,
+            "name": "Awakened Escort",
+            "dps": 55,
+            "alpha": 386,
+            "ehp": 12000,
+            "sig": 150,
+            "orbit_velocity": "140 m/s",
+            "distance": "45km",
+            "special": {}
+          },
+          {
+            "qty": 2,
+            "name": "Awakened Patroller",
+            "dps": 42,
+            "alpha": 432,
+            "ehp": 19167,
+            "sig": 150,
+            "orbit_velocity": "170 m/s",
+            "distance": "15km",
+            "special": {}
+          }
+        ]
+      }
+    ]
+  }
+]

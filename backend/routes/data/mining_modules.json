@@ -1,0 +1,79 @@
+{
+  "Miner II": {
+    "residueMult": 1.0,
+    "residueChance": 0.34,
+    "baseYield": 60.0,
+    "cycle": 60,
+    "charge": false
+  },
+  "ORE Miner": {
+    "residueMult": 0.0,
+    "residueChance": 0.0,
+    "baseYield": 85.0,
+    "cycle": 60,
+    "charge": false
+  },
+  "Single Diode Basic Mining Laser": {
+    "residueMult": 0.0,
+    "residueChance": 0.0,
+    "baseYield": 25.0,
+    "cycle": 60,
+    "charge": false
+  },
+  "EP-S Gaussian Scoped Mining Laser": {
+    "residueMult": 0.0,
+    "residueChance": 0.0,
+    "baseYield": 50.0,
+    "cycle": 60,
+    "charge": false
+  },
+  "Particle Bore Compact Mining Laser": {
+    "residueMult": 0.0,
+    "residueChance": 0.0,
+    "baseYield": 50.0,
+    "cycle": 60,
+    "charge": false
+  },
+  "Gallente Mining Laser": {
+    "residueMult": 1.0,
+    "residueChance": 0.2,
+    "baseYield": 45.0,
+    "cycle": 60,
+    "charge": false
+  },
+  "'Wild' Miner I": {
+    "residueMult": 0.0,
+    "residueChance": 0.0,
+    "baseYield": 60.0,
+    "cycle": 60,
+    "charge": false
+  },
+  "Miner I": {
+    "residueMult": 0.0,
+    "residueChance": 0.0,
+    "baseYield": 40.0,
+    "cycle": 60,
+    "charge": false
+  },
+  "Modulated Strip Miner II": {
+    "residueMult": 1.0,
+    "residueChance": 0.34,
+    "baseYield": 480.0,
+    "cycle": 180,
+    "charge": true
+  },
+  "ORE Strip Miner": {
+    "residueMult": 0.0,
+    "residueChance": 0.0,
+    "baseYield": 800.0,
+    "cycle": 180,
+    "charge": false
+  },
+  "Strip Miner I": {
+    "residueMult": 0.0,
+    "residueChance": 0.0,
+    "baseYield": 600.0,
+    "cycle": 180,
+    "charge": false
+  }
+}

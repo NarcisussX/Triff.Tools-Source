@@ -1,0 +1,4 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+# Pyfa runtime dependencies come from the downloaded release's pyproject.toml.
+pytest==8.3.4

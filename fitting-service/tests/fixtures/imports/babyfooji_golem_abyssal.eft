@@ -1,0 +1,63 @@
+[Golem, BabyFooji]
+
+Expanded Cargohold II
+Caldari Navy Ballistic Control System [1]
+Caldari Navy Ballistic Control System [2]
+Caldari Navy Ballistic Control System [3]
+
+Pithum A-Type Multispectrum Shield Hardener
+Heavy F-RX Compact Capacitor Booster, Navy Cap Booster 3200
+Pithum A-Type Multispectrum Shield Hardener
+Heavy F-RX Compact Capacitor Booster, Navy Cap Booster 3200
+Vepas' Modified Shield Boost Amplifier
+Pith X-Type X-Large Shield Booster [4]
+Republic Fleet Large Cap Battery [5]
+
+Caldari Navy Torpedo Launcher, Caldari Navy Scourge Torpedo
+Caldari Navy Bastion Module
+Caldari Navy Torpedo Launcher, Caldari Navy Scourge Torpedo
+Auto Targeting System I
+Caldari Navy Torpedo Launcher, Caldari Navy Scourge Torpedo
+Display Launcher
+Caldari Navy Torpedo Launcher, Caldari Navy Scourge Torpedo
+[Empty High slot]
+
+Large Core Defense Operational Solidifier II
+Large Core Defense Operational Solidifier II
+
+Hobgoblin II x15
+
+High-grade Crystal Alpha
+High-grade Crystal Beta
+High-grade Crystal Gamma
+High-grade Crystal Delta
+High-grade Crystal Epsilon
+High-grade Crystal Omega
+Zainou 'Deadeye' Missile Bombardment MB-705
+Zainou 'Deadeye' Guided Missile Precision GP-805
+Zainou 'Deadeye' Target Navigation Prediction TN-905
+Zainou 'Deadeye' Rapid Launch RL-1005
+
+Improved Blue Pill Booster
+Agency 'Hardshell' TB9 Dose IV
+
+Mjolnir Rage Torpedo x1836
+Navy Cap Booster 3200 x16
+Capsule Cascade Firework x50
+Caldari Navy Mjolnir Torpedo x1500
+
+[1] Caldari Navy Ballistic Control System
+  Unstable Ballistic Control System Mutaplasmid
+  cpu 24.0, missileDamageMultiplierBonus 1.13752, speedMultiplier 0.8805
+[2] Caldari Navy Ballistic Control System
+  Unstable Ballistic Control System Mutaplasmid
+  cpu 24.0, missileDamageMultiplierBonus 1.13644, speedMultiplier 0.8796
+[3] Caldari Navy Ballistic Control System
+  Unstable Ballistic Control System Mutaplasmid
+  cpu 24.0, missileDamageMultiplierBonus 1.13464, speedMultiplier 0.8765
+[4] Pith X-Type X-Large Shield Booster
+  Unstable X-Large Shield Booster Mutaplasmid
+  capacitorNeed 281.74, cpu 238.0, duration 4000.0, power 500.0, shieldBonus 1091.43
+[5] Republic Fleet Large Cap Battery
+  Gravid Large Cap Battery Mutaplasmid
+  capacitorBonus 2055.14, cpu 40.0, energyWarfareResistanceBonus -30.7, power 320.0

@@ -1,0 +1,547 @@
+[
+  {
+    "site": "Frontier Command Post",
+    "blue_loot_isk": 92300000,
+    "waves": [
+      {
+        "wave": "Wave 1",
+        "ships": [
+          {
+            "qty": 5,
+            "name": "Wakeful Sentry Tower",
+            "dps": 73,
+            "alpha": 1092,
+            "ehp": 15167,
+            "sig": 50,
+            "orbit_velocity": "0 m/s",
+            "distance": "0",
+            "special": {}
+          },
+          {
+            "qty": 4,
+            "name": "Emergent Defender",
+            "dps": 23,
+            "alpha": 161,
+            "ehp": 4200,
+            "sig": 35,
+            "orbit_velocity": "270 m/s",
+            "distance": "6,500",
+            "special": {
+              "Web": 1
+            }
+          },
+          {
+            "qty": 4,
+            "trigger": true,
+            "name": "Emergent Preserver",
+            "dps": 32,
+            "alpha": 228,
+            "ehp": 1820,
+            "sig": 35,
+            "orbit_velocity": "325 m/s",
+            "distance": "5,000",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 3
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 2",
+        "ships": [
+          {
+            "qty": 4,
+            "name": "Emergent Upholder",
+            "dps": 17,
+            "alpha": 133,
+            "ehp": 2800,
+            "sig": 35,
+            "orbit_velocity": "300 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3,
+              "RR": 19
+            }
+          },
+          {
+            "qty": 6,
+            "trigger": true,
+            "name": "Awakened Defender",
+            "dps": 59,
+            "alpha": 605,
+            "ehp": 26833,
+            "sig": 150,
+            "orbit_velocity": "185 m/s",
+            "distance": "15km",
+            "special": {}
+          },
+          {
+            "qty": 2,
+            "name": "Sleepless Defender",
+            "dps": 362,
+            "alpha": 4469,
+            "ehp": 94000,
+            "sig": 400,
+            "orbit_velocity": "115 m/s",
+            "distance": "19km",
+            "special": {
+              "Web": 1
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 3",
+        "ships": [
+          {
+            "qty": 2,
+            "name": "Awakened Defender",
+            "dps": 59,
+            "alpha": 605,
+            "ehp": 26833,
+            "sig": 150,
+            "orbit_velocity": "185 m/s",
+            "distance": "15km",
+            "special": {}
+          },
+          {
+            "qty": 2,
+            "name": "Awakened Preserver",
+            "dps": 77,
+            "alpha": 540,
+            "ehp": 16800,
+            "sig": 150,
+            "orbit_velocity": "155 m/s",
+            "distance": "45km",
+            "special": {
+              "RR": 52
+            }
+          },
+          {
+            "qty": 3,
+            "name": "Sleepless Preserver",
+            "dps": 308,
+            "alpha": 4962,
+            "ehp": 85867,
+            "sig": 400,
+            "orbit_velocity": "135 m/s",
+            "distance": "55km",
+            "special": {
+              "RR": 65
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "site": "Frontier Barracks",
+    "blue_loot_isk": 86700000,
+    "waves": [
+      {
+        "wave": "Wave 1",
+        "ships": [
+          {
+            "qty": 1,
+            "trigger": true,
+            "name": "Sleepless Preserver",
+            "dps": 308,
+            "alpha": 4962,
+            "ehp": 85867,
+            "sig": 400,
+            "orbit_velocity": "135 m/s",
+            "distance": "55km",
+            "special": {
+              "RR": 65
+            }
+          },
+          {
+            "qty": 1,
+            "name": "Sleepless Upholder",
+            "dps": 439,
+            "alpha": 2957,
+            "ehp": 56400,
+            "sig": 400,
+            "orbit_velocity": "100 m/s",
+            "distance": "65km",
+            "special": {
+              "Neut": 10
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 2",
+        "ships": [
+          {
+            "qty": 2,
+            "name": "Awakened Preserver",
+            "dps": 77,
+            "alpha": 540,
+            "ehp": 16800,
+            "sig": 150,
+            "orbit_velocity": "155 m/s",
+            "distance": "45km",
+            "special": {
+              "RR": 52
+            }
+          },
+          {
+            "qty": 3,
+            "trigger": true,
+            "name": "Sleepless Upholder",
+            "dps": 439,
+            "alpha": 2957,
+            "ehp": 56400,
+            "sig": 400,
+            "orbit_velocity": "100 m/s",
+            "distance": "65km",
+            "special": {
+              "Neut": 10
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 3",
+        "ships": [
+          {
+            "qty": 3,
+            "name": "Emergent Preserver",
+            "dps": 32,
+            "alpha": 228,
+            "ehp": 1820,
+            "sig": 35,
+            "orbit_velocity": "325 m/s",
+            "distance": "5,000",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 3
+            }
+          },
+          {
+            "qty": 4,
+            "name": "Awakened Preserver",
+            "dps": 77,
+            "alpha": 540,
+            "ehp": 16800,
+            "sig": 150,
+            "orbit_velocity": "155 m/s",
+            "distance": "45km",
+            "special": {
+              "RR": 52
+            }
+          },
+          {
+            "qty": 2,
+            "name": "Sleepless Preserver",
+            "dps": 308,
+            "alpha": 4962,
+            "ehp": 85867,
+            "sig": 400,
+            "orbit_velocity": "135 m/s",
+            "distance": "55km",
+            "special": {
+              "RR": 65
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "site": "Sleeper Information Sanctum",
+    "blue_loot_isk": 86100000,
+    "waves": [
+      {
+        "wave": "Wave 1",
+        "ships": [
+          {
+            "qty": 2,
+            "name": "Awakened Upholder",
+            "dps": 43,
+            "alpha": 372,
+            "ehp": 12250,
+            "sig": 150,
+            "orbit_velocity": "216 m/s",
+            "distance": "30km",
+            "special": {
+              "Web": 1,
+              "Neut": 6
+            }
+          },
+          {
+            "qty": 2,
+            "trigger": true,
+            "name": "Sleepless Preserver",
+            "dps": 308,
+            "alpha": 4962,
+            "ehp": 85867,
+            "sig": 400,
+            "orbit_velocity": "135 m/s",
+            "distance": "55km",
+            "special": {
+              "RR": 65
+            }
+          },
+          {
+            "qty": 2,
+            "optional": true,
+            "name": "Emergent Upholder",
+            "dps": 17,
+            "alpha": 133,
+            "ehp": 2800,
+            "sig": 35,
+            "orbit_velocity": "300 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3,
+              "RR": 19
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 2",
+        "ships": [
+          {
+            "qty": 3,
+            "name": "Sleepless Defender",
+            "dps": 362,
+            "alpha": 4469,
+            "ehp": 94000,
+            "sig": 400,
+            "orbit_velocity": "115 m/s",
+            "distance": "19km",
+            "special": {
+              "Web": 1
+            }
+          },
+          {
+            "qty": 1,
+            "trigger": true,
+            "name": "Sleepless Safeguard",
+            "dps": 539,
+            "alpha": 6496,
+            "ehp": 164868,
+            "sig": 400,
+            "orbit_velocity": "165 m/s",
+            "distance": "15km",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 20
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 3",
+        "ships": [
+          {
+            "qty": 2,
+            "name": "Emergent Preserver",
+            "dps": 32,
+            "alpha": 228,
+            "ehp": 1820,
+            "sig": 35,
+            "orbit_velocity": "325 m/s",
+            "distance": "5,000",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 3
+            }
+          },
+          {
+            "qty": 3,
+            "name": "Emergent Upholder",
+            "dps": 17,
+            "alpha": 133,
+            "ehp": 2800,
+            "sig": 35,
+            "orbit_velocity": "300 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3,
+              "RR": 19
+            }
+          },
+          {
+            "qty": 2,
+            "name": "Awakened Preserver",
+            "dps": 77,
+            "alpha": 540,
+            "ehp": 16800,
+            "sig": 150,
+            "orbit_velocity": "155 m/s",
+            "distance": "45km",
+            "special": {
+              "RR": 52
+            }
+          },
+          {
+            "qty": 2,
+            "name": "Awakened Upholder",
+            "dps": 43,
+            "alpha": 372,
+            "ehp": 12250,
+            "sig": 150,
+            "orbit_velocity": "216 m/s",
+            "distance": "30km",
+            "special": {
+              "Web": 1,
+              "Neut": 6
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "site": "Integrated Terminus",
+    "blue_loot_isk": 56800000,
+    "waves": [
+      {
+        "wave": "Wave 1",
+        "ships": [
+          {
+            "qty": 4,
+            "name": "Wakeful Sentry Tower",
+            "dps": 73,
+            "alpha": 1092,
+            "ehp": 15167,
+            "sig": 50,
+            "orbit_velocity": "0 m/s",
+            "distance": "0",
+            "special": {}
+          },
+          {
+            "qty": 3,
+            "name": "Emergent Upholder",
+            "dps": 17,
+            "alpha": 133,
+            "ehp": 2800,
+            "sig": 35,
+            "orbit_velocity": "300 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3,
+              "RR": 19
+            }
+          },
+          {
+            "qty": 4,
+            "trigger": true,
+            "name": "Awakened Defender",
+            "dps": 59,
+            "alpha": 605,
+            "ehp": 26833,
+            "sig": 150,
+            "orbit_velocity": "185 m/s",
+            "distance": "15km",
+            "special": {}
+          }
+        ]
+      },
+      {
+        "wave": "Wave 2",
+        "ships": [
+          {
+            "qty": 2,
+            "name": "Emergent Preserver",
+            "dps": 32,
+            "alpha": 228,
+            "ehp": 1820,
+            "sig": 35,
+            "orbit_velocity": "325 m/s",
+            "distance": "5,000",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 3
+            }
+          },
+          {
+            "qty": 2,
+            "name": "Awakened Preserver",
+            "dps": 77,
+            "alpha": 540,
+            "ehp": 16800,
+            "sig": 150,
+            "orbit_velocity": "155 m/s",
+            "distance": "45km",
+            "special": {
+              "RR": 52
+            }
+          },
+          {
+            "qty": 4,
+            "trigger": true,
+            "name": "Awakened Upholder",
+            "dps": 43,
+            "alpha": 372,
+            "ehp": 12250,
+            "sig": 150,
+            "orbit_velocity": "216 m/s",
+            "distance": "30km",
+            "special": {
+              "Web": 1,
+              "Neut": 6
+            }
+          }
+        ]
+      },
+      {
+        "wave": "Wave 3",
+        "ships": [
+          {
+            "qty": 4,
+            "name": "Emergent Defender",
+            "dps": 23,
+            "alpha": 161,
+            "ehp": 4200,
+            "sig": 35,
+            "orbit_velocity": "270 m/s",
+            "distance": "6,500",
+            "special": {
+              "Web": 1
+            }
+          },
+          {
+            "qty": 2,
+            "name": "Emergent Upholder",
+            "dps": 17,
+            "alpha": 133,
+            "ehp": 2800,
+            "sig": 35,
+            "orbit_velocity": "300 m/s",
+            "distance": "5,000",
+            "special": {
+              "Neut": 3,
+              "RR": 19
+            }
+          },
+          {
+            "qty": 1,
+            "name": "Sleepless Safeguard",
+            "dps": 539,
+            "alpha": 6496,
+            "ehp": 164868,
+            "sig": 400,
+            "orbit_velocity": "165 m/s",
+            "distance": "15km",
+            "special": {
+              "Scram": 1,
+              "Web": 1,
+              "Neut": 20
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

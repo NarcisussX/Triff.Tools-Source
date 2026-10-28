@@ -1,0 +1,25 @@
+# Dockerfile.backend
+
+FROM node:20-alpine
+WORKDIR /app
+
+RUN apk add --no-cache curl xz jq bzip2 postgresql-client unzip
+
+COPY backend/package*.json ./backend/
+WORKDIR /app/backend
+RUN npm install --omit=dev
+
+WORKDIR /app
+COPY backend ./backend
+COPY LICENSE LICENSE_POLICY.md THIRD_PARTY_NOTICES.md ./
+
+RUN sed -i 's/\r$//' ./backend/scripts/*.sh \
+ && chmod +x ./backend/scripts/refresh-everef.sh \
+ && chmod +x ./backend/scripts/importSDE.sh
+
+WORKDIR /app
+
+EXPOSE 3000
+
+CMD ["node", "backend/index.js"]
+

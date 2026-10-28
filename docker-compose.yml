@@ -1,0 +1,191 @@
+version: "3.8"
+
+services:
+  triffnix-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    restart: unless-stopped
+    depends_on:
+      - triffnix-backend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.triff-frontend.rule=Host(`triff.tools`) || Host(`www.triff.tools`) || Host(`dev.triff.tools`)"
+      - "traefik.http.routers.triff-frontend.entrypoints=websecure"
+      - "traefik.http.routers.triff-frontend.tls=true"
+
+      - "traefik.http.routers.triff-static.rule=(Host(`triff.tools`) || Host(`www.triff.tools`) || Host(`dev.triff.tools`)) && (PathPrefix(`/static/`) || PathPrefix(`/assets/`) || Path(`/favicon.ico`))"
+      - "traefik.http.routers.triff-static.entrypoints=websecure"
+      - "traefik.http.routers.triff-static.tls=true"
+      - "traefik.http.routers.triff-static.priority=2000"
+      - "traefik.http.routers.triff-static.service=triff-frontend"
+      - "traefik.http.services.triff-frontend.loadbalancer.server.port=80"
+    networks:
+      - web
+    ports:
+      # Local diagnostics only; production traffic must use Traefik/TLS.
+      - "127.0.0.1:8080:80"
+
+  triffnix-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    restart: unless-stopped
+    command: >
+      sh -c "
+        node ./backend/seedWormholes.js &&
+        node ./backend/index.js
+      "
+    depends_on:
+      postgres:
+        condition: service_healthy
+      fitting-service:
+        condition: service_started
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.triff-backend.rule=(Host(`triff.tools`) || Host(`www.triff.tools`) || Host(`dev.triff.tools`)) && PathPrefix(`/api`)"
+      - "traefik.http.routers.triff-backend.entrypoints=websecure"
+      - "traefik.http.routers.triff-backend.tls=true"
+      - "traefik.http.services.triff-backend.loadbalancer.server.port=3000"
+
+      - "traefik.http.routers.triff-embeds.rule=(Host(`triff.tools`) || Host(`www.triff.tools`) || Host(`dev.triff.tools`)) && HeaderRegexp(`User-Agent`, `Discordbot|Twitterbot|Slackbot|LinkedInBot|facebookexternalhit|embedly|WhatsApp|redditbot|TelegramBot`)"
+      - "traefik.http.routers.triff-embeds.entrypoints=web,websecure"
+      - "traefik.http.routers.triff-embeds.tls=true"
+      - "traefik.http.routers.triff-embeds.priority=1000"
+      - "traefik.http.routers.triff-embeds.service=triff-backend"
+    networks:
+      - web
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - FITTING_SERVICE_URL=http://fitting-service:8000
+    env_file:
+      - .env
+    ports:
+      # Keep direct backend access local; public API traffic must pass through Traefik.
+      - "127.0.0.1:3000:3000"
+
+  fitting-service:
+    build:
+      context: ./fitting-service
+      # Resolve the latest Pyfa release on every build, even without --no-cache.
+      no_cache: true
+      args:
+        PYFA_REF: ${FITTING_PYFA_REF:-latest}
+    restart: unless-stopped
+    environment:
+      - PYFA_ROOT=/opt/pyfa
+      - PYFA_GAME_DB=/opt/pyfa/eve.db
+    networks: [web]
+
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d postgres -h 127.0.0.1"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+    environment:
+      POSTGRES_DB: triffnix
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - web
+
+  traefik:
+    image: traefik:v3.6.2
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.email=admin@triffnix.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./letsencrypt:/letsencrypt"
+    networks:
+      - web
+
+  market-worker:
+    build:
+      context: ./market-worker
+    image: triffnix/market-worker:latest
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    networks: [web]
+
+  market-orders-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: >
+      sh -c "
+        ./backend/scripts/importSDE.sh &&
+        node ./backend/workers/marketOrdersWorker.js
+      "
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    restart: unless-stopped
+    networks: [web]
+
+  market-history-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: >
+      sh -c "
+        node ./backend/workers/marketHistoryWorker.js
+      "
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - PGSSL=false
+    restart: unless-stopped
+    networks: [web]
+
+networks:
+  web:
+    #external: true
+
+volumes:
+  postgres-data:
+  pyfa_home:
+
+# docker compose run --rm triffnix node ./backend/scripts/seedInvTypes.js
+# docker compose up --build -d
+
+# Dump (backup) to a file on the host: from host, adjust service/name as needed
+# docker exec -t <postgres_container_name> pg_dump -U triff -d triffnix -Fc > triffnix_$(date +%F).dump
+
+# copy the dump to new host, bring up postgres with same DB/USER/PASS
+# docker cp triffnix_2025-09-16.dump <postgres_container_name>:/tmp/restore.dump
+# docker exec -it <postgres_container_name> pg_restore -U triff -d triffnix -c /tmp/restore.dump
+
+# to update SDE: docker compose build --no-cache triffnix-backend market-orders-worker market-history-worker
+
+# remove user anoikis-command: docker compose exec postgres psql -U user -d triffnix -c "DELETE FROM anoikis_command_users WHERE username_normalized = lower('NAMEEEEE') RETURNING id, username;"
+
+# to update pyfa:
+# docker compose build --no-cache fitting-service
+# docker compose up -d fitting-service triffnix-backend

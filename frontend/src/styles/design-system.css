@@ -1,0 +1,56 @@
+/*
+ * Stylesheet for design system.
+ * Defines shared visual tokens, utility classes, or global styling consumed by the frontend bundle.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-elev: 17 24 39;
+  --card: 255 255 255 / 0.04;
+  --ring: 255 255 255 / 0.10;
+  --accent: 34 211 238;
+  --muted: 203 213 225;
+}
+
+@layer base {
+  body { @apply text-white; }
+  a { @apply transition-colors; }
+}
+
+@layer components {
+  .glass-card {
+    @apply relative rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.25)];
+  }
+  .glass-ring { @apply ring-1 ring-white/10; }
+  .hover-sheen {
+    @apply pointer-events-none absolute -inset-1 opacity-0 transition duration-300;
+    background-image: linear-gradient(to bottom right, rgba(34,211,238,.10), transparent, rgba(99,102,241,.10));
+  }
+  .card-pad { @apply p-5; }
+  .heading-xl {
+    @apply text-3xl font-extrabold tracking-tight text-blue-100;
+  }
+  .heading-lg {
+    @apply text-lg font-bold tracking-wide text-blue-100;
+  }
+  .muted { @apply text-slate-300/90; }
+  .kbd {
+    @apply inline-flex items-center rounded-md bg-white/10 px-1.5 py-0.5 text-[11px] font-mono text-slate-300;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+  }
+  .input-glass {
+    @apply w-full rounded-2xl bg-gray-900/70 border border-white/10 px-5 py-3 text-gray-100 placeholder-gray-400 shadow-xl backdrop-blur-md focus:outline-none focus:border-cyan-300/40;
+  }
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium transition;
+  }
+  .btn-glass {
+    @apply btn bg-white/10 hover:bg-white/15 border border-white/10;
+  }
+  .btn-accent {
+    @apply btn text-black bg-cyan-400 hover:bg-cyan-300;
+  }
+}

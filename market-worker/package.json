@@ -1,0 +1,10 @@
+{
+  "name": "market-worker",
+  "type": "module",
+  "version": "1.0.0",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "pg": "^8.12.0"
+  }
+}

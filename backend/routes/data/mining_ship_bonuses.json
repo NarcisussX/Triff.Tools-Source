@@ -1,0 +1,115 @@
+{
+  "Covetor": {
+    "type": "barge",
+    "shipBonusCycleTime": 0.25,
+    "shipBonusYield": 0.0,
+    "skillBargeCycleTime": 0.0,
+    "skillBargeYield": 0.03,
+    "skillExhumerCycleTime": 0.0,
+    "skillExhumerYield": 0.0
+  },
+  "Procurer": {
+    "type": "barge",
+    "shipBonusCycleTime": 0.0,
+    "shipBonusYield": 0.0,
+    "skillBargeCycleTime": 0.0,
+    "skillBargeYield": 0.02,
+    "skillExhumerCycleTime": 0.0,
+    "skillExhumerYield": 0.0
+  },
+  "Retriever": {
+    "type": "barge",
+    "shipBonusCycleTime": 0.0,
+    "shipBonusYield": 0.1,
+    "skillBargeCycleTime": 0.0,
+    "skillBargeYield": 0.03,
+    "skillExhumerCycleTime": 0.0,
+    "skillExhumerYield": 0.0
+  },
+  "Hulk": {
+    "type": "exhumer",
+    "shipBonusCycleTime": 0.15,
+    "shipBonusYield": 0.0,
+    "skillBargeCycleTime": 0.0,
+    "skillBargeYield": 0.03,
+    "skillExhumerCycleTime": 0.03,
+    "skillExhumerYield": 0.06
+  },
+  "Mackinaw": {
+    "type": "exhumer",
+    "shipBonusCycleTime": 0.1,
+    "shipBonusYield": 0.0,
+    "skillBargeCycleTime": 0.0,
+    "skillBargeYield": 0.03,
+    "skillExhumerCycleTime": 0.0,
+    "skillExhumerYield": 0.04
+  },
+  "Skiff": {
+    "type": "exhumer",
+    "shipBonusCycleTime": 0.0,
+    "shipBonusYield": 0.0,
+    "skillBargeCycleTime": 0.0,
+    "skillBargeYield": 0.02,
+    "skillExhumerCycleTime": 0.0,
+    "skillExhumerYield": 0.02
+  },
+  "Endurance": {
+    "type": "frigate",
+    "shipBonusCycleTime": 0.0,
+    "shipBonusYield": 3.0,
+    "skillFrigateCycleTime": 0.0,
+    "skillFrigateYield": 0.05,
+    "skillExpeditionCycleTime": 0.0,
+    "skillExpeditionYield": 0.0
+  },
+  "Prospect": {
+    "type": "frigate",
+    "shipBonusCycleTime": 0.0,
+    "shipBonusYield": 1.0,
+    "skillFrigateCycleTime": 0.0,
+    "skillFrigateYield": 0.05,
+    "skillExpeditionCycleTime": 0.0,
+    "skillExpeditionYield": 0.05
+  },
+  "Venture": {
+    "type": "frigate",
+    "shipBonusCycleTime": 0.0,
+    "shipBonusYield": 1.0,
+    "skillFrigateCycleTime": 0.0,
+    "skillFrigateYield": 0.05,
+    "skillExpeditionCycleTime": 0.0,
+    "skillExpeditionYield": 0.0
+  },
+  "Pioneer": {
+    "type": "destroyer",
+    "shipBonusCycleTime": 0.0,
+    "shipBonusYield": 0.5,
+    "skillDestroyerCycleTime": 0.0,
+    "skillDestroyerYield": 0.10
+  },
+  "Outrider": {
+    "type": "destroyer",
+    "shipBonusCycleTime": 0.0,
+    "shipBonusYield": 0.0,
+    "skillDestroyerCycleTime": 0.0,
+    "skillDestroyerYield": 0.15
+  },
+  "Venture Consortium Issue": {
+    "type": "frigate",
+    "shipBonusCycleTime": 0.0,
+    "shipBonusYield": 1.0,
+    "skillFrigateCycleTime": 0.0,
+    "skillFrigateYield": 0.05,
+    "skillExpeditionCycleTime": 0.0,
+    "skillExpeditionYield": 0.0,
+    "critChanceBonus": 0.5
+  },
+  "Pioneer Consortium Issue": {
+    "type": "destroyer",
+    "shipBonusCycleTime": 0.0,
+    "shipBonusYield": 0.5,
+    "skillDestroyerCycleTime": 0.0,
+    "skillDestroyerYield": 0.10,
+    "critChanceBonus": 0.5
+  }
+}

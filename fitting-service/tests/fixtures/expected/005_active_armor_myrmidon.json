@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "generatedAt": "2026-09-22T17:21:54Z",
+    "generatedBy": "fitting-service",
+    "note": "Generated baseline from the currently installed Pyfa/eos. Compare against desktop Pyfa before committing new or changed fixture expectations.",
+    "pyfaRef": "v2.69.0",
+    "pyfaVersion": "v2.69.0",
+    "requestedPyfaRef": "latest"
+  },
+  "stats": {
+    "capacitor": {
+      "capacity": 5412.5,
+      "rechargeTime": 295.8,
+      "stable": true,
+      "state": 31.344817,
+      "stateUnit": "percent"
+    },
+    "defense": {
+      "armorResists": {
+        "em": 0.68125,
+        "explosive": 0.42625,
+        "kinetic": 0.585625,
+        "thermal": 0.585625
+      },
+      "ehp": 34738.347646,
+      "hp": {
+        "armor": 5625.0,
+        "hull": 5937.5,
+        "shield": 4375.0
+      },
+      "hullResists": {
+        "em": 0.598,
+        "explosive": 0.598,
+        "kinetic": 0.598,
+        "thermal": 0.598
+      },
+      "shieldResists": {
+        "em": 0.125,
+        "explosive": 0.5625,
+        "kinetic": 0.475,
+        "thermal": 0.3
+      }
+    },
+    "drones": {
+      "bandwidthTotal": 100.0,
+      "bandwidthUsed": 50.0
+    },
+    "firepower": {
+      "droneDps": 337.319381,
+      "missileDps": null,
+      "totalDps": 509.164849,
+      "turretDps": null,
+      "volley": 1889.35346,
+      "weaponDps": 171.845468
+    },
+    "fitName": "Active Armor Cap Baseline",
+    "messages": {
+      "errorCodes": [],
+      "errorCount": 0,
+      "warningCodes": [],
+      "warningCount": 0
+    },
+    "navigation": {
+      "alignTime": 11.593926,
+      "mass": 17700000.0,
+      "maxVelocity": 421.252648
+    },
+    "resources": {
+      "calibrationTotal": 400.0,
+      "calibrationUsed": 300.0,
+      "cpuTotal": 500.0,
+      "cpuUsed": 360.75,
+      "powergridTotal": 1312.5,
+      "powergridUsed": 1077.3
+    },
+    "ship": {
+      "typeId": 24700,
+      "typeName": "Myrmidon"
+    },
+    "targeting": {
+      "maxLockedTargets": 7.0,
+      "range": 68750.0,
+      "scanResolution": 250.0
+    }
+  }
+}

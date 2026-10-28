@@ -1,0 +1,220 @@
+[
+  {
+    "path": "/eol",
+    "title": "Triff.Tools & TriffFits Shutdown — October 30, 2026",
+    "description": "Triff.Tools and TriffFits close on October 30, 2026. Export your saved fits before shutdown. Read the farewell announcement; TriffView remains available on GitHub.",
+    "image": "https://www.triff.tools/static/og/home-1200x630v7.jpg"
+  },
+  {
+    "path": "/",
+    "title": "Triff.Tools - EVE Online Tools, Market, Fitting & Industry",
+    "description": "EVE Online tools for market data, ship fitting, industry planning, wormholes, reprocessing, reactions, appraisals, calculators, and reference guides.",
+    "image": "https://www.triff.tools/static/og/home-1200x630v7.jpg"
+  },
+  {
+    "path": "/desktop",
+    "title": "Triff.Tools Desktop Workspace",
+    "description": "Open multiple Triff.Tools EVE Online tools in a draggable browser desktop workspace for large screens and multitool planning.",
+    "image": "https://www.triff.tools/static/og/home-1200x630v7.jpg"
+  },
+  {
+    "path": "/gas-calc",
+    "title": "EVE Gas Huffing Calculator | Triff.Tools",
+    "description": "Calculate wormhole gas ISK per hour with fullerite prices, cycle times, boosts, implants, ship counts, and live EVE market data.",
+    "image": "https://www.triff.tools/static/og/gas-1200x630v3.jpg"
+  },
+  {
+    "path": "/ore",
+    "title": "EVE Ore Mining Calculator | Triff.Tools",
+    "description": "Compare ore mining yield, ISK per hour, residue, boosts, crystals, ship skills, and market prices for EVE Online mining fleets.",
+    "image": "https://www.triff.tools/static/og/ore-1200x630v2.png"
+  },
+  {
+    "path": "/compressed",
+    "title": "EVE Online Reprocessing Calculator | Triff.Tools",
+    "description": "Calculate EVE Online reprocessing yields for compressed ore, mineral targets, refine rates, Athanor and Tatara bonuses, taxes, hauling volume, and live prices.",
+    "image": "https://www.triff.tools/static/og/compressed-1200x630v2.png"
+  },
+  {
+    "path": "/appraisals",
+    "title": "EVE Appraisal Tool | Triff.Tools",
+    "description": "Paste EVE item lists to price cargo, loot, fittings, and contracts with hub-based buy, sell, split, and five-percent market modes.",
+    "image": "https://www.triff.tools/static/og/appraisals-1200x630v2.png"
+  },
+  {
+    "path": "/account",
+    "title": "Account Workspace | Triff.Tools",
+    "description": "Open your Triff.Tools account workspace for saved appraisal links, generated battle reports, and synced EVE planning preferences.",
+    "image": "https://www.triff.tools/static/og/home-1200x630v7.jpg",
+    "robots": "noindex,follow"
+  },
+  {
+    "path": "/privacy",
+    "title": "Privacy Policy | Triff.Tools",
+    "description": "Read how Triff.Tools handles accounts, TriffFits app data, saved workspace data, ESI-linked characters, cookies, logs, and account deletion.",
+    "image": "https://www.triff.tools/static/og/home-1200x630v7.jpg"
+  },
+  {
+    "path": "/terms",
+    "title": "Terms of Use | Triff.Tools",
+    "description": "Read the Triff.Tools terms for free service availability, acceptable use, public generated links, APIs, EVE SSO, no warranty, and service limits.",
+    "image": "https://www.triff.tools/static/og/home-1200x630v7.jpg"
+  },
+  {
+    "path": "/industry",
+    "title": "EVE Industry Cost Calculator | Triff.Tools",
+    "description": "Plan EVE manufacturing jobs with blueprint materials, market inputs, facility taxes, system cost indexes, build trees, and profit estimates.",
+    "image": "https://www.triff.tools/static/og/industry-1200x630v2.png"
+  },
+  {
+    "path": "/schedule",
+    "title": "EVE BPC Copy Planner | Triff.Tools",
+    "description": "Calculate blueprint copy counts, runs per copy, schedule timing, and copy planning for EVE Online industry production chains.",
+    "image": "https://www.triff.tools/static/og/schedule-1200x630v3.png"
+  },
+  {
+    "path": "/reaction-calc",
+    "title": "EVE Reactions Calculator | Triff.Tools",
+    "description": "Calculate EVE Online reaction profit for hybrid, composite, biochemical, booster, and molecular-forging reactions with live prices, taxes, rigs, and structure costs.",
+    "image": "https://www.triff.tools/static/og/reactions-1200x630v3.jpg"
+  },
+  {
+    "path": "/pi-calc",
+    "title": "EVE PI Profit Calculator | Triff.Tools",
+    "description": "Compare Planetary Industry chains from P1 to P4 with EVE market prices, input costs, output values, and profitability estimates.",
+    "image": "https://www.triff.tools/static/og/pi-calc-1200x630v3.jpg"
+  },
+  {
+    "path": "/bloot",
+    "title": "EVE Blue Loot Split Calculator | Triff.Tools",
+    "description": "Split wormhole blue loot payouts by shares, pilots, taxes, marauders, dread escalations, DPS, logistics, and ratting participation.",
+    "image": "https://www.triff.tools/static/og/blue-loot-1200x630v2.png"
+  },
+  {
+    "path": "/participation",
+    "title": "Wormhole Participation Calculator | Triff.Tools",
+    "description": "Track site participation and split wormhole ratting payouts evenly by pilot, attendance, heartbeats, and completed sites.",
+    "image": "https://www.triff.tools/static/og/participation-1200x630v2.png"
+  },
+  {
+    "path": "/POSPlanner",
+    "aliases": [
+      "/posplanner"
+    ],
+    "title": "EVE POS Planner | Triff.Tools",
+    "description": "Plan EVE starbase towers with powergrid, CPU, fuel, defensive modules, EHP, and setup cost calculations.",
+    "image": "https://www.triff.tools/static/og/posplanner-1200x630.png",
+    "canonicalPath": "/POSPlanner"
+  },
+  {
+    "path": "/fitting",
+    "title": "EVE Online Fitting Tool | Triff.Tools",
+    "description": "Use a browser-based EVE Online fitting tool for EFT imports, ship stats, modules, drones, fighters, implants, boosters, skills, projected effects, command bursts, and shared fits.",
+    "image": "https://www.triff.tools/static/og/fitting-1200x630v3.jpg"
+  },
+  {
+    "path": "/roachfits",
+    "aliases": [
+      "/RoachFits"
+    ],
+    "title": "C5 Wormhole Ratting Fits | Triff.Tools",
+    "description": "Browse C5 wormhole marauder ratting fits for Golem, Paladin, Kronos, and Vargur setups with and without dread escalation.",
+    "image": "https://www.triff.tools/static/og/roachfits-1200x630.png"
+  },
+  {
+    "path": "/market",
+    "title": "EVE Market Browser | Triff.Tools",
+    "description": "Search EVE market orders, regional prices, trade hub data, daily history, volume, spreads, and item pricing trends.",
+    "image": "https://www.triff.tools/static/og/market-1200x630v3.png"
+  },
+  {
+    "path": "/dscan",
+    "title": "EVE D-Scan Intel & Wormhole Mass Tool | Triff.Tools",
+    "description": "Paste EVE D-scans to generate shareable wormhole intel reports with ship classes, hull mass, and wormhole transit mass checks.",
+    "image": "https://www.triff.tools/static/og/wormholes-1200x630v3.jpg"
+  },
+  {
+    "path": "/wormhole-sites",
+    "title": "EVE Wormhole PvE Sites | Triff.Tools",
+    "description": "Reference wormhole combat, relic, and data sites with Sleeper waves, triggers, site classes, payout context, and standardized wave math.",
+    "image": "https://www.triff.tools/static/og/wormhole-sites-1200x630v2.png"
+  },
+  {
+    "path": "/rolling-mass",
+    "title": "EVE Wormhole Rolling Mass Reference | Triff.Tools",
+    "description": "Look up EVE wormhole rolling mass, jump limits, total mass, lifetimes, and practical hole control reference values.",
+    "image": "https://www.triff.tools/static/og/rolling-mass-1200x630v2.png"
+  },
+  {
+    "path": "/wormholes",
+    "title": "EVE Wormhole Database | Triff.Tools",
+    "description": "Search J-space systems by wormhole class, statics, planets, moons, effects, A0 stars, and structure or kill activity intel.",
+    "image": "https://www.triff.tools/static/og/wormholes-1200x630v3.jpg"
+  },
+  {
+    "path": "/timestamp",
+    "title": "EVE Time Converter & Discord Timestamps | Triff.Tools",
+    "description": "Convert EVE time and local time, generate Discord timestamp codes, and preview fleet ping times for multiple time zones.",
+    "image": "https://www.triff.tools/static/og/timestamp-1200x630v2.png"
+  },
+  {
+    "path": "/evictions",
+    "title": "J-Space Eviction Stats | Triff.Tools",
+    "description": "Inspect wormhole structure kill activity, eviction history, corporation and alliance trends, and J-space structure destruction data.",
+    "image": "https://www.triff.tools/static/og/evictions-1200x630v2.jpg"
+  },
+  {
+    "path": "/holeintel",
+    "title": "Wormhole Structure Age & Intel | Triff.Tools",
+    "description": "Estimate wormhole structure age, inspect system ownership clues, structure kill history, activity patterns, and eviction planning intel.",
+    "image": "https://www.triff.tools/static/og/holeintel-1200x630.png"
+  },
+  {
+    "path": "/br",
+    "title": "EVE Battle Report Generator | Triff.Tools",
+    "description": "Generate shareable EVE battle reports and after-action summaries from killmail data, timelines, pilot counts, groups, and ISK losses.",
+    "image": "https://www.triff.tools/static/og/dreadFight.jpg"
+  },
+  {
+    "path": "/combat-logs",
+    "title": "EVE Combat Log Parser | Triff.Tools",
+    "description": "Parse EVE Online gamelogs into shareable combat reports with damage, capacitor pressure, repair, tackle, timeline, and event summaries.",
+    "image": "https://www.triff.tools/static/og/dreadFight.jpg"
+  },
+  {
+    "path": "/items",
+    "title": "EVE Item Database | Triff.Tools",
+    "description": "Search EVE items, type IDs, attributes, descriptions, market data, industry inputs, blueprint links, and quick item actions.",
+    "image": "https://www.triff.tools/static/og/items-1200x630v1.jpg"
+  },
+  {
+    "path": "/statuses",
+    "title": "Triff.Tools Status",
+    "description": "Check Triff.Tools service status, data freshness, EVE market update health, API availability, and backend component uptime.",
+    "image": "https://www.triff.tools/static/og/statuses-1200x630v2.png"
+  },
+  {
+    "path": "/changelog",
+    "title": "Triff.Tools Changelog",
+    "description": "Read recent Triff.Tools releases, EVE tool updates, bug fixes, feature additions, market data changes, and site improvements.",
+    "image": "https://www.triff.tools/static/og/changelog-1200x630.png"
+  },
+  {
+    "path": "/contact",
+    "title": "Contact Triff.Tools",
+    "description": "Send feedback, bug reports, EVE tool requests, data issues, and suggestions for the Triff.Tools browser tool suite.",
+    "image": "https://www.triff.tools/static/og/about-1200x630.png"
+  },
+  {
+    "path": "/api/docs",
+    "title": "Triff.Tools API Documentation",
+    "description": "Browse Triff.Tools OpenAPI documentation for EVE market, wormhole, industry, appraisal, gas, ore, and item data endpoints.",
+    "image": "https://www.triff.tools/static/og/about-1200x630.png"
+  },
+  {
+    "path": "/triff-local",
+    "title": "TriffLocal Intel | Triff.Tools",
+    "description": "Generate shareable EVE local intel reports with hydrated pilot, corporation, alliance, and zKill threat snapshots.",
+    "image": "https://www.triff.tools/static/og/dreadFight.jpg"
+  }
+]

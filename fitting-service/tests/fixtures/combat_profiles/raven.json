@@ -1,0 +1,659 @@
+{
+  "ok": true,
+  "combatProfileSchemaVersion": "1.1.0",
+  "profile": {
+    "combatProfileSchemaVersion": "1.1.0",
+    "engine": {
+      "name": "Pyfa/eos",
+      "source": "TriffFits fitting-service",
+      "exporterVersion": "2",
+      "pyfaVersion": "v2.69.0",
+      "pyfaRef": "v2.69.0",
+      "eosVersion": "bundled-with-v2.69.0"
+    },
+    "fitHash": "3d3b875b821989de561896f0fe85ede41ad328e9c798ccc8f0c5f874c0a669f9",
+    "ship": {
+      "typeId": 638,
+      "typeName": "Raven",
+      "fitName": "CombatProfile Raven",
+      "mode": null
+    },
+    "skills": {
+      "profile": {
+        "mode": "all_v"
+      },
+      "overrides": {},
+      "effectiveSkillsHash": "7005f8333fa4872f4e48e608c45d1b6336d5e8f7fe8e379c69a990adece2dc69"
+    },
+    "defense": {
+      "shield": {
+        "hp": 9625.0,
+        "resists": {
+          "em": 0.0,
+          "thermal": 0.19999999999999996,
+          "kinetic": 0.4,
+          "explosive": 0.5
+        }
+      },
+      "armor": {
+        "hp": 7975.0,
+        "resists": {
+          "em": 0.5,
+          "thermal": 0.44999999999999996,
+          "kinetic": 0.25,
+          "explosive": 0.09999999999999998
+        }
+      },
+      "hull": {
+        "hp": 8800.0,
+        "resists": {
+          "em": 0.32999999999999996,
+          "thermal": 0.32999999999999996,
+          "kinetic": 0.32999999999999996,
+          "explosive": 0.32999999999999996
+        }
+      }
+    },
+    "shieldRechargeTimeMs": 1875000.0,
+    "movement": {
+      "signatureRadiusM": 2255.0,
+      "massKg": 149300000.0,
+      "agility": 0.081,
+      "alignTimeSeconds": 16.764873597331174,
+      "maxVelocityMps": 1037.0711235766912,
+      "warpSpeedAuPerSecond": 3.0
+    },
+    "targeting": {
+      "scanResolutionMm": 138.75,
+      "maxRangeM": 112500.0,
+      "maxLockedTargets": 7.0,
+      "sensorStrength": 26.4,
+      "sensorType": "Gravimetric",
+      "signatureRadiusM": 2255.0,
+      "droneControlRangeM": 60000.0
+    },
+    "capacitor": {
+      "capacityGj": 5500.0,
+      "rechargeTimeMs": 862500.0,
+      "neutralizerResistanceFraction": 0.0
+    },
+    "electronicResistances": {
+      "sensorDampenerMultiplier": 1.0,
+      "weaponDisruptionMultiplier": 1.0,
+      "targetPainterMultiplier": null,
+      "stasisWebMultiplier": 1.0,
+      "remoteAssistanceMultiplier": null
+    },
+    "modules": [
+      {
+        "id": "high:0",
+        "instanceId": "eft-high-1",
+        "typeId": 19739,
+        "typeName": "Cruise Missile Launcher II",
+        "baseType": {
+          "typeId": 19739,
+          "typeName": "Cruise Missile Launcher II"
+        },
+        "groupId": 506,
+        "rack": "high",
+        "index": 0,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "missile_launcher"
+        ],
+        "charge": {
+          "typeId": 24533,
+          "typeName": "Scourge Fury Cruise Missile"
+        },
+        "cycleTimeMs": 7644.054037500001,
+        "averageCycleTimeMs": 7644.054037500001,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": 27.0,
+        "cyclesUntilReload": 27.0,
+        "chargeConsumptionPerCycle": 1.0,
+        "capacitorCostGj": null,
+        "optimalRangeM": 166556.24204495852,
+        "falloffM": 1.0,
+        "damage": {
+          "volleyHp": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 794.0625000000001,
+            "explosive": 0.0,
+            "total": 794.0625000000001
+          },
+          "dps": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 103.87976015142083,
+            "explosive": 0.0,
+            "total": 103.87976015142083
+          },
+          "activationVolleyHp": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 794.0625000000001,
+            "explosive": 0.0,
+            "total": 794.0625000000001
+          },
+          "activationDps": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 103.87976015142083,
+            "explosive": 0.0,
+            "total": 103.87976015142083
+          }
+        },
+        "application": {
+          "trackingRadPerSecond": null,
+          "trackingReferenceSignatureRadiusM": null,
+          "missile": {
+            "explosionRadiusM": 425.25,
+            "explosionVelocityMps": 87.0,
+            "damageReductionFactor": 0.908,
+            "damageReductionSensitivity": null,
+            "maxVelocityMps": 10575.0,
+            "flightTimeMs": 15750.0,
+            "massKg": 1250.0,
+            "agility": 0.00014449800378457667,
+            "theoreticalRangeM": 166556.24204495852
+          }
+        },
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 1.4249999999999998,
+          "heatAbsorptionRateModifier": 0.02,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": -15.0,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "high:1",
+        "instanceId": "eft-high-2",
+        "typeId": 12271,
+        "typeName": "Heavy Energy Neutralizer II",
+        "baseType": {
+          "typeId": 12271,
+          "typeName": "Heavy Energy Neutralizer II"
+        },
+        "groupId": 71,
+        "rack": "high",
+        "index": 1,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "neutralizer"
+        ],
+        "charge": null,
+        "cycleTimeMs": 24000.0,
+        "averageCycleTimeMs": 24000.0,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": 375.0,
+        "optimalRangeM": 20000.0,
+        "falloffM": 10000.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 3.4499999999999997,
+          "heatAbsorptionRateModifier": 0.02,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": -15.0,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": {
+          "kind": "neutralizer",
+          "amountGj": 600.0,
+          "signatureResolutionM": null,
+          "smallTargetFactor": 0.219587176,
+          "mediumTargetFactor": 0.5,
+          "largeTargetFactor": 0.875
+        },
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "high:2",
+        "instanceId": "eft-high-3",
+        "typeId": 12263,
+        "typeName": "Heavy Energy Nosferatu II",
+        "baseType": {
+          "typeId": 12263,
+          "typeName": "Heavy Energy Nosferatu II"
+        },
+        "groupId": 68,
+        "rack": "high",
+        "index": 2,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "nosferatu"
+        ],
+        "charge": null,
+        "cycleTimeMs": 10000.0,
+        "averageCycleTimeMs": 10000.0,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": -120.0,
+        "optimalRangeM": 20000.0,
+        "falloffM": 10000.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 1.4249999999999998,
+          "heatAbsorptionRateModifier": 0.02,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": -15.0,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": {
+          "kind": "nosferatu",
+          "amountGj": 120.0,
+          "signatureResolutionM": null,
+          "smallTargetFactor": null,
+          "mediumTargetFactor": null,
+          "largeTargetFactor": null
+        },
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "mid:0",
+        "instanceId": "eft-mid-1",
+        "typeId": 35662,
+        "typeName": "500MN Quad LiF Restrained Microwarpdrive",
+        "baseType": {
+          "typeId": 35662,
+          "typeName": "500MN Quad LiF Restrained Microwarpdrive"
+        },
+        "groupId": 46,
+        "rack": "mid",
+        "index": 0,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "microwarpdrive"
+        ],
+        "charge": null,
+        "cycleTimeMs": 10000.0,
+        "averageCycleTimeMs": 10000.0,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": 240.0,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 6.1499999999999995,
+          "heatAbsorptionRateModifier": 0.04,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": 50.0,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": {
+          "speedBonusPercent": 631.25,
+          "thrustKg": 150000000.0,
+          "massAdditionKg": 50000000.0,
+          "massBonusPercent": null,
+          "signatureRadiusBonusPercent": 450.0,
+          "speedFactorBonusPercent": null,
+          "thrustBonusPercent": null,
+          "maxVelocityBonusPercent": null,
+          "microwarpdriveBlockingStrength": null
+        },
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "mid:1",
+        "instanceId": "eft-mid-2",
+        "typeId": 19806,
+        "typeName": "Target Painter II",
+        "baseType": {
+          "typeId": 19806,
+          "typeName": "Target Painter II"
+        },
+        "groupId": 379,
+        "rack": "mid",
+        "index": 1,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "target_painter"
+        ],
+        "charge": null,
+        "cycleTimeMs": 5000.0,
+        "averageCycleTimeMs": 5000.0,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": 9.0,
+        "optimalRangeM": 54000.0,
+        "falloffM": 135000.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 1.275,
+          "heatAbsorptionRateModifier": 0.02,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": {
+          "kind": "target_painter",
+          "maxTargetRangeBonusPercent": null,
+          "scanResolutionBonusPercent": null,
+          "trackingBonusPercent": null,
+          "optimalBonusPercent": null,
+          "falloffBonusPercent": null,
+          "explosionRadiusBonusPercent": null,
+          "explosionVelocityBonusPercent": null,
+          "missileVelocityBonusPercent": null,
+          "missileFlightTimeBonusPercent": null,
+          "signatureRadiusBonusPercent": 37.5,
+          "gravimetricJamStrength": null,
+          "magnetometricJamStrength": null,
+          "radarJamStrength": null,
+          "ladarJamStrength": null
+        },
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "mid:2",
+        "instanceId": "eft-mid-3",
+        "typeId": 3578,
+        "typeName": "Heavy Capacitor Booster II",
+        "baseType": {
+          "typeId": 3578,
+          "typeName": "Heavy Capacitor Booster II"
+        },
+        "groupId": 76,
+        "rack": "mid",
+        "index": 2,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [],
+        "charge": {
+          "typeId": 32014,
+          "typeName": "Navy Cap Booster 800"
+        },
+        "cycleTimeMs": 12000.0,
+        "averageCycleTimeMs": 13666.666666666666,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": 6.0,
+        "cyclesUntilReload": 6.0,
+        "chargeConsumptionPerCycle": 1.0,
+        "capacitorCostGj": -800.0,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 2.4000000000000004,
+          "heatAbsorptionRateModifier": 0.02,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": -20.0,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": {
+          "capacitorGainGj": 800.0,
+          "chargeTypeId": 32014,
+          "chargeName": "Navy Cap Booster 800",
+          "cycleTimeMs": 12000.0,
+          "reloadTimeMs": 10000.0,
+          "magazineCapacity": 6.0,
+          "chargeConsumptionPerActivation": 1.0,
+          "loadedCharges": 6.0,
+          "spareCharges": 0
+        },
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "low:0",
+        "instanceId": "eft-low-1",
+        "typeId": 22291,
+        "typeName": "Ballistic Control System II",
+        "baseType": {
+          "typeId": 22291,
+          "typeName": "Ballistic Control System II"
+        },
+        "groupId": 367,
+        "rack": "low",
+        "index": 0,
+        "state": "online",
+        "active": false,
+        "validStates": [
+          "offline",
+          "online"
+        ],
+        "canOverheat": false,
+        "roles": [],
+        "charge": null,
+        "cycleTimeMs": null,
+        "averageCycleTimeMs": null,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": null,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": null,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      }
+    ],
+    "drones": [],
+    "fighters": null,
+    "cargo": [
+      {
+        "typeId": 24533,
+        "typeName": "Scourge Fury Cruise Missile",
+        "quantity": 1000
+      },
+      {
+        "typeId": 24541,
+        "typeName": "Scourge Precision Cruise Missile",
+        "quantity": 1000
+      }
+    ],
+    "heat": {
+      "generationMultiplier": 0.5,
+      "racks": {
+        "high": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.79
+        },
+        "mid": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.79
+        },
+        "low": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.71
+        }
+      }
+    },
+    "context": {
+      "implants": [],
+      "boosters": [],
+      "environment": {
+        "wormholeEffect": null,
+        "abyssalWeather": null
+      },
+      "crossFit": {
+        "projectedSources": [],
+        "commandSources": []
+      }
+    },
+    "unsupportedMechanics": [
+      "dynamic_heat",
+      "target_dependent_application",
+      "dynamic_drone_travel",
+      "command_recipient_stacking",
+      "nosferatu_target_condition"
+    ],
+    "profileId": "60cf8cd7ad87ba659d2fa4357faf274aeda03c8e7326619b1e1644659edf8a71"
+  },
+  "warnings": [],
+  "errors": []
+}

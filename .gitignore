@@ -1,0 +1,53 @@
+# Node & NPM
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output and local tooling
+.agents/
+.codex/
+.aws/
+dist/
+build/
+sde/
+artifacts/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+
+# Editor/IDE
+.vscode/
+.idea/
+.evelens-audit/
+
+# Docker volumes
+docker-volume-data/
+*.local
+
+# OS junk
+*.swp
+*.swo
+
+# Misc
+coverage/
+*.log
+markets/
+backend/data/cache/
+
+# Local secrets and generated files
+.env.*
+!.env.example
+letsencrypt/
+*.pem
+*.key
+*.p12
+*.p8
+*.mobileprovision
+__pycache__/
+.pytest_cache/
+.venv/

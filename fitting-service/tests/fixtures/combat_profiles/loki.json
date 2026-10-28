@@ -1,0 +1,724 @@
+{
+  "ok": true,
+  "combatProfileSchemaVersion": "1.1.0",
+  "profile": {
+    "combatProfileSchemaVersion": "1.1.0",
+    "engine": {
+      "name": "Pyfa/eos",
+      "source": "TriffFits fitting-service",
+      "exporterVersion": "2",
+      "pyfaVersion": "v2.69.0",
+      "pyfaRef": "v2.69.0",
+      "eosVersion": "bundled-with-v2.69.0"
+    },
+    "fitHash": "4ea2d248c4b9deaac456ee0e5ef0b4074bb70191adbab3e7709dd90ec5256917",
+    "ship": {
+      "typeId": 29990,
+      "typeName": "Loki",
+      "fitName": "CombatProfile Loki",
+      "mode": null
+    },
+    "skills": {
+      "profile": {
+        "mode": "all_v"
+      },
+      "overrides": {},
+      "effectiveSkillsHash": "7005f8333fa4872f4e48e608c45d1b6336d5e8f7fe8e379c69a990adece2dc69"
+    },
+    "defense": {
+      "shield": {
+        "hp": 3500.0,
+        "resists": {
+          "em": 0.5625,
+          "thermal": 0.475,
+          "kinetic": 0.475,
+          "explosive": 0.5625
+        }
+      },
+      "armor": {
+        "hp": 3500.0,
+        "resists": {
+          "em": 0.83,
+          "thermal": 0.5856250000000001,
+          "kinetic": 0.36250000000000004,
+          "explosive": 0.235
+        }
+      },
+      "hull": {
+        "hp": 1375.0,
+        "resists": {
+          "em": 0.598,
+          "thermal": 0.598,
+          "kinetic": 0.598,
+          "explosive": 0.598
+        }
+      }
+    },
+    "shieldRechargeTimeMs": 1050000.0,
+    "movement": {
+      "signatureRadiusM": 160.0,
+      "massKg": 13800000.0,
+      "agility": 0.2733750000000001,
+      "alignTimeSeconds": 5.229899449401872,
+      "maxVelocityMps": 289.0625,
+      "warpSpeedAuPerSecond": 4.0
+    },
+    "targeting": {
+      "scanResolutionMm": 300.0,
+      "maxRangeM": 81250.0,
+      "maxLockedTargets": 6.0,
+      "sensorStrength": 20.4,
+      "sensorType": "Ladar",
+      "signatureRadiusM": 160.0,
+      "droneControlRangeM": 60000.0
+    },
+    "capacitor": {
+      "capacityGj": 2000.0,
+      "rechargeTimeMs": 243750.0,
+      "neutralizerResistanceFraction": 0.0
+    },
+    "electronicResistances": {
+      "sensorDampenerMultiplier": 1.0,
+      "weaponDisruptionMultiplier": 1.0,
+      "targetPainterMultiplier": null,
+      "stasisWebMultiplier": 1.0,
+      "remoteAssistanceMultiplier": null
+    },
+    "modules": [
+      {
+        "id": "high:0",
+        "instanceId": "eft-high-1",
+        "typeId": 2913,
+        "typeName": "425mm AutoCannon II",
+        "baseType": {
+          "typeId": 2913,
+          "typeName": "425mm AutoCannon II"
+        },
+        "groupId": 55,
+        "rack": "high",
+        "index": 0,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "turret"
+        ],
+        "charge": {
+          "typeId": 12773,
+          "typeName": "Barrage M"
+        },
+        "cycleTimeMs": 3928.3200000000006,
+        "averageCycleTimeMs": 3928.3200000000006,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": 120.0,
+        "cyclesUntilReload": 120.0,
+        "chargeConsumptionPerCycle": 1.0,
+        "capacitorCostGj": 0.0,
+        "optimalRangeM": 3750.0,
+        "falloffM": 25396.875,
+        "damage": {
+          "volleyHp": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 102.7318359375,
+            "explosive": 123.278203125,
+            "total": 226.0100390625
+          },
+          "dps": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 26.151595577116932,
+            "explosive": 31.38191469254032,
+            "total": 57.533510269657256
+          },
+          "activationVolleyHp": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 102.7318359375,
+            "explosive": 123.278203125,
+            "total": 226.0100390625
+          },
+          "activationDps": {
+            "em": 0.0,
+            "thermal": 0.0,
+            "kinetic": 26.151595577116932,
+            "explosive": 31.38191469254032,
+            "total": 57.533510269657256
+          }
+        },
+        "application": {
+          "trackingRadPerSecond": 39.6,
+          "trackingReferenceSignatureRadiusM": 40000.0,
+          "missile": null
+        },
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 0.3375,
+          "heatAbsorptionRateModifier": 0.02,
+          "overloadDamagePercent": 15.0,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "mid:0",
+        "instanceId": "eft-mid-1",
+        "typeId": 527,
+        "typeName": "Stasis Webifier II",
+        "baseType": {
+          "typeId": 527,
+          "typeName": "Stasis Webifier II"
+        },
+        "groupId": 65,
+        "rack": "mid",
+        "index": 0,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "stasis_web"
+        ],
+        "charge": null,
+        "cycleTimeMs": 5000.0,
+        "averageCycleTimeMs": 5000.0,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": 4.5,
+        "optimalRangeM": 22500.0,
+        "falloffM": null,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 2.109375,
+          "heatAbsorptionRateModifier": 0.02,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": 45.0,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": {
+          "kind": "stasis_web",
+          "warpDisruptionStrength": null,
+          "blocksMicrowarpdrive": false,
+          "velocityBonusPercent": -60.0,
+          "fieldRadiusM": null,
+          "requiresTarget": true
+        },
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "mid:1",
+        "instanceId": "eft-mid-2",
+        "typeId": 448,
+        "typeName": "Warp Scrambler II",
+        "baseType": {
+          "typeId": 448,
+          "typeName": "Warp Scrambler II"
+        },
+        "groupId": 52,
+        "rack": "mid",
+        "index": 1,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "warp_scrambler"
+        ],
+        "charge": null,
+        "cycleTimeMs": 5000.0,
+        "averageCycleTimeMs": 5000.0,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": 4.5,
+        "optimalRangeM": 9000.0,
+        "falloffM": null,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 2.109375,
+          "heatAbsorptionRateModifier": 0.02,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": 20.0,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": {
+          "kind": "warp_scrambler",
+          "warpDisruptionStrength": 2.0,
+          "blocksMicrowarpdrive": true,
+          "velocityBonusPercent": null,
+          "fieldRadiusM": null,
+          "requiresTarget": true
+        },
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "mid:2",
+        "instanceId": "eft-mid-3",
+        "typeId": 1969,
+        "typeName": "Remote Sensor Dampener II",
+        "baseType": {
+          "typeId": 1969,
+          "typeName": "Remote Sensor Dampener II"
+        },
+        "groupId": 208,
+        "rack": "mid",
+        "index": 2,
+        "state": "active",
+        "active": true,
+        "validStates": [
+          "offline",
+          "online",
+          "active",
+          "overheated"
+        ],
+        "canOverheat": true,
+        "roles": [
+          "sensor_dampener"
+        ],
+        "charge": {
+          "typeId": 29015,
+          "typeName": "Targeting Range Dampening Script"
+        },
+        "cycleTimeMs": 10000.0,
+        "averageCycleTimeMs": 10000.0,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 0.01,
+        "magazineCharges": 1.0,
+        "cyclesUntilReload": 0.0,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": 27.0,
+        "optimalRangeM": 45000.0,
+        "falloffM": 90000.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 1.434375,
+          "heatAbsorptionRateModifier": 0.02,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": {
+          "kind": "sensor_dampener",
+          "maxTargetRangeBonusPercent": -38.25,
+          "scanResolutionBonusPercent": 0.0,
+          "trackingBonusPercent": null,
+          "optimalBonusPercent": null,
+          "falloffBonusPercent": null,
+          "explosionRadiusBonusPercent": null,
+          "explosionVelocityBonusPercent": null,
+          "missileVelocityBonusPercent": null,
+          "missileFlightTimeBonusPercent": null,
+          "signatureRadiusBonusPercent": null,
+          "gravimetricJamStrength": null,
+          "magnetometricJamStrength": null,
+          "radarJamStrength": null,
+          "ladarJamStrength": null
+        },
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "low:0",
+        "instanceId": "eft-low-1",
+        "typeId": 2048,
+        "typeName": "Damage Control II",
+        "baseType": {
+          "typeId": 2048,
+          "typeName": "Damage Control II"
+        },
+        "groupId": 60,
+        "rack": "low",
+        "index": 0,
+        "state": "online",
+        "active": false,
+        "validStates": [
+          "offline",
+          "online"
+        ],
+        "canOverheat": false,
+        "roles": [],
+        "charge": null,
+        "cycleTimeMs": null,
+        "averageCycleTimeMs": null,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": null,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 0.0,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "subsystem:0",
+        "instanceId": "eft-subsystem-1",
+        "typeId": 45597,
+        "typeName": "Loki Defensive - Adaptive Defense Node",
+        "baseType": {
+          "typeId": 45597,
+          "typeName": "Loki Defensive - Adaptive Defense Node"
+        },
+        "groupId": 954,
+        "rack": "subsystem",
+        "index": 0,
+        "state": "online",
+        "active": false,
+        "validStates": [
+          "offline",
+          "online"
+        ],
+        "canOverheat": false,
+        "roles": [],
+        "charge": null,
+        "cycleTimeMs": null,
+        "averageCycleTimeMs": null,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": null,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 0.0,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "subsystem:1",
+        "instanceId": "eft-subsystem-2",
+        "typeId": 45607,
+        "typeName": "Loki Offensive - Projectile Scoping Array",
+        "baseType": {
+          "typeId": 45607,
+          "typeName": "Loki Offensive - Projectile Scoping Array"
+        },
+        "groupId": 956,
+        "rack": "subsystem",
+        "index": 1,
+        "state": "online",
+        "active": false,
+        "validStates": [
+          "offline",
+          "online"
+        ],
+        "canOverheat": false,
+        "roles": [],
+        "charge": null,
+        "cycleTimeMs": null,
+        "averageCycleTimeMs": null,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": null,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 0.0,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "subsystem:2",
+        "instanceId": "eft-subsystem-3",
+        "typeId": 45633,
+        "typeName": "Loki Core - Immobility Drivers",
+        "baseType": {
+          "typeId": 45633,
+          "typeName": "Loki Core - Immobility Drivers"
+        },
+        "groupId": 958,
+        "rack": "subsystem",
+        "index": 2,
+        "state": "online",
+        "active": false,
+        "validStates": [
+          "offline",
+          "online"
+        ],
+        "canOverheat": false,
+        "roles": [],
+        "charge": null,
+        "cycleTimeMs": null,
+        "averageCycleTimeMs": null,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": null,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 0.0,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      },
+      {
+        "id": "subsystem:3",
+        "instanceId": "eft-subsystem-4",
+        "typeId": 45620,
+        "typeName": "Loki Propulsion - Intercalated Nanofibers",
+        "baseType": {
+          "typeId": 45620,
+          "typeName": "Loki Propulsion - Intercalated Nanofibers"
+        },
+        "groupId": 957,
+        "rack": "subsystem",
+        "index": 3,
+        "state": "online",
+        "active": false,
+        "validStates": [
+          "offline",
+          "online"
+        ],
+        "canOverheat": false,
+        "roles": [],
+        "charge": null,
+        "cycleTimeMs": null,
+        "averageCycleTimeMs": null,
+        "reactivationDelayMs": 0.0,
+        "reloadTimeMs": 10000.0,
+        "magazineCharges": null,
+        "cyclesUntilReload": null,
+        "chargeConsumptionPerCycle": null,
+        "capacitorCostGj": null,
+        "optimalRangeM": null,
+        "falloffM": 1.0,
+        "damage": null,
+        "application": null,
+        "remoteRepairEvents": [],
+        "localRepair": null,
+        "spool": null,
+        "heat": {
+          "hp": 40.0,
+          "heatDamageHp": 0.0,
+          "heatAbsorptionRateModifier": null,
+          "overloadDamagePercent": null,
+          "overloadCyclePercent": null,
+          "overloadDurationPercent": null,
+          "overloadRangePercent": null,
+          "overloadSpeedPercent": null,
+          "overloadArmorRepairPercent": null,
+          "overloadShieldRepairPercent": null
+        },
+        "capWarfare": null,
+        "tackle": null,
+        "ewar": null,
+        "propulsion": null,
+        "commandBurst": null,
+        "capacitorBooster": null,
+        "unsupportedMechanics": []
+      }
+    ],
+    "drones": [],
+    "fighters": null,
+    "cargo": [],
+    "heat": {
+      "generationMultiplier": 0.75,
+      "racks": {
+        "high": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.79
+        },
+        "mid": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.71
+        },
+        "low": {
+          "capacity": 100.0,
+          "dissipationRate": 0.01,
+          "attenuation": 0.71
+        }
+      }
+    },
+    "context": {
+      "implants": [],
+      "boosters": [],
+      "environment": {
+        "wormholeEffect": null,
+        "abyssalWeather": null
+      },
+      "crossFit": {
+        "projectedSources": [],
+        "commandSources": []
+      }
+    },
+    "unsupportedMechanics": [
+      "dynamic_heat",
+      "target_dependent_application",
+      "dynamic_drone_travel",
+      "command_recipient_stacking",
+      "nosferatu_target_condition"
+    ],
+    "profileId": "8f2887fbc552952c1899b9844a2faf56545c5798d35dbfe07d995c95efd63221"
+  },
+  "warnings": [],
+  "errors": []
+}
