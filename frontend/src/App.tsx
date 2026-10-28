@@ -92,7 +92,6 @@ const Industry = lazy(routeLoaders.industry);
 const ContactPage = lazy(routeLoaders.contact);
 const PrivacyPolicy = lazy(routeLoaders.privacy);
 const TermsOfUse = lazy(routeLoaders.terms);
-const EndOfLife = lazy(routeLoaders.endOfLife);
 const CompressedOrePlanner = lazy(routeLoaders.compressedOrePlanner);
 const Michael = lazy(routeLoaders.michael);
 const Hokkar = lazy(routeLoaders.hokkar);
@@ -689,9 +688,6 @@ export default function App() {
           </div>
 
           <div className="border-t border-[#262933] bg-[#05070b] px-2 py-2 text-[10px] text-slate-500">
-            <Link to="/eol" onClick={() => setIsOpen(false)} className="mb-3 block text-[#53b6ff] hover:underline">
-              Closing October 30 · Read the announcement
-            </Link>
             <div className="flex items-center justify-between">
               <span>Triff.Tools</span>
               <span className="text-slate-600">3.14.0</span>
@@ -768,7 +764,6 @@ export default function App() {
           <Route path="/industry" element={<Industry />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/eol" element={<EndOfLife />} />
           <Route path="/terms" element={<TermsOfUse />} />
           <Route path="/compressed" element={<CompressedOrePlanner />} />
           <Route path="/michael" element={<Michael />} />

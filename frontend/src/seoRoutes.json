@@ -1,11 +1,5 @@
 [
   {
-    "path": "/eol",
-    "title": "Triff.Tools & TriffFits Shutdown — October 30, 2026",
-    "description": "Triff.Tools and TriffFits close on October 30, 2026. Export your saved fits before shutdown. Read the farewell announcement; TriffView remains available on GitHub.",
-    "image": "https://www.triff.tools/static/og/home-1200x630v7.jpg"
-  },
-  {
     "path": "/",
     "title": "Triff.Tools - EVE Online Tools, Market, Fitting & Industry",
     "description": "EVE Online tools for market data, ship fitting, industry planning, wormholes, reprocessing, reactions, appraisals, calculators, and reference guides.",

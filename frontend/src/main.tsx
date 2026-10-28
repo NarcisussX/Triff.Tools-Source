@@ -7,7 +7,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import EndOfLifeNotice from "./components/EndOfLifeNotice";
 import "./index.css";
 import "./styles/tool-v2.css";
 import Layout from "./bg"
@@ -19,7 +18,6 @@ installClientErrorReporter("browser");
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <EndOfLifeNotice />
       <BgProvider>
         <Layout>
           <App />

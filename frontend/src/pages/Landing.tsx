@@ -629,9 +629,6 @@ export default function Landing() {
                 are property of CCP hf.
               </div>
               <div className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 uppercase tracking-[0.14em]">
-                <Link to="/eol" className="text-[#53b6ff] hover:underline">
-                  Closing October 30
-                </Link>
                 <Link to="/privacy" className="text-slate-500 hover:text-[#53b6ff]">
                   Privacy Policy
                 </Link>

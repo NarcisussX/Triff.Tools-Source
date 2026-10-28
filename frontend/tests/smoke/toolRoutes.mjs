@@ -31,7 +31,6 @@ export const SPA_TOOL_ROUTES = [
   { path: "/triff-local", label: "TriffLocal Intel" },
   { path: "/contact", label: "Contact Me" },
   { path: "/privacy", label: "Privacy Policy" },
-  { path: "/eol", label: "End of service announcement" },
   { path: "/terms", label: "Terms of Use" },
   { path: "/changelog", label: "Changelog" },
   { path: "/statuses", label: "Status" },
