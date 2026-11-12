@@ -1,0 +1,2413 @@
+openapi: 3.1.0
+info:
+  title: Triff.Tools Backend API
+  version: "2.0.5"
+  summary: API for Triff.Tools calculators and data services. Not using a descriptive UA with contact info has risks of being blocked by Cloudflare (python urlibs especially).
+  description: |
+    Triff.Tools API documentation.
+servers:
+  - url: https://www.triff.tools/api
+  - url: http://localhost:3000/api
+paths:
+  /hulls/activity:
+    get:
+      summary: Compare daily and weekly regional hull volume with historical baselines
+      operationId: getHullActivity
+      tags: [Hull Activity]
+      description: |
+        EVE daily regional market history, not individual market transactions.
+        Includes every published SDE type in category Ship, even without trades.
+        Defaults to The Forge and the latest available date before the current UTC day.
+        The selected date D supplies daily volume. Baselines cover D-7 through D-1,
+        D-30 through D-1, and D-365 through D-1; D is excluded from those baselines.
+        Missing calendar days count as zero: sums are divided by 7, 30, and 365.
+        Percentages are (volume - average) / average * 100; a zero baseline returns null.
+        Weekly trend compares avg_last_7d (D-6 through D, inclusive) against avg_prev_30d
+        (D-36 through D-7, inclusive). The two windows do not overlap. vs_prev_30d_pct
+        is (avg_last_7d - avg_prev_30d) / avg_prev_30d * 100, or null for a zero baseline.
+        These windows also use fixed calendar denominators of 7 and 30, including missing days.
+        Rows default to vs_30d_pct descending, nulls last. No history returns date null
+        and empty available_dates/hulls arrays. Raw retention is 420 days; the long
+        comparison baseline remains 365 days.
+      parameters:
+        - in: query
+          name: region_id
+          description: SDE market region ID. Defaults to The Forge.
+          schema: { type: integer, default: 10000002 }
+        - in: query
+          name: date
+          description: Optional YYYY-MM-DD from available_dates (last 30 complete available regional dates, newest first). Current UTC day and future dates are rejected.
+          schema: { type: string, format: date }
+      responses:
+        '200':
+          description: Date-relative volume comparisons
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [region_id, region_name, date, available_dates, hulls]
+                properties:
+                  region_id: { type: integer }
+                  region_name: { type: string }
+                  date: { type: [string, 'null'], format: date }
+                  available_dates:
+                    type: array
+                    maxItems: 30
+                    description: Complete available regional dates before today UTC, newest first.
+                    items: { type: string, format: date }
+                  hulls:
+                    type: array
+                    items:
+                      type: object
+                      required: [type_id, type_name, group_name, volume, avg_7d, vs_7d_pct, avg_30d, vs_30d_pct, avg_365d, vs_365d_pct, avg_last_7d, avg_prev_30d, vs_prev_30d_pct, delta_prev_30d]
+                      properties:
+                        type_id: { type: integer }
+                        type_name: { type: string }
+                        group_name: { type: string }
+                        market_group_name: { type: string, nullable: true, description: 'SDE market group, used to identify ORE mining frigates and destroyers within general hull classes.' }
+                        volume: { type: number, description: Units traded on D; missing row means zero. }
+                        avg_7d: { type: number }
+                        vs_7d_pct: { type: [number, 'null'] }
+                        avg_30d: { type: number }
+                        vs_30d_pct: { type: [number, 'null'] }
+                        avg_365d: { type: number }
+                        vs_365d_pct: { type: [number, 'null'] }
+                        delta_7d: { type: number }
+                        delta_30d: { type: number }
+                        delta_365d: { type: number }
+                        avg_last_7d: { type: number, description: 'Units/day over D-6 through D inclusive, including the selected date; fixed 7-day denominator.' }
+                        avg_prev_30d: { type: number, description: 'Units/day over D-36 through D-7 inclusive, immediately before the recent week; fixed 30-day denominator.' }
+                        vs_prev_30d_pct: { type: [number, 'null'], description: 'Percentage change from avg_prev_30d to avg_last_7d; null when avg_prev_30d is zero.' }
+                        delta_prev_30d: { type: number, description: 'avg_last_7d minus avg_prev_30d in units/day.' }
+        '400':
+          description: Invalid region, malformed date, current UTC day, or future date
+        '404':
+          description: Requested date is outside the last 30 complete available dates
+        '503':
+          description: Market history temporarily unavailable
+  /hulls/regions:
+    get:
+      summary: List SDE regions for Hull Activity
+      operationId: getHullActivityRegions
+      tags: [Hull Activity]
+      responses:
+        '200':
+          description: Region selector options, The Forge first
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [regions]
+                properties:
+                  regions:
+                    type: array
+                    items:
+                      type: object
+                      required: [region_id, region_name]
+                      properties:
+                        region_id: { type: integer }
+                        region_name: { type: string }
+        '503':
+          description: SDE temporarily unavailable
+  /industry/plan:
+    post:
+      summary: Compute an industry plan (materials, jobs, costs, tree)
+      description: |
+        Returns the full manufacturing/reaction plan for one or more goal
+        products, including the consolidated bill of materials (BOM), per-job
+        costs, and a human-readable build tree.
+
+        Notes:
+        - Request bodies use items/options. Older docs that mentioned
+          goals/settings were describing an obsolete shape.
+        - inputPriceMode and outputPriceMode are "buy" or "sell"; those map to
+          Jita buy_max and sell_min prices in the live price cache.
+        - Cost indices/taxes are decimals (e.g., 0.016 for 1.6%).
+        - options.stock can provide current inventory by typeID. Inventory is
+          consumed before job runs, child requirements, costs, and the BOM are calculated.
+      tags:
+        - Industry
+      operationId: computeIndustryPlan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IndustryPlanRequest"
+      responses:
+        "200":
+          description: Successful plan computation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IndustryPlanResponse"
+        "400":
+          description: Invalid input
+        "500":
+          description: Internal error
+  /gas-calc:
+    post:
+      summary: Calculate wormhole gas huffing throughput and profitability
+      description: |
+        Computes m³/hr, ISK/hr, time-to-kill (TTK), and residue losses for gas sites
+        based on the submitted fleet, skills, implants, and boosts.
+
+        Returns a row per site/gas combination with detailed breakdowns used by
+        the Triff.Tools gas calculator UI.
+      tags:
+        - Huffing calculator
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GasCalcRequest"
+            examples:
+              basicProspectFleet:
+                summary: Prospect with scoops, no boosts
+                value:
+                  ship: Prospect
+                  moduleType: "Syndicate Gas Cloud Scoop"
+                  moduleCount: 2
+                  shipCount: 1
+                  skills:
+                    Frigate: 5
+                    Barge: 0
+                    Exhumer: 0
+                    Expedition: 0
+                    MiningDestroyer: 0
+                    CommandDestroyer: 0
+                  implant: none
+                  boostShip: none
+                  miningDirector: 0
+                  industrialCommand: 0
+                  boostImplant: none
+                  boostModule: none
+                  priceField: buy_5pct
+      responses:
+        "200":
+          description: Successful gas calculation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GasCalcResult"
+        "400":
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /ore-calc:
+    post:
+      summary: Calculate ore mining throughput and profitability
+      description: |
+        Calculates m³/hr and ISK/hr for asteroid and moon ores given a fleet
+        composition, including ships, modules, crystals, skills, and boosts.
+        The legacy `result` field contains asteroid ores, `moonResult` contains
+        moon ores, and `compatibleResourceTypes` identifies which result tabs
+        are compatible with the selected crystal. With no crystal, both result
+        sets are returned.
+      tags:
+        - Mining Calculator
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Ore calculator request payload (see frontend/backend implementation).
+      responses:
+        "200":
+          description: Successful ore calculation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    description: Asteroid ore profitability rows; preserved for compatibility.
+                    items:
+                      type: object
+                  moonResult:
+                    type: array
+                    description: Moon ore profitability rows grouped by rarity in clients.
+                    items:
+                      type: object
+                  compatibleResourceTypes:
+                    type: array
+                    items:
+                      type: string
+                      enum: [ore, moonOre]
+                  cycleTime:
+                    type: number
+                  yieldPerCycle:
+                    type: number
+        "400":
+          description: Invalid input
+        "500":
+          description: Internal error
+  /ore-prices:
+    get:
+      deprecated: true
+      summary: Get current ore prices
+      description: |
+        Deprecated compatibility endpoint. Use `/prices/station` for direct
+        market database pricing.
+      tags:
+        - Ore
+      responses:
+        "200":
+          description: Successful ore price fetch
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+                  properties:
+                    sell_min:
+                      type: number
+                      format: float
+                    buy_max:
+                      type: number
+                      format: float
+                    sell_5pct:
+                      type: number
+                      format: float
+                    buy_5pct:
+                      type: number
+                      format: float
+        "500":
+          description: Internal error
+  /ore-planner/ores:
+    get:
+      summary: Ore Planner – list available ores
+      description: |
+        Returns the list of ore names and associated metadata used by the ore
+        planner tool (Triff.Tools ore planning UI).
+      tags:
+        - OrePlanner
+      responses:
+        "200":
+          description: Successful ore list fetch
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrePlanner.OreListResponse"
+        "500":
+          description: Internal error
+  /ore-planner/plan:
+    post:
+      summary: Ore Planner – compute ore plan
+      description: |
+        Computes an ore mining plan to satisfy the given target mineral
+        requirements, subject to allowed/disallowed ore sets and other
+        constraints, and returns per-ore and per-mineral summaries.
+      tags:
+        - OrePlanner
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrePlanner.PlanRequest"
+      responses:
+        "200":
+          description: Successful ore plan computation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrePlanner.PlanResponse"
+        "400":
+          description: Invalid input payload
+        "500":
+          description: Internal error
+
+  /prices/station:
+    get:
+      tags: [Prices]
+      summary: Get per-station prices for a list of types
+      description: >
+        Returns price stats for each requested type at a specific station.
+        Use these fields to compute your appraisal "mode" on the client.
+        **Note:** Numeric price fields come back as strings (Postgres NUMERIC).
+      parameters:
+        - name: station_id
+          in: query
+          required: true
+          description: EVE stationID (e.g., Jita 4-4 = 60003760)
+          schema:
+            type: integer
+            example: 60003760
+        - name: type_ids
+          in: query
+          required: true
+          description: CSV list of type IDs
+          schema:
+            type: array
+            items: { type: integer }
+            style: form
+            explode: false
+          example: 34,35,36
+      responses:
+        '200':
+          description: Station prices
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StationPricesResponse'
+              examples:
+                example:
+                  value:
+                    rows:
+                      - station_id: "60003760"
+                        type_id: 34
+                        sell_min: "3.87"
+                        buy_max: "3.83"
+                        sell_5pct: "3.8729856185"
+                        buy_5pct: "3.6757395469"
+                        last_updated: "2025-09-17T04:01:15.848Z"
+                      - station_id: "60003760"
+                        type_id: 35
+                        sell_min: "34.54"
+                        buy_max: "30.32"
+                        sell_5pct: "34.5411129880"
+                        buy_5pct: "30.3051838672"
+                        last_updated: "2025-09-17T04:01:15.848Z"
+        '400':
+          description: Missing or invalid station_id/type_ids
+        '500':
+          description: Server error
+  /market/quote:
+    get:
+      tags: [Market]
+      summary: Quote best prices (and optional 5% aggregates / top orders) by station or region
+      description: |
+        Returns best buy/sell pricing for one type_id or a list of type_ids scoped to either:
+        - station_id (exact location_id), OR region_id
+
+        Notes:
+        - Exactly one of station_id / region_id is required.
+        - Exactly one of type_id OR multiple type_ids is required.
+        - include_orders=true is only supported with a single type_id (not multiple, but will show order volume in return).
+        - include_aggregates controls whether 5% aggregates are computed per request (volume-weighted avg of top-of-book liquidity until 5% of total volume is filled.)
+
+        Some numeric fields may be returned as strings.
+        When writing your own URL, you can use "type_ids=30370,30371,30372" instead of "type_ids=30370&type_ids=30371" but both will work.
+      operationId: marketQuote
+      parameters:
+        - name: station_id
+          in: query
+          required: false
+          description: Station/structure location ID (e.g. Jita 4-4 = 60003760, Upwell structures are large IDs)
+          schema:
+            type: integer
+            format: int64
+          example: 1044752365771
+
+        - name: region_id
+          in: query
+          required: false
+          description: Region ID scope (mutually exclusive with station_id)
+          schema:
+            type: integer
+            format: int32
+          example: 10000002
+
+        - name: type_id
+          in: query
+          required: false
+          description: Single type ID (mutually exclusive with type_ids)
+          schema:
+            type: integer
+            format: int32
+          example: 24495
+
+        - name: type_ids
+          in: query
+          required: false
+          description: CSV list of type IDs (mutually exclusive with type_id)
+          schema:
+            type: array
+            items: { type: integer, format: int32 }
+            style: form
+            explode: false
+          example: [30370, 30371, 30372]
+
+        - name: include_orders
+          in: query
+          required: false
+          description: Include top sellers/buyers order objects (only supported with single type_id)
+          schema:
+            type: boolean
+            default: false
+
+        - name: orders_limit
+          in: query
+          required: false
+          description: Max orders returned per side (buyers/sellers) when include_orders=true
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 100
+            default: 25
+
+        - name: include_aggregates
+          in: query
+          required: false
+          description: Compute and include 5% aggregate fields (more expensive than min/max)
+          schema:
+            type: boolean
+            default: false
+
+      responses:
+        "200":
+          description: Quote result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MarketQuoteResponse"
+              examples:
+                stationAggExample:
+                  summary: Station scope with aggregates, no orderbook
+                  value:
+                    scope: { station_id: 1044752365771 }
+                    aggregate_pct: 0.05
+                    types:
+                      - type_id: 24495
+                        buy:  { best: 85.16, p05: 85.16, order_count: 3, volume_remain: 8307622 }
+                        sell: { best: null, p05: null, order_count: 0, volume_remain: 0 }
+                    orders: null
+                regionOrdersExample:
+                  summary: Region scope with top orders, no aggregates
+                  value:
+                    scope: { region_id: 10000002 }
+                    aggregate_pct: null
+                    types:
+                      - type_id: 24495
+                        buy:  { best: 85.19, p05: null, order_count: 34, volume_remain: 28677144 }
+                        sell: { best: 90.0,  p05: null, order_count: 24, volume_remain: 24517442 }
+                    orders:
+                      type_id: 24495
+                      sellers:
+                        - order_id: "7233821034"
+                          price: 90
+                          volume_remain: 214000
+                          region_id: 10000002
+                          system_id: 30000185
+                          location_id: 60012670
+                          expires_in: 1656.79
+                          last_updated: "2026-01-08T14:13:49.000Z"
+                      buyers: []
+        "400":
+          description: Missing/invalid parameters, or include_orders used with multiple type_ids
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /market/history/batch:
+    get:
+      tags: [Market]
+      summary: Market history (365d) for multiple type IDs in a region
+      description: |
+        - region_id is required for bulk requests to keep payload sizes reasonable.
+        - type_ids is capped at 50 per request.
+        - Returns results grouped by type_id.
+      operationId: marketHistoryBulk
+      parameters:
+        - name: region_id
+          in: query
+          required: true
+          description: Region ID scope (e.g., The Forge = 10000002)
+          schema:
+            type: integer
+            format: int32
+          example: 10000002
+
+        - name: type_ids
+          in: query
+          required: true
+          description: CSV list of up to 50 type IDs
+          schema:
+            type: array
+            maxItems: 50
+            items: { type: integer, format: int32 }
+            style: form
+            explode: false
+          example: [30370, 30371, 30372]
+
+      responses:
+        "200":
+          description: Market history grouped by type_id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MarketHistoryBulkResponse"
+        "400":
+          description: Missing/invalid parameters, or too many type_ids (>50)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /fitting/shared-fits:
+    post:
+      tags: [Fitting]
+      summary: Create a public TriffFits share link from EFT text
+      description: |
+        Creates a short, browser-openable TriffFits URL for a full EFT fit.
+        The returned `url` has the form `https://triff.tools/fitting/fit/{id}`.
+
+        This endpoint does not calculate fits inside the API route. It validates
+        the submitted EFT by importing it through the fitting service, which uses
+        pyfa/eos. Opening the share link imports the original EFT text through the
+        same fitting-service path again.
+
+        Authentication is not required. Duplicate EFT text returns the existing
+        share link with `duplicate: true`.
+
+        Third-party tools may send either JSON or raw `text/plain` EFT.
+      operationId: createFittingShareLink
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FittingShareCreateRequest"
+            examples:
+              jsonEft:
+                summary: JSON EFT payload
+                value:
+                  eftText: |
+                    [Punisher, Passive Armor Baseline]
+                    400mm Rolled Tungsten Compact Plates
+                    Multispectrum Energized Membrane II
+                    Damage Control II
+                    Extruded Compact Heat Sink
+
+                    1MN Monopropellant Enduring Afterburner
+                    Small Compact Pb-Acid Cap Battery
+
+                    Small Focused Pulse Laser II, Imperial Navy Multifrequency S
+                  source: zkillboard
+                  sourceUrl: https://zkillboard.com/
+          text/plain:
+            schema:
+              type: string
+              description: Raw EFT text. Use this when your tool already has an EFT block and does not want to JSON-wrap it.
+            examples:
+              rawEft:
+                summary: Raw EFT text
+                value: |
+                  [Punisher, Passive Armor Baseline]
+                  400mm Rolled Tungsten Compact Plates
+                  Multispectrum Energized Membrane II
+                  Damage Control II
+      responses:
+        "201":
+          description: Share link created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FittingShareResponse"
+        "200":
+          description: Existing share link returned for duplicate EFT text
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FittingShareResponse"
+        "400":
+          description: Missing or invalid EFT text
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "413":
+          description: EFT text exceeds the request limit
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /fitting/rolling-stats:
+    post:
+      tags: [Fitting]
+      summary: Calculate wormhole rolling mass and movement stats from EFT text
+      description: |
+        Public integration endpoint for wormhole rolling tools. Submit an EFT fit
+        and receive rolling-relevant mass and movement scenarios calculated through
+        the same fitting-service path used by TriffFits. The fitting-service uses
+        pyfa/eos as the calculation source of truth.
+
+        Authentication is not required. Calculations use All V skills.
+
+        Returned scenarios are intentionally limited and traceable:
+        - `cold`: fitted prop modules are not active.
+        - one scenario per fitted afterburner or microwarpdrive active.
+        - `zero_point`: included only when a fitted Zero-Point Mass Entangler
+          scenario is detectable.
+
+        Bastion, siege, triage, industrial core, and similar jump-blocking modules
+        are forced inactive for jumpable rolling scenarios. The API does not expose
+        arbitrary every-module permutation simulation.
+
+        Rate limit defaults to 20 requests/minute with a burst of 40 per IP or
+        signed-in user bucket.
+      operationId: calculateFittingRollingStats
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FittingRollingStatsRequest"
+            examples:
+              rollingBattleship:
+                summary: Rolling fit EFT payload
+                value:
+                  eft: |
+                    [Megathron, Rolling Mega]
+                    Damage Control II
+                    1600mm Steel Plates II
+
+                    500MN Quad LiF Restrained Microwarpdrive
+      responses:
+        "200":
+          description: Rolling stats calculated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FittingRollingStatsResponse"
+        "400":
+          description: Empty EFT text
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FittingRollingStatsResponse"
+        "422":
+          description: EFT import or scenario calculation failed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FittingRollingStatsResponse"
+        "429":
+          description: Rate limited
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal or fitting-service error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /fitting/combat-profile:
+    post:
+      tags: [Fitting]
+      summary: Export a versioned simulation-facing CombatProfile
+      description: |
+        Additive pyfa/eos export for EFT or an existing normalized fit payload.
+        Authentication is not required for All V or Alpha profiles. Optional ESI
+        profiles use the existing owner-checked cached character skills; private
+        skill maps and tokens are not returned. No new ESI scope is requested.
+
+        Supplies raw hull, defense, targeting, capacitor, module, drone, repair,
+        EWAR, tackle, propulsion, burst, spool and static heat data, not a dynamic
+        combat simulation. See docs/COMBAT_PROFILE_API.md for field provenance,
+        units, nullability, selected-state semantics and explicit limitations.
+        Module overrides produce one recalculated snapshot for alternate charges
+        or activation/heat states, not arbitrary module permutations.
+
+        Rate limit defaults to 20 requests/minute, burst 40 per IP per process.
+        Maximum JSON size is 256 KiB; responses are marked no-store. Consume
+        warnings and unsupportedMechanics even when ok is true. Defense
+        resistances are 0-1 fractions; *Percent bonuses are signed 0-100 values.
+      operationId: exportFittingCombatProfile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FittingCombatProfileRequest'
+            example:
+              eft: "[Raven, Example]\nCruise Missile Launcher II, Scourge Fury Cruise Missile\n"
+              skillProfile: {mode: all_v}
+      responses:
+        '200':
+          description: Combat profile exported; inspect warnings and unsupported mechanics
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/FittingCombatProfileResponse'}
+        '400':
+          description: Invalid outer request
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/FittingCombatProfileResponse'}
+        '422':
+          description: Invalid fit, charge/state override, or service-side input
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/FittingCombatProfileResponse'}
+        '429':
+          description: Rate limited
+          headers:
+            Retry-After: {schema: {type: string}, description: Retry after 60 seconds}
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/FittingCombatProfileResponse'}
+        '502':
+          description: Fitting engine or upstream failure
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/FittingCombatProfileResponse'}
+
+  /types/resolve:
+    post:
+      tags: [Types]
+      summary: Resolve EVE item names to type IDs (with unit volume)
+      description: >
+        Resolves names to `{ type_id, canonicalName, m3 }` using local SDE/cache.
+        Falls back to external sources for misses. `m3` here is **unit** volume.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TypeResolveRequest'
+            examples:
+              example:
+                value:
+                  names:
+                    - Tritanium
+                    - "Warp Disruptor II"
+                    - "Neurovisual Input Matrix"
+      responses:
+        '200':
+          description: Resolution result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TypeResolveResponse'
+              examples:
+                example:
+                  value:
+                    results:
+                      - { name: "Tritanium", type_id: 34, m3: 0.01, canonicalName: "Tritanium" }
+                      - { name: "Warp Disruptor II", type_id: 12058, m3: 10, canonicalName: "Warp Disruptor II" }
+                      - { name: "Neurovisual Input Matrix", type_id: 34559, m3: 1, canonicalName: "Neurovisual Input Matrix" }
+        '400':
+          description: Bad request (no names)
+        '500':
+          description: Server error
+components:
+  schemas:
+    FittingCombatProfileRequest:
+      type: object
+      additionalProperties: false
+      oneOf:
+        - required: [eft]
+        - required: [eftText]
+        - required: [text]
+        - required: [payload]
+      properties:
+        eft: {type: string, minLength: 1}
+        eftText: {type: string, minLength: 1, description: Alias of eft}
+        text: {type: string, minLength: 1, description: Alias of eft}
+        payload:
+          type: object
+          description: Existing normalized fit or targetFit/sourceFits/projectedLinks/commandLinks envelope. Put skills in each fit.
+        skillProfile:
+          type: object
+          description: EFT input only; all_v (default), alpha_clone, or owner-checked esi_character.
+          properties:
+            mode: {type: string, enum: [all_v, alpha_clone, esi_character]}
+            characterId: {type: integer, minimum: 1}
+        skillOverrides:
+          type: object
+          description: EFT input only. Existing calculation-only skill overrides, keyed by skill type ID.
+          additionalProperties: {type: integer, minimum: -1, maximum: 5}
+        moduleOverrides:
+          type: array
+          maxItems: 64
+          items:
+            type: object
+            additionalProperties: false
+            required: [rack, index]
+            properties:
+              rack: {type: string, enum: [high, mid, low, rig, subsystem]}
+              index: {type: integer, minimum: 0}
+              chargeTypeId: {type: [integer, 'null'], minimum: 1, description: Null unloads. Must be compatible with the selected module.}
+              state: {type: string, enum: [offline, online, active, overheated]}
+    FittingCombatProfileResponse:
+      type: object
+      required: [ok, combatProfileSchemaVersion, profile, warnings, errors]
+      properties:
+        ok: {type: boolean}
+        combatProfileSchemaVersion: {type: string, const: '1.1.0'}
+        profile:
+          oneOf:
+            - {$ref: '#/components/schemas/FittingCombatProfile'}
+            - {type: 'null'}
+        warnings: {type: array, items: {$ref: '#/components/schemas/FittingCombatIssue'}}
+        errors: {type: array, items: {$ref: '#/components/schemas/FittingCombatIssue'}}
+    FittingCombatIssue:
+      type: object
+      required: [code]
+      properties:
+        code: {type: string}
+        message: {type: string}
+        moduleId: {type: string}
+    FittingCombatNumber:
+      type: [number, 'null']
+      description: Raw finite calculated value; null is unavailable/not applicable, never an invented zero.
+    FittingCombatType:
+      type: object
+      required: [typeId, typeName]
+      properties:
+        typeId: {type: integer}
+        typeName: {type: string}
+    FittingCombatDamageSplit:
+      type: object
+      required: [em, thermal, kinetic, explosive, total]
+      additionalProperties: false
+      properties:
+        em: {$ref: '#/components/schemas/FittingCombatNumber'}
+        thermal: {$ref: '#/components/schemas/FittingCombatNumber'}
+        kinetic: {$ref: '#/components/schemas/FittingCombatNumber'}
+        explosive: {$ref: '#/components/schemas/FittingCombatNumber'}
+        total: {$ref: '#/components/schemas/FittingCombatNumber'}
+    FittingCombatLayer:
+      type: object
+      required: [hp, resists]
+      properties:
+        hp: {$ref: '#/components/schemas/FittingCombatNumber'}
+        resists:
+          type: object
+          required: [em, thermal, kinetic, explosive]
+          additionalProperties: {type: [number, 'null'], minimum: 0, maximum: 1}
+          description: Resistance fractions, not resonance or percentages.
+    FittingCombatProfile:
+      type: object
+      description: Velocity fields use Mps for meters per second; Ms is reserved exclusively for milliseconds. No legacy velocity aliases are exported.
+      required: [combatProfileSchemaVersion, profileId, fitHash, engine, ship, skills, defense, movement, targeting, capacitor, modules, drones, fighters, cargo, heat, context, unsupportedMechanics]
+      properties:
+        combatProfileSchemaVersion: {type: string, const: '1.1.0'}
+        profileId: {type: string, pattern: '^[a-f0-9]{64}$'}
+        fitHash: {type: string, pattern: '^[a-f0-9]{64}$'}
+        engine:
+          type: object
+          required: [name, source, exporterVersion, pyfaVersion, pyfaRef, eosVersion]
+          properties:
+            name: {type: string, const: Pyfa/eos}
+            source: {type: string}
+            exporterVersion: {type: string}
+            pyfaVersion: {type: [string, 'null']}
+            pyfaRef: {type: [string, 'null']}
+            eosVersion: {type: [string, 'null']}
+        ship:
+          allOf:
+            - {$ref: '#/components/schemas/FittingCombatType'}
+            - type: object
+              required: [fitName, mode]
+              properties:
+                fitName: {type: string}
+                mode:
+                  oneOf:
+                    - {$ref: '#/components/schemas/FittingCombatType'}
+                    - {type: 'null'}
+        skills:
+          type: object
+          required: [profile, overrides, effectiveSkillsHash]
+          properties:
+            profile: {type: object, description: Resolved profile metadata; no private ESI skills map}
+            overrides: {type: object}
+            effectiveSkillsHash: {type: string, pattern: '^[a-f0-9]{64}$'}
+        defense:
+          type: object
+          required: [shield, armor, hull]
+          properties:
+            shield: {$ref: '#/components/schemas/FittingCombatLayer'}
+            armor: {$ref: '#/components/schemas/FittingCombatLayer'}
+            hull: {$ref: '#/components/schemas/FittingCombatLayer'}
+        shieldRechargeTimeMs: {$ref: '#/components/schemas/FittingCombatNumber'}
+        movement:
+          type: object
+          required: [signatureRadiusM, massKg, agility, alignTimeSeconds, maxVelocityMps, warpSpeedAuPerSecond]
+          properties:
+            maxVelocityMps: {$ref: '#/components/schemas/FittingCombatNumber', description: Maximum velocity in meters per second.}
+          additionalProperties: {$ref: '#/components/schemas/FittingCombatNumber'}
+          description: Meters, kg, native agility, seconds, meters/second, AU/second respectively.
+        targeting:
+          type: object
+          required: [scanResolutionMm, maxRangeM, maxLockedTargets, sensorStrength, sensorType, signatureRadiusM, droneControlRangeM]
+          properties:
+            sensorType: {type: [string, 'null']}
+          additionalProperties: {$ref: '#/components/schemas/FittingCombatNumber'}
+        capacitor:
+          type: object
+          required: [capacityGj, rechargeTimeMs, neutralizerResistanceFraction]
+          additionalProperties: {$ref: '#/components/schemas/FittingCombatNumber'}
+        electronicResistances:
+          type: object
+          additionalProperties: {$ref: '#/components/schemas/FittingCombatNumber'}
+        modules: {type: array, items: {$ref: '#/components/schemas/FittingCombatModule'}}
+        drones: {type: array, items: {$ref: '#/components/schemas/FittingCombatDrone'}}
+        fighters: {type: 'null', description: Fighter abilities not normalized in schema 1.}
+        cargo:
+          type: array
+          items:
+            allOf:
+              - {$ref: '#/components/schemas/FittingCombatType'}
+              - type: object
+                required: [quantity]
+                properties:
+                  quantity: {type: integer, minimum: 0}
+        heat: {type: object, required: [generationMultiplier, racks], description: Native static rack coefficients only; no dynamic heat model.}
+        context: {type: object, required: [implants, boosters, environment, crossFit]}
+        unsupportedMechanics: {type: array, items: {type: string}}
+    FittingCombatModule:
+      type: object
+      required: [id, typeId, typeName, baseType, groupId, rack, index, state, active, validStates, canOverheat, roles, charge, cycleTimeMs, capacitorCostGj, damage, application, remoteRepairEvents, localRepair, spool, heat, capWarfare, tackle, ewar, propulsion, commandBurst, unsupportedMechanics]
+      properties:
+        id: {type: string, pattern: '^(high|mid|low|rig|subsystem):[0-9]+$'}
+        instanceId: {type: [string, 'null']}
+        typeId: {type: integer}
+        typeName: {type: string}
+        baseType: {$ref: '#/components/schemas/FittingCombatType'}
+        groupId: {type: integer}
+        rack: {type: string, enum: [high, mid, low, rig, subsystem]}
+        index: {type: integer, minimum: 0}
+        state: {type: string, enum: [offline, online, active, overheated]}
+        active: {type: boolean}
+        validStates: {type: array, items: {type: string, enum: [offline, online, active, overheated]}}
+        canOverheat: {type: boolean}
+        roles: {type: array, items: {type: string}}
+        charge:
+          oneOf:
+            - {$ref: '#/components/schemas/FittingCombatType'}
+            - {type: 'null'}
+        cycleTimeMs: {$ref: '#/components/schemas/FittingCombatNumber'}
+        averageCycleTimeMs: {$ref: '#/components/schemas/FittingCombatNumber'}
+        reactivationDelayMs: {$ref: '#/components/schemas/FittingCombatNumber'}
+        reloadTimeMs: {$ref: '#/components/schemas/FittingCombatNumber'}
+        magazineCharges: {$ref: '#/components/schemas/FittingCombatNumber'}
+        cyclesUntilReload: {$ref: '#/components/schemas/FittingCombatNumber'}
+        chargeConsumptionPerCycle: {$ref: '#/components/schemas/FittingCombatNumber'}
+        capacitorCostGj: {$ref: '#/components/schemas/FittingCombatNumber', description: Signed GJ; negative is own capacitor gain.}
+        optimalRangeM: {$ref: '#/components/schemas/FittingCombatNumber'}
+        falloffM: {$ref: '#/components/schemas/FittingCombatNumber'}
+        damage:
+          type: [object, 'null']
+          required: [volleyHp, dps, activationVolleyHp, activationDps]
+          properties:
+            volleyHp: {$ref: '#/components/schemas/FittingCombatDamageSplit'}
+            dps: {$ref: '#/components/schemas/FittingCombatDamageSplit'}
+            activationVolleyHp: {$ref: '#/components/schemas/FittingCombatDamageSplit'}
+            activationDps: {$ref: '#/components/schemas/FittingCombatDamageSplit'}
+        application:
+          type: [object, 'null']
+          required: [trackingRadPerSecond, trackingReferenceSignatureRadiusM, missile]
+          properties:
+            trackingRadPerSecond: {$ref: '#/components/schemas/FittingCombatNumber'}
+            trackingReferenceSignatureRadiusM: {$ref: '#/components/schemas/FittingCombatNumber'}
+            missile:
+              type: [object, 'null']
+              required: [explosionRadiusM, explosionVelocityMps, damageReductionFactor, damageReductionSensitivity, maxVelocityMps, flightTimeMs, massKg, agility, theoreticalRangeM]
+              properties:
+                explosionVelocityMps: {$ref: '#/components/schemas/FittingCombatNumber', description: Explosion velocity in meters per second.}
+                maxVelocityMps: {$ref: '#/components/schemas/FittingCombatNumber', description: Missile maximum velocity in meters per second.}
+                flightTimeMs: {$ref: '#/components/schemas/FittingCombatNumber', description: Missile flight time in milliseconds.}
+              additionalProperties: {$ref: '#/components/schemas/FittingCombatNumber'}
+        remoteRepairEvents:
+          type: array
+          items:
+            type: object
+            required: [offsetMs, shieldHp, armorHp, hullHp, capacitorGj]
+            additionalProperties: {$ref: '#/components/schemas/FittingCombatNumber'}
+        localRepair:
+          type: [object, 'null']
+          required: [shieldHpPerCycle, armorHpPerCycle, hullHpPerCycle, landingOffsetMs]
+          additionalProperties: {$ref: '#/components/schemas/FittingCombatNumber'}
+        spool:
+          type: [object, 'null']
+          required: [eligible, kind, incrementFractionPerCycle, maximumBonusFraction, configuredType, configuredAmount, minimum, current, maximum]
+        heat: {type: object, additionalProperties: {$ref: '#/components/schemas/FittingCombatNumber'}}
+        capWarfare: {type: [object, 'null'], required: [kind, amountGj, signatureResolutionM]}
+        capacitorBooster:
+          $ref: '#/components/schemas/FittingCombatCapacitorBooster'
+        tackle: {type: [object, 'null'], required: [kind, warpDisruptionStrength, blocksMicrowarpdrive, velocityBonusPercent, fieldRadiusM, requiresTarget]}
+        ewar: {type: [object, 'null'], required: [kind]}
+        propulsion: {type: [object, 'null'], additionalProperties: {$ref: '#/components/schemas/FittingCombatNumber'}}
+        commandBurst:
+          type: [object, 'null']
+          required: [radiusM, durationMs, effects]
+          properties:
+            radiusM: {$ref: '#/components/schemas/FittingCombatNumber'}
+            durationMs: {$ref: '#/components/schemas/FittingCombatNumber'}
+            effects:
+              type: array
+              items:
+                type: object
+                required: [buffId, supported, effect, affectedStats, bonusPercent]
+                properties:
+                  buffId: {type: integer}
+                  supported: {type: boolean}
+                  effect: {type: [string, 'null']}
+                  affectedStats: {type: array, items: {type: string}}
+                  bonusPercent: {$ref: '#/components/schemas/FittingCombatNumber'}
+        unsupportedMechanics: {type: array, items: {type: string}}
+    FittingCombatCapacitorBooster:
+      type: [object, 'null']
+      description: >-
+        Added in schema 1.1.0. Present as an object only for native capacitor-booster
+        group 76; null for other modules, including capacitor batteries. Static
+        activation and initial-resource data only, not runtime capacitor simulation.
+      required: [capacitorGainGj, chargeTypeId, chargeName, cycleTimeMs, reloadTimeMs, magazineCapacity, chargeConsumptionPerActivation, loadedCharges, spareCharges]
+      properties:
+        capacitorGainGj:
+          $ref: '#/components/schemas/FittingCombatNumber'
+          description: >-
+            Non-negative GJ per successful activation from native fitted capacitorNeed
+            with its sign reversed; when that active-only attribute is absent, use
+            modified charge capacitorBonus, the input to native powerBooster effect 48.
+            Zero when unloaded; null if unavailable. When capacitorCostGj is negative,
+            this describes that same gain, not an additional gain. Respect module
+            state; no runtime capacitor-capacity clamp is applied.
+        chargeTypeId: {type: [integer, 'null'], description: Currently loaded charge type ID; null when unloaded.}
+        chargeName: {type: [string, 'null'], description: Currently loaded charge display name; null when unloaded. Not a mechanic discriminator.}
+        cycleTimeMs: {$ref: '#/components/schemas/FittingCombatNumber', description: Native activation cycle in milliseconds.}
+        reloadTimeMs: {$ref: '#/components/schemas/FittingCombatNumber', description: Native reload duration in milliseconds.}
+        magazineCapacity: {$ref: '#/components/schemas/FittingCombatNumber', description: Native number of charges that fit for the current charge type; null when unloaded or unavailable.}
+        chargeConsumptionPerActivation: {$ref: '#/components/schemas/FittingCombatNumber', description: Native chargeRate per activation.}
+        loadedCharges:
+          $ref: '#/components/schemas/FittingCombatNumber'
+          description: >-
+            Initial full magazine represented by the normalized loaded fit, equal to
+            native magazine capacity. Zero when unloaded; null if capacity is unavailable.
+            Partially spent magazines are not represented by EFT or the normalized fit.
+        spareCharges:
+          $ref: '#/components/schemas/FittingCombatNumber'
+          description: >-
+            Sum of cargo quantities matching chargeTypeId exactly; zero if loaded but
+            no matching cargo, null when unloaded. This is a reference to the shared
+            fit cargo pool, not a per-module allocation. Do not add these counts across
+            boosters or subtract loaded magazines from cargo. Alternate charge types
+            remain separate in profile.cargo.
+    FittingCombatDrone:
+      type: object
+      required: [id, typeId, typeName, quantityAvailable, quantityDeployed, perUnitDamage, activeStackDamage, cycleTimeMs, optimalRangeM, falloffM, application, maxVelocityMps, orbitVelocityMps, orbitRangeM, signatureRadiusM, bandwidthMbitPerSecond, massKg, agility, hp]
+      properties:
+        id: {type: string}
+        typeId: {type: integer}
+        typeName: {type: string}
+        quantityAvailable: {type: integer}
+        quantityDeployed: {type: integer}
+        maxVelocityMps: {$ref: '#/components/schemas/FittingCombatNumber', description: Drone maximum velocity in meters per second.}
+        orbitVelocityMps: {$ref: '#/components/schemas/FittingCombatNumber', description: Drone orbit velocity in meters per second.}
+        perUnitDamage:
+          type: object
+          required: [volleyHp, dps]
+          properties:
+            volleyHp: {$ref: '#/components/schemas/FittingCombatDamageSplit'}
+            dps: {$ref: '#/components/schemas/FittingCombatDamageSplit'}
+        activeStackDamage:
+          type: object
+          required: [volleyHp, dps]
+          properties:
+            volleyHp: {$ref: '#/components/schemas/FittingCombatDamageSplit'}
+            dps: {$ref: '#/components/schemas/FittingCombatDamageSplit'}
+        application: {type: object}
+        hp: {type: object, additionalProperties: {$ref: '#/components/schemas/FittingCombatNumber'}}
+      additionalProperties: {$ref: '#/components/schemas/FittingCombatNumber'}
+    FittingShareCreateRequest:
+      type: object
+      additionalProperties: false
+      description: Provide one of `eftText`, `text`, or `eft`.
+      properties:
+        eftText:
+          type: string
+          description: EFT-formatted fit text.
+        text:
+          type: string
+          description: Alias for `eftText`.
+        eft:
+          type: string
+          description: Alias for `eftText`.
+        source:
+          type: string
+          maxLength: 80
+          description: Optional tool or site name creating the link.
+          examples: [zkillboard, eve-kill]
+        sourceUrl:
+          type: string
+          maxLength: 500
+          description: Optional source URL for the originating tool or fit.
+    FittingRollingStatsRequest:
+      type: object
+      additionalProperties: false
+      description: Provide one of `eft`, `eftText`, or `text`.
+      properties:
+        eft:
+          type: string
+          description: EFT-formatted fit text.
+        eftText:
+          type: string
+          description: Alias for `eft`.
+        text:
+          type: string
+          description: Alias for `eft`.
+    FittingRollingStatsShip:
+      type: object
+      properties:
+        typeId:
+          type:
+            - integer
+            - "null"
+          example: 641
+        typeName:
+          type:
+            - string
+            - "null"
+          example: "Megathron"
+        fitName:
+          type:
+            - string
+            - "null"
+          example: "Rolling Mega"
+    FittingRollingStatsModuleRef:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "mid:0"
+        typeId:
+          type:
+            - integer
+            - "null"
+          example: 5945
+        typeName:
+          type: string
+          example: "500MN Quad LiF Restrained Microwarpdrive"
+        slot:
+          type: string
+          example: "mid"
+        index:
+          type: integer
+          example: 0
+    FittingRollingStatsModuleState:
+      type: object
+      additionalProperties: true
+      properties:
+        activeModules:
+          type: array
+          items:
+            $ref: "#/components/schemas/FittingRollingStatsModuleRef"
+        activePropModule:
+          oneOf:
+            - $ref: "#/components/schemas/FittingRollingStatsModuleRef"
+            - type: "null"
+        activePropState:
+          type:
+            - string
+            - "null"
+          enum:
+            - active
+            - overheated
+            - null
+        activeZeroPointModule:
+          oneOf:
+            - $ref: "#/components/schemas/FittingRollingStatsModuleRef"
+            - type: "null"
+        disabledJumpBlockers:
+          type: array
+          items:
+            $ref: "#/components/schemas/FittingRollingStatsModuleRef"
+        forcedInactiveModules:
+          type: array
+          items:
+            $ref: "#/components/schemas/FittingRollingStatsModuleRef"
+    FittingRollingStatsScenario:
+      type: object
+      properties:
+        key:
+          type: string
+          examples: ["cold", "prop:active:mid:0", "prop:overheated:mid:0", "zero_point"]
+        label:
+          type: string
+          example: "500MN Quad LiF Restrained Microwarpdrive overheated"
+        moduleState:
+          $ref: "#/components/schemas/FittingRollingStatsModuleState"
+        massKg:
+          type:
+            - number
+            - "null"
+          format: float
+          description: Calculated ship mass in kilograms.
+        maxVelocityMs:
+          type:
+            - number
+            - "null"
+          format: float
+          description: Calculated maximum velocity in meters per second.
+        alignTimeSeconds:
+          type:
+            - number
+            - "null"
+          format: float
+          description: Pyfa/eos-derived align time in seconds.
+        agility:
+          type:
+            - number
+            - "null"
+          format: float
+          description: Pyfa/eos-derived agility/inertia modifier.
+        warpSpeedAuPerSecond:
+          type:
+            - number
+            - "null"
+          format: float
+        warnings:
+          type: array
+          items:
+            $ref: "#/components/schemas/FittingImportMessage"
+        errors:
+          type: array
+          items:
+            $ref: "#/components/schemas/FittingImportMessage"
+    FittingRollingStatsSummary:
+      type: object
+      properties:
+        ship:
+          $ref: "#/components/schemas/FittingRollingStatsShip"
+        mass:
+          type: object
+          properties:
+            coldKg:
+              type: [number, "null"]
+              format: float
+            bestPropKg:
+              type: [number, "null"]
+              format: float
+            zeroPointKg:
+              type: [number, "null"]
+              format: float
+        movement:
+          type: object
+          properties:
+            coldMaxVelocityMs:
+              type: [number, "null"]
+              format: float
+            bestPropMaxVelocityMs:
+              type: [number, "null"]
+              format: float
+              description: Highest calculated max velocity with one fitted afterburner/microwarpdrive active, not overheated.
+            bestPropMaxVelocityMsHeated:
+              type: [number, "null"]
+              format: float
+              description: Highest calculated max velocity with one fitted afterburner/microwarpdrive overheated.
+            bestPropAlignTimeSeconds:
+              type: [number, "null"]
+              format: float
+            bestPropAgility:
+              type: [number, "null"]
+              format: float
+        bestPropMassModule:
+          oneOf:
+            - $ref: "#/components/schemas/FittingRollingStatsModuleRef"
+            - type: "null"
+        bestPropSpeedModule:
+          oneOf:
+            - $ref: "#/components/schemas/FittingRollingStatsModuleRef"
+            - type: "null"
+        bestPropSpeedHeatedModule:
+          oneOf:
+            - $ref: "#/components/schemas/FittingRollingStatsModuleRef"
+            - type: "null"
+    FittingRollingStatsResponse:
+      type: object
+      properties:
+        ok:
+          type: boolean
+        ship:
+          oneOf:
+            - $ref: "#/components/schemas/FittingRollingStatsShip"
+            - type: "null"
+        assumptions:
+          type: object
+          additionalProperties: true
+          properties:
+            skills:
+              type: string
+              example: "all_v"
+            hotMassDefinition:
+              type: string
+              example: "prop module active, not overheated"
+            jumpBlockingModulesDisabled:
+              type: boolean
+              example: true
+        summary:
+          oneOf:
+            - $ref: "#/components/schemas/FittingRollingStatsSummary"
+            - type: "null"
+        scenarios:
+          type: array
+          items:
+            $ref: "#/components/schemas/FittingRollingStatsScenario"
+        warnings:
+          type: array
+          items:
+            $ref: "#/components/schemas/FittingImportMessage"
+        errors:
+          type: array
+          items:
+            $ref: "#/components/schemas/FittingImportMessage"
+    FittingShareResponse:
+      type: object
+      properties:
+        ok:
+          type: boolean
+          example: true
+        id:
+          type: string
+          example: "7K9QW2MZPA"
+        path:
+          type: string
+          example: "/fitting/fit/7K9QW2MZPA"
+        url:
+          type: string
+          example: "https://triff.tools/fitting/fit/7K9QW2MZPA"
+        fitName:
+          type: string
+          example: "Passive Armor Baseline"
+        shipTypeId:
+          type: integer
+          example: 597
+        shipName:
+          type: string
+          example: "Punisher"
+        source:
+          type:
+            - string
+            - "null"
+          example: "zkillboard"
+        sourceUrl:
+          type:
+            - string
+            - "null"
+          example: "https://zkillboard.com/"
+        createdAt:
+          type: string
+          format: date-time
+        lastOpenedAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        accessCount:
+          type: integer
+          example: 0
+        version:
+          type: integer
+          example: 1
+        duplicate:
+          type: boolean
+          description: Present on creation responses. `true` means the submitted EFT already had a share link.
+        warnings:
+          type: array
+          items:
+            $ref: "#/components/schemas/FittingImportMessage"
+        errors:
+          type: array
+          items:
+            $ref: "#/components/schemas/FittingImportMessage"
+    FittingImportMessage:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+    MarketQuoteResponse:
+      type: object
+      required: [scope, aggregate_pct, types, orders]
+      properties:
+        scope:
+          $ref: "#/components/schemas/MarketQuoteScope"
+        aggregate_pct:
+          type: number
+          nullable: true
+          description: 0.05 when include_aggregates=true, else null
+        types:
+          type: array
+          items:
+            $ref: "#/components/schemas/MarketQuoteType"
+        orders:
+          nullable: true
+          oneOf:
+            - type: "null"
+            - $ref: "#/components/schemas/MarketQuoteOrders"
+    MarketHistoryRow:
+      type: object
+      required: [date, low_price, high_price, avg_price, volume, orders, region_id, type_id]
+      properties:
+        date:
+          type: string
+          format: date
+        low_price:
+          type: number
+          format: float
+          nullable: true
+        high_price:
+          type: number
+          format: float
+          nullable: true
+        avg_price:
+          type: number
+          format: float
+          nullable: true
+        volume:
+          type: integer
+          format: int64
+        orders:
+          type: integer
+          format: int64
+        region_id:
+          type: integer
+          format: int32
+        type_id:
+          type: integer
+          format: int32
+
+    MarketHistoryBulkType:
+      type: object
+      required: [type_id, rows]
+      properties:
+        type_id:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          description: Daily history rows for this type_id (sorted by date asc)
+          items:
+            $ref: "#/components/schemas/MarketHistoryRow"
+
+    MarketHistoryBulkResponse:
+      type: object
+      required: [region_id, types]
+      properties:
+        region_id:
+          type: integer
+          format: int32
+        days:
+          type: integer
+          format: int32
+          description: Lookback window in days (currently fixed at 365)
+          example: 365
+        types:
+          type: array
+          items:
+            $ref: "#/components/schemas/MarketHistoryBulkType"
+
+    MarketQuoteScope:
+      type: object
+      description: Exactly one of station_id or region_id will be present.
+      properties:
+        station_id:
+          type: integer
+          format: int64
+        region_id:
+          type: integer
+          format: int32
+      additionalProperties: false
+
+    MarketQuoteType:
+      type: object
+      required: [type_id, buy, sell]
+      properties:
+        type_id:
+          type: integer
+          format: int32
+        buy:
+          $ref: "#/components/schemas/MarketQuoteSide"
+        sell:
+          $ref: "#/components/schemas/MarketQuoteSide"
+
+    MarketQuoteSide:
+      type: object
+      required: [best, p05, order_count, volume_remain]
+      properties:
+        best:
+          type: number
+          nullable: true
+          description: Best price in scope (highest buy / lowest sell)
+        p05:
+          type: number
+          nullable: true
+          description: Volume-weighted average price across top 5% of remaining volume (when include_aggregates=true)
+        order_count:
+          type: integer
+          format: int32
+        volume_remain:
+          type: integer
+          format: int64
+
+    MarketQuoteOrders:
+      type: object
+      required: [type_id, sellers, buyers]
+      properties:
+        type_id:
+          type: integer
+          format: int32
+        sellers:
+          type: array
+          items:
+            $ref: "#/components/schemas/MarketQuoteOrder"
+        buyers:
+          type: array
+          items:
+            $ref: "#/components/schemas/MarketQuoteOrder"
+
+    MarketQuoteOrder:
+      type: object
+      required: [order_id, price, volume_remain, region_id, system_id, location_id, expires_in, last_updated]
+      properties:
+        order_id:
+          type: string
+          description: Bigint order ID as string
+        price:
+          type: number
+        volume_remain:
+          type: integer
+          format: int64
+        region_id:
+          type: integer
+          format: int32
+        system_id:
+          type: integer
+          format: int32
+        location_id:
+          type: integer
+          format: int64
+        expires_in:
+          type: number
+          description: Hours until expiry
+        last_updated:
+          type: string
+          format: date-time
+
+    IndustryPlanRequest:
+      type: object
+      required:
+        - items
+      properties:
+        items:
+          type: array
+          minItems: 1
+          description: Desired product outputs for the industry plan.
+          items:
+            $ref: "#/components/schemas/IndustryPlanItem"
+        options:
+          $ref: "#/components/schemas/IndustryPlanOptions"
+    IndustryPlanItem:
+      type: object
+      required:
+        - typeId
+        - quantity
+      properties:
+        typeId:
+          type: integer
+          description: EVE typeID for the product to be manufactured.
+          minimum: 1
+        quantity:
+          type: integer
+          description: Desired output quantity for this product.
+          minimum: 1
+        runsPerBpc:
+          type: integer
+          description: |
+            Number of runs each BPC can do for this goal's blueprint. The
+            planner uses this as a batch size when rounding material
+            requirements for the requested output.
+          minimum: 1
+    IndustryPlanOptions:
+      type: object
+      description: |
+        Optional calculator settings. Missing numeric values default to 0,
+        except sccSurcharge which defaults to 0.04. If includeReactions is
+        omitted, the backend default is true; the web UI sends false until the
+        user enables reactions.
+      properties:
+        systemCostIndexManufacturing:
+          type: number
+          format: float
+          description: Manufacturing system cost index as a decimal, e.g. 0.016 for 1.6%.
+          minimum: 0
+        systemCostIndexReactions:
+          type: number
+          format: float
+          description: Reaction system cost index as a decimal, e.g. 0.016 for 1.6%.
+          minimum: 0
+        facilityTax:
+          type: number
+          format: float
+          description: Facility tax rate as a decimal, e.g. 0.01 for 1%.
+          minimum: 0
+        sccSurcharge:
+          type: number
+          format: float
+          description: SCC surcharge rate as a decimal. Defaults to 0.04.
+          default: 0.04
+          minimum: 0
+        includeReactions:
+          type: boolean
+          description: Whether reaction blueprints can be used while resolving build routes.
+        additionalCost:
+          type: number
+          format: float
+          description: Extra ISK cost added to the total, such as BPCs or hauling.
+          minimum: 0
+        productMe:
+          type: number
+          format: float
+          description: Material efficiency level for final product manufacturing blueprints.
+          minimum: 0
+          maximum: 10
+        componentMe:
+          type: number
+          format: float
+          description: Material efficiency level for intermediate manufacturing blueprints.
+          minimum: 0
+          maximum: 10
+        reactionMe:
+          type: number
+          format: float
+          description: Accepted for UI symmetry; reactions ignore blueprint ME and use 0 internally.
+          minimum: 0
+          maximum: 10
+        productFacility:
+          $ref: "#/components/schemas/IndustryFacilityConfig"
+        componentFacility:
+          $ref: "#/components/schemas/IndustryFacilityConfig"
+        reactionFacility:
+          $ref: "#/components/schemas/IndustryFacilityConfig"
+        inputPriceMode:
+          type: string
+          description: Price mode for input materials.
+          enum:
+            - buy
+            - sell
+          default: sell
+        outputPriceMode:
+          type: string
+          description: Price mode for evaluated output products.
+          enum:
+            - buy
+            - sell
+          default: sell
+        overrideRoutes:
+          type: object
+          description: Per-type route overrides. Keys are EVE typeIDs; values force build or buy for that type.
+          additionalProperties:
+            type: string
+            enum:
+              - build
+              - buy
+        stock:
+          type: object
+          description: Current inventory keyed by EVE typeID. Stock is consumed before runs and downstream materials are calculated.
+          additionalProperties:
+            type: integer
+            minimum: 0
+    IndustryFacilityConfig:
+      type: object
+      description: Facility material-efficiency configuration for a group of jobs.
+      properties:
+        structure:
+          type: string
+          enum:
+            - NPC_STATION
+            - RAITARU
+            - AZBEL
+            - SOTIYO
+            - ATHANOR
+            - TATARA
+          default: NPC_STATION
+        rig:
+          type: string
+          enum:
+            - NONE
+            - T1
+            - T2
+          default: NONE
+        security:
+          type: string
+          enum:
+            - HIGH
+            - LOW
+            - NULL_WH
+          default: HIGH
+    IndustryPlanResponse:
+      type: object
+      description: Full industry plan including BOM, job list, and a build tree.
+      properties:
+        settings:
+          $ref: "#/components/schemas/IndustryPlanOptions"
+        goals:
+          type: array
+          description: Echo of requested products with computed cost per unit and total cost.
+          items:
+            $ref: "#/components/schemas/IndustryGoal"
+        summary:
+          $ref: "#/components/schemas/IndustryPlanSummary"
+        bom:
+          type: array
+          description: Consolidated bill of materials for the entire plan.
+          items:
+            $ref: "#/components/schemas/IndustryBomItem"
+        jobs:
+          type: array
+          description: Flattened list of all manufacturing/reaction jobs to be performed.
+          items:
+            $ref: "#/components/schemas/IndustryJob"
+        tree:
+          type: array
+          description: Human-readable build/buy tree, one root per requested product.
+          items:
+            $ref: "#/components/schemas/IndustryTreeNode"
+        stockUsage:
+          type: array
+          description: Inventory quantities available, consumed by, and left unused by this plan.
+          items:
+            $ref: "#/components/schemas/IndustryStockUsage"
+    IndustryGoal:
+      allOf:
+        - $ref: "#/components/schemas/IndustryPlanItem"
+        - type: object
+          properties:
+            typeName:
+              type: string
+            costPerUnit:
+              type: number
+              format: float
+            totalCost:
+              type: number
+              format: float
+    IndustryPlanSummary:
+      type: object
+      properties:
+        totalMaterialCost:
+          type: number
+          format: float
+        totalJobCost:
+          type: number
+          format: float
+        additionalCost:
+          type: number
+          format: float
+        grandTotal:
+          type: number
+          format: float
+        totalOutputValue:
+          type: number
+          format: float
+        profit:
+          type: number
+          format: float
+        profitPerUnit:
+          type: number
+          format: float
+        profitMargin:
+          type: number
+          format: float
+        totalVolume:
+          type: number
+          format: float
+    IndustryBomItem:
+      type: object
+      description: One material line in the consolidated BOM and its cost breakdown.
+      properties:
+        typeId:
+          type: integer
+          description: EVE typeID of the material.
+        typeName:
+          type: string
+          description: Name of the material, e.g. Tritanium.
+        quantity:
+          type: integer
+          description: Total quantity of this material required.
+        unitPrice:
+          type: number
+          format: float
+          description: Unit price used for cost calculation, based on options.inputPriceMode.
+        totalPrice:
+          type: number
+          format: float
+          description: Total ISK cost for this material line.
+        volume:
+          type: number
+          format: float
+          description: Single-unit volume in cubic meters when known.
+        lineVolume:
+          type: number
+          format: float
+          description: Total line volume in cubic meters when known.
+    IndustryJob:
+      type: object
+      description: >
+        A single manufacturing/reaction job in the plan, or a synthetic buy row
+        for an overridden intermediate.
+      properties:
+        id:
+          type: string
+        activity:
+          type: string
+          enum:
+            - manufacturing
+            - reaction
+            - buy
+        blueprintId:
+          type: integer
+          nullable: true
+          description: EVE typeID of the blueprint used for this job.
+        outputTypeId:
+          type: integer
+          description: EVE typeID of the job output.
+        outputTypeName:
+          type: string
+          description: Name of the job output.
+        runs:
+          type: integer
+          description: Number of runs this job will execute.
+        productPerRun:
+          type: integer
+          description: Product quantity generated per run.
+        outputQuantity:
+          type: integer
+          description: Total quantity output by this job.
+        materials:
+          type: array
+          items:
+            $ref: "#/components/schemas/IndustryJobMaterial"
+        eiv:
+          type: number
+          format: float
+          description: Estimated item value used for job cost calculation.
+        jobCost:
+          type: number
+          format: float
+          description: Total job install cost, or purchase cost for synthetic buy rows.
+        jobCostPerUnit:
+          type: number
+          format: float
+          description: Job install cost per output unit, or unit purchase price for synthetic buy rows.
+    IndustryJobMaterial:
+      type: object
+      properties:
+        typeId:
+          type: integer
+        typeName:
+          type: string
+        quantity:
+          type: integer
+    IndustryTreeNode:
+      type: object
+      description: One node in the human-readable build tree.
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: "#/components/schemas/IndustryTreeNode"
+    IndustryStockUsage:
+      type: object
+      properties:
+        typeId:
+          type: integer
+        typeName:
+          type: string
+        available:
+          type: integer
+        applied:
+          type: integer
+        unused:
+          type: integer
+    BomItem:
+      type: object
+      description: One material line in the consolidated BOM and its cost breakdown.
+      properties:
+        typeId:
+          type: integer
+          description: EVE typeID of the material.
+        typeName:
+          type: string
+          description: Name of the material (e.g., "Tritanium", "R.A.M.- Starship Tech").
+        quantity:
+          type: integer
+          description: Total quantity of this material required.
+        unitPrice:
+          type: number
+          format: float
+          description: Unit price used for cost calculation, based on options.inputPriceMode.
+        totalPrice:
+          type: number
+          format: float
+          description: Total ISK cost for this material line (quantity × unitPrice).
+        volume:
+          type: number
+          format: float
+          description: |
+            Single-unit volume in cubic meters when known.
+            (0–1.0).
+        lineVolume:
+          type: number
+          format: float
+          description: Total line volume in cubic meters when known.
+    Job:
+      type: object
+      description: >
+        A single manufacturing or reaction job in the plan, including its
+        blueprint, run count, and cost breakdown.
+      properties:
+        productTypeId:
+          type: integer
+          description: EVE typeID of the job's product.
+        productTypeName:
+          type: string
+          description: Name of the product.
+        jobType:
+          type: string
+          description: 'Type of job: "manufacturing" or "reaction".'
+          enum:
+            - manufacturing
+            - reaction
+        blueprintTypeId:
+          type: integer
+          description: EVE typeID of the blueprint used for this job.
+        blueprintName:
+          type: string
+          description: Name of the blueprint.
+        runs:
+          type: integer
+          description: Number of runs this job will execute.
+        producedQuantity:
+          type: integer
+          description: Total quantity of product output by this job.
+        installCost:
+          type: number
+          format: float
+          description: Total install cost for this job (including cost index and taxes).
+        materialCost:
+          type: number
+          format: float
+          description: Total ISK cost of the materials consumed by this job.
+        totalCost:
+          type: number
+          format: float
+          description: Sum of installCost + materialCost for this job.
+        percentOfTotalJobMaterials:
+          type: number
+          format: float
+          description: >
+            Fraction of the total material cost across all jobs (0–1.0).
+        facilityName:
+          type: string
+          description: Station/structure name where this job is assumed to be run.
+        systemName:
+          type: string
+          description: Name of the system where this job is assumed to be run.
+    TreeNode:
+      type: object
+      description: One node in the human-readable plan tree.
+      properties:
+        indent:
+          type: integer
+        text:
+          type: string
+    GasCalcRequest:
+      type: object
+      required:
+        - ship
+        - moduleType
+        - moduleCount
+        - shipCount
+        - skills
+        - implant
+        - boostShip
+        - miningDirector
+        - industrialCommand
+        - boostImplant
+        - boostModule
+      properties:
+        ship:
+          type: string
+          description: |
+            Ship hull name (e.g. "Prospect", "Venture", "Retriever").
+        moduleType:
+          type: string
+          description: >
+            Mining/gas module type name, e.g. "Syndicate Gas Cloud Scoop",
+            "Tech II Gas Cloud Harvester".
+        moduleCount:
+          type: integer
+          description: Number of active mining/gas modules per ship.
+        shipCount:
+          type: integer
+          description: Number of ships in the fleet using this configuration.
+        skills:
+          $ref: "#/components/schemas/GasCalcSkills"
+        implant:
+          type: string
+          description: >
+            Gas harvesting implant option, e.g. "GH-801", "GH-803", "GH-805",
+            or "none".
+        boostShip:
+          type: string
+          description: Boosting ship hull ("None", "Porpoise", "Orca", "Rorqual", etc.).
+        miningDirector:
+          type: integer
+          description: Mining Director skill level (0–5).
+        industrialCommand:
+          type: integer
+          description: Industrial Command Ships skill level (0–5).
+        boostImplant:
+          type: string
+          description: >
+            Boost implant type (None, Mining Foreman Mindlink, ORE Mining Director
+            implant, etc.).
+        boostModule:
+          type: string
+          description: Boost module type ("T1", "T2", or "none").
+        priceField:
+          type: string
+          description: Jita 4-4 market aggregate used for gas prices. Defaults to buy_5pct.
+          enum:
+            - buy_5pct
+            - buy_max
+            - sell_5pct
+            - sell_min
+          default: buy_5pct
+    GasCalcSkills:
+      type: object
+      description: Gas/mining-related skills relevant to gas huffing.
+      properties:
+        Frigate:
+          type: integer
+          minimum: 0
+          maximum: 5
+        Barge:
+          type: integer
+          minimum: 0
+          maximum: 5
+        Exhumer:
+          type: integer
+          minimum: 0
+          maximum: 5
+        Expedition:
+          type: integer
+          minimum: 0
+          maximum: 5
+        MiningDestroyer:
+          type: integer
+          minimum: 0
+          maximum: 5
+        CommandDestroyer:
+          type: integer
+          minimum: 0
+          maximum: 5
+    GasCalcResult:
+      type: object
+      description: One row of gas calculator output for a site/gas combo.
+      properties:
+        site:
+          type: string
+        gas:
+          type: string
+        m3_per_unit:
+          type: number
+          format: float
+        units_per_cloud:
+          type: number
+          format: float
+        price:
+          type: number
+          format: float
+        unitsPerHour:
+          type: number
+          format: float
+        iskPerHour:
+          type: number
+          format: float
+        minutesToClear:
+          type: number
+          format: float
+        m3LostToResidue:
+          type: number
+          format: float
+        iskLostToResidue:
+          type: number
+          format: float
+          description: ISK value destroyed due to residue rather than harvested.
+        _rowIndex:
+          type: integer
+          format: int32
+          description: Internal sorting index used by the frontend.
+    Error:
+      type: object
+      additionalProperties: false
+      properties:
+        ok:
+          type: boolean
+          example: false
+        error:
+          type: string
+        message:
+          type: string
+        details:
+          type: string
+    OrePlanner.Mineral:
+      type: string
+      enum:
+        - Tritanium
+        - Pyerite
+        - Mexallon
+        - Isogen
+        - Nocxium
+        - Zydrine
+        - Megacyte
+        - Morphite
+    OrePlanner.OreName:
+      type: string
+      description: "Base ore name (no +5%/+10% variants), e.g. `Veldspar`, `Crokite`, `Spodumain`."
+    OrePlanner.Targets:
+      type: object
+      additionalProperties: false
+      properties:
+        Tritanium:
+          type: integer
+          minimum: 0
+          default: 0
+        Pyerite:
+          type: integer
+          minimum: 0
+          default: 0
+        Mexallon:
+          type: integer
+          minimum: 0
+          default: 0
+        Isogen:
+          type: integer
+          minimum: 0
+          default: 0
+        Nocxium:
+          type: integer
+          minimum: 0
+          default: 0
+        Zydrine:
+          type: integer
+          minimum: 0
+          default: 0
+        Megacyte:
+          type: integer
+          minimum: 0
+          default: 0
+        Morphite:
+          type: integer
+          minimum: 0
+          default: 0
+    OrePlanner.OreListResponse:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          name:
+            type: string
+          group:
+            type: string
+          isCompressed:
+            type: boolean
+    OrePlanner.PlanRequest:
+      type: object
+      required:
+        - targets
+      properties:
+        targets:
+          $ref: "#/components/schemas/OrePlanner.Targets"
+        allowedOres:
+          type: array
+          items:
+            $ref: "#/components/schemas/OrePlanner.OreName"
+        disallowedOres:
+          type: array
+          items:
+            $ref: "#/components/schemas/OrePlanner.OreName"
+    OrePlanner.PlanRow:
+      type: object
+      properties:
+        ore:
+          $ref: "#/components/schemas/OrePlanner.OreName"
+        m3:
+          type: number
+          format: float
+        isk:
+          type: number
+          format: float
+        oreUnits:
+          type: number
+          format: float
+    OrePlanner.PlanTotalsEntry:
+      type: object
+      required:
+        - target
+        - produced
+        - surplus
+        - shortfall
+      properties:
+        target:
+          type: integer
+          minimum: 0
+        produced:
+          type: integer
+          minimum: 0
+        surplus:
+          type: integer
+          minimum: 0
+        shortfall:
+          type: integer
+          minimum: 0
+          description: Minerals that still have a shortfall with the current allowed ores.
+    OrePlanner.PlanSummary:
+      type: object
+      properties:
+        Tritanium:
+          $ref: "#/components/schemas/OrePlanner.PlanTotalsEntry"
+        Pyerite:
+          $ref: "#/components/schemas/OrePlanner.PlanTotalsEntry"
+        Mexallon:
+          $ref: "#/components/schemas/OrePlanner.PlanTotalsEntry"
+        Isogen:
+          $ref: "#/components/schemas/OrePlanner.PlanTotalsEntry"
+        Nocxium:
+          $ref: "#/components/schemas/OrePlanner.PlanTotalsEntry"
+        Zydrine:
+          $ref: "#/components/schemas/OrePlanner.PlanTotalsEntry"
+        Megacyte:
+          $ref: "#/components/schemas/OrePlanner.PlanTotalsEntry"
+        Morphite:
+          $ref: "#/components/schemas/OrePlanner.PlanTotalsEntry"
+    OrePlanner.PlanResponse:
+      type: object
+      description: Full result of the ore planning calculation.
+      properties:
+        rows:
+          type: array
+          items:
+            $ref: "#/components/schemas/OrePlanner.PlanRow"
+        totals:
+          $ref: "#/components/schemas/OrePlanner.PlanSummary"
+        unmet:
+          type: array
+          description: Minerals that still have a shortfall with the current allowed ores.
+          items:
+            $ref: "#/components/schemas/OrePlanner.Mineral"
+        summary:
+          $ref: "#/components/schemas/OrePlanner.PlanSummary"
+
+    StationPriceRow:
+      type: object
+      properties:
+        station_id:
+          type: string
+          description: Station ID (stringified)
+          example: "60003760"
+        type_id:
+          type: integer
+          example: 34
+        sell_min:
+          type: string
+          nullable: true
+          description: Minimum sell price at the station (stringified decimal)
+          example: "3.87"
+        buy_max:
+          type: string
+          nullable: true
+          description: Maximum buy price at the station (stringified decimal)
+          example: "3.83"
+        sell_5pct:
+          type: string
+          nullable: true
+          description: 5th percentile sell price (station)
+          example: "3.8729856185"
+        buy_5pct:
+          type: string
+          nullable: true
+          description: 5th percentile buy price (station)
+          example: "3.6757395469"
+        last_updated:
+          type: string
+          format: date-time
+      required: [station_id, type_id]
+
+    StationPricesResponse:
+      type: object
+      properties:
+        rows:
+          type: array
+          items: { $ref: '#/components/schemas/StationPriceRow' }
+      required: [rows]
+
+    TypeResolveRequest:
+      type: object
+      required: [names]
+      properties:
+        names:
+          type: array
+          items: { type: string }
+          minItems: 1
+
+    TypeResolveItem:
+      type: object
+      properties:
+        name:          { type: string }
+        type_id:       { type: integer, nullable: true }
+        m3:            { type: number, format: float, nullable: true, description: Unit volume (m³) }
+        canonicalName: { type: string, nullable: true }
+        error:         { type: string, nullable: true, example: not_found }
+      required: [name]
+
+    TypeResolveResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items: { $ref: '#/components/schemas/TypeResolveItem' }
+      required: [results]
