@@ -194,6 +194,23 @@ CREATE SCHEMA IF NOT EXISTS evesde;
 
 -- Empty shells let app views compile on a fresh database while the SDE importer
 -- is still loading the full YAML dataset.
+
+-- Legacy SDE name lookup compatibility tables.
+CREATE TABLE IF NOT EXISTS evesde."invNames" (
+  "itemID" BIGINT PRIMARY KEY,
+  "itemName" TEXT
+);
+
+CREATE TABLE IF NOT EXISTS evesde."invUniqueNames" (
+  "itemID" BIGINT PRIMARY KEY,
+  "itemName" TEXT
+);
+
+CREATE TABLE IF NOT EXISTS evesde."mapDenormalize" (
+  "itemID" BIGINT PRIMARY KEY,
+  "itemName" TEXT
+);
+
 CREATE TABLE IF NOT EXISTS evesde."invTypes" (
   "typeID"         integer PRIMARY KEY,
   "groupID"        integer,
