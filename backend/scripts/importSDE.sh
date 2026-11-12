@@ -12,5 +12,5 @@ if [ -z "$DATABASE_URL" ]; then
 fi
 
 echo "importSDE: starting YAML SDE import/update…"
-node --max-old-space-size="${SDE_IMPORT_MAX_OLD_SPACE_MB:-4096}" ./backend/scripts/importSDEFromYaml.js
+node --max-old-space-size="${SDE_IMPORT_MAX_OLD_SPACE_MB:-8192}" ./backend/scripts/importSDEFromYaml.js
 echo "importSDE: done."
